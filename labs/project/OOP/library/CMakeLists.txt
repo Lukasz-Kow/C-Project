@@ -8,7 +8,7 @@ set(SOURCE_FILES
     include/Student.h
     src/functions.cpp
     src/Student.cpp
-)
+        include/Container.h src/Container.cpp)
 
 add_library(Library ${SOURCE_FILES})
 
