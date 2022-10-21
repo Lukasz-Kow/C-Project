@@ -5,6 +5,6 @@
 #ifndef OOPPROJECT_FUNCTIONS_H
 #define OOPPROJECT_FUNCTIONS_H
 
-int function();
+int testFunction();
 
 #endif //OOPPROJECT_FUNCTIONS_H

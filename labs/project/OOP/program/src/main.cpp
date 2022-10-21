@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
     cout << "Hello, Woddddddrld!" << endl;
-    function();
+    testFunction();
 
     Student student("Adaaam", "Smith");
     return 0;

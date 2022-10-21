@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int function() {
+int testFunction() {
     cout << "Hello, Great Scoooott!" << endl;
     return 1;
 }
