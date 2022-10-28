@@ -1,13 +1,12 @@
 #include <iostream>
-#include "functions.h"
-#include "Student.h"
+#include "Container.h"
 
 using namespace std;
 
 int main() {
-    cout << "Hello, Woddddddrld!" << endl;
-    testFunction();
+    Container red;
+    red.display();
+    red.displayCargo(red);
 
-    Student student("Adaaam", "Smith");
     return 0;
 }
