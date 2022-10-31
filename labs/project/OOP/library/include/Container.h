@@ -16,19 +16,7 @@ public:
     int maxCargo();
     int grossWeight();
 
-    void loadCargo(double goods);
-//#1
-    void display();
-//#3
-    void displayCargo(Container);
-//#4
-    void loadAndSend(double goods);
-//5
-    Container* prepare(int number, double goods);
-//6
-    void display(Container* p);
-//#7
-    void testDynamicObject();
+    // TODO: Add getters and setters for all properties
 
     void set_cargo(int c){
         cargo = c;
