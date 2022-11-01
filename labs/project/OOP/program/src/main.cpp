@@ -3,66 +3,74 @@
 
 using namespace std;
 
-// TODO: Correct when getters and setters are ready
+void display(Container c){
+    cout<<"Container Number: "<<c.getNumber()<<endl;
+    cout<<"Container Tare Weight: "<<c.getTare()<<endl;
+    cout<<"Container Max Weight: "<<c.getMaxWeight()<<endl;
+    cout<<"Container Strength: "<<c.getStrength()<<endl;
+}
 
 void displayCargo(Container& c) {
-    cout<<"Container Cargo: "<<c.cargo<<endl;
+    cout<<"Container Cargo: "<<c.getCargo()<<endl;
 }
 
-void display(Container c){
-    cout<<"Container Number: "<<c.number<<endl;
-    cout<<"Container Tare Weight: "<<c.tareWeight<<endl;
-    cout<<"Container Max Weight: "<<c.maxWeight<<endl;
-    cout<<"Container Strength: "<<c.strength<<endl;
+void testLocalObject () {
+    Container testContainer;
+    testContainer.setCargo(100);
+    testContainer.setMaxWeight(1000);
+    testContainer.setStrength(200);
+    testContainer.setTare(400);
+
+    display(testContainer);
+    displayCargo(testContainer);
 }
 
+// task 4
 void loadAndSend (Container& c, double goods) {
     displayCargo(c);
-    c->cargo
-
+    c.loadCargo(goods);
+    displayCargo(c);
 }
 
-
-
-void display(Container* p) {
-    Container *p; //tworzymy pointer i object c. Pointerowi p przypisany zostaje adres objektu c.
-    Container c;
-    p = & c;
-    p->display(); //i chyba jest wyswietlane details tego co bylo pod adresem c.
-}
-
-//task 7
-void testDynamicObject() {
-    // liczby z głowy
-    Container *anotherObject = prepare(5, 3.14);
-
-    // display info about the container? // tu jest jakis problem z "<<"
-    cout << anotherObject->display();
-
-    // free memory
-    delete anotherObject;
-}
-//task4
-void loadAndSend(double goods) {
-
-}
-//task5
+// task 5
 Container* prepare(int number, double goods) {
     // this line is rather correct
     Container* object = new Container(number);
 
-    // loading the initial quantity of goods into the container, returning the created object by the pointer
-    object->cargo = goods;
+    // loading the initial quantity of goods into the container
+    object->setCargo(goods);
 
-    // no clue about this function
     return object;
 }
 
+// task 6
+void display(Container* p) {
+    cout<<"Container Number: "<<p->getNumber()<<endl;
+    cout<<"Container Tare Weight: "<<p->getTare()<<endl;
+    cout<<"Container Max Weight: "<<p->getMaxWeight()<<endl;
+    cout<<"Container Strength: "<<p->getStrength()<<endl;
+    cout<<"Container cargo: "<<p->getCargo()<<endl;
+}
+
+
+// task 7
+void testDynamicObject() {
+    Container* p = prepare(2, 100);
+    display(p);
+    delete p;
+}
+
+
+
 
 int main() {
-    Container red;
-    red.display();
-    red.displayCargo(red);
+    // testLocalObject();
+    Container test(1);
+    test.setCargo(200);
+
+    testDynamicObject();
+
+//    loadAndSend(test, 100);
 
     return 0;
 }

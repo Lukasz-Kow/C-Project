@@ -75,9 +75,9 @@ double Container::getNetWeight() {
 }
 
 void Container::loadCargo(double amount) {
-    cargo + amount;
+    cargo += amount;
 }
 
 void Container::unloadCargo(double amount) {
-    cargo - amount;
+    cargo -= amount;
 }
