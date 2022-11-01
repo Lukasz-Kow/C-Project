@@ -10,20 +10,39 @@
 class Container {
 public:
 
-    Container(int number);
     Container();
+    Container(int number);
 
     int maxCargo();
+
     int grossWeight();
 
-    // TODO: Add getters and setters for all properties
+    int getCargo();
 
-    void set_cargo(int c){
-        cargo = c;
-    }
-    int get_cargo(){
-        return cargo;
-    }
+    void setCargo(int cargo);
+
+    int getNumber();
+
+    double getTare();
+
+    void setTare(double tareWeight);
+
+    double getMaxWeight();
+
+    void setMaxWeight(double maxWeight);
+
+    double getStrength();
+
+    void setStrength(double strength);
+
+    double getGrossWeight();
+
+    double getNetWeight();
+
+    void loadCargo(double amount);
+
+    void unloadCargo(double amount);
+
 private:
 
     int number;

@@ -30,5 +30,54 @@ int Container::grossWeight(){
     return this->tareWeight + this->cargo;
 }
 
+int Container::getCargo() {
+    return cargo;
+}
 
+void Container::setCargo(int cargo) {
+    this->cargo = cargo;
+}
 
+int Container::getNumber() {
+    return number;
+}
+
+double Container::getTare() {
+    return tareWeight;
+}
+
+void Container::setTare(double tareWeight) {
+    this->tareWeight = tareWeight;
+}
+
+double Container::getMaxWeight() {
+    return maxWeight;
+}
+
+void Container::setMaxWeight(double maxWeight) {
+    this->maxWeight = maxWeight;
+}
+
+double Container::getStrength() {
+    return strength;
+}
+
+void Container::setStrength(double strength) {
+    this->strength = strength;
+}
+
+double Container::getGrossWeight() {
+    return this->tareWeight + this->cargo;
+}
+
+double Container::getNetWeight() {
+    return cargo;
+}
+
+void Container::loadCargo(double amount) {
+    cargo + amount;
+}
+
+void Container::unloadCargo(double amount) {
+    cargo - amount;
+}
