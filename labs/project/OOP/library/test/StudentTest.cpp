@@ -36,8 +36,22 @@ BOOST_AUTO_TEST_CASE(ContainerCheckLoadBelowMax) {
         BOOST_REQUIRE_EQUAL(container.getCargo(), 50);
 }
 
+BOOST_AUTO_TEST_CASE(ContainerCheckLoadAboveMax) {
+        Container container;
+        container.setMaxWeight(50);
+        container.loadCargo(100);
+        BOOST_REQUIRE_EQUAL(container.getCargo(), 50);
+}
+
+BOOST_AUTO_TEST_CASE(ContainerCheckUnloadMoreThanItContains) {
+    Container container;
+    container.setCargo(100);
+    container.unloadCargo(150);
+    BOOST_REQUIRE_EQUAL(container.getCargo(), 0);
+}
 
 BOOST_AUTO_TEST_SUITE_END()
+
 
 
 //BOOST_AUTO_TEST_SUITE(StudentSuiteFailure)

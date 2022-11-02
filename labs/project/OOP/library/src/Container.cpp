@@ -84,7 +84,12 @@ void Container::loadCargo(double amount) {
 }
 
 void Container::unloadCargo(double amount) {
-    cargo -= amount;
+    int getCargo = this->getCargo();
+    if (getCargo < amount) {
+        cargo = 0;
+    } else {
+        cargo -= amount;
+    }
 }
 
 
