@@ -14,3 +14,5 @@ target_link_libraries(Program Library)
 
 #add header files from 'include' directory of main project
 target_include_directories(Program PUBLIC include)
+
+enable_testing()

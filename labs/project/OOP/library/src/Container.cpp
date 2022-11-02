@@ -75,9 +75,16 @@ double Container::getNetWeight() {
 }
 
 void Container::loadCargo(double amount) {
-    cargo += amount;
+    int maxCargo = this->maxCargo();
+    if (maxCargo < amount) {
+        cargo = maxCargo;
+    } else {
+        cargo += amount;
+    }
 }
 
 void Container::unloadCargo(double amount) {
     cargo -= amount;
 }
+
+
