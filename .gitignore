@@ -2,3 +2,5 @@
 /labs/project/OOP/.idea
 /labs/project/OOP/cmake-build-default
 /labs/project/OOP/cmake-build-debug
+/.idea
+.DS_Store
