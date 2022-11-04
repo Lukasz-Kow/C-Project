@@ -6,7 +6,7 @@ project(Library)
 set(SOURCE_FILES
     include/functions.h
         src/functions.cpp
-        include/Container.h src/Container.cpp)
+        include/Container.h src/Container.cpp include/ContainerStack.h src/ContainerStack.cpp)
 
 add_library(Library ${SOURCE_FILES})
 
