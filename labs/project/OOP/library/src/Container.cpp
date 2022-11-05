@@ -6,21 +6,9 @@
 
 using namespace std;
 
-Container::Container() {
-    this->number = 0;
-    this->tareWeight = 0;
-    this->maxWeight = 0;
-    this->strength = 0;
-    this->cargo = 0;
-}
+Container::Container(): number(0), tareWeight(0), maxWeight(0), strength(0), cargo(0) {}
 
-Container::Container(int number) {
-    this->number = number;
-    this->tareWeight = 0;
-    this->maxWeight = 0;
-    this->strength = 0;
-    this->cargo = 0;
-}
+Container::Container(int number): number(number), tareWeight(400), maxWeight(2000), strength(4000), cargo(0) {}
 
 int Container::maxCargo(){
     return this->maxWeight - this->tareWeight;
