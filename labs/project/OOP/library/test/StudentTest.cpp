@@ -52,7 +52,8 @@ BOOST_AUTO_TEST_CASE(ContainerCheckUnloadMoreThanItContains) {
 
 BOOST_AUTO_TEST_SUITE_END()
 
-
+// BOOST_TEST(condition);
+// BOOST_TEST_WARN(condition) - only warning not an error
 
 //BOOST_AUTO_TEST_SUITE(StudentSuiteFailure)
 //
