@@ -6,3 +6,12 @@
 #define OOPPROJECT_CONTAINERSTACK_H
 
 #endif //OOPPROJECT_CONTAINERSTACK_H
+
+class ContinerStack{
+public:
+    int getCapacity();
+
+    int getSize();
+
+private:
+};

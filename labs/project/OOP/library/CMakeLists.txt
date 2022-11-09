@@ -43,7 +43,7 @@ endif()
 
 set(SOURCE_TEST_FILES
         test/master.cpp
-        test/StudentTest.cpp
+        test/ContainerTest.cpp
         )
 
 include_directories(
