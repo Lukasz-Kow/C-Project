@@ -44,14 +44,14 @@ endif()
 set(SOURCE_TEST_FILES
         test/master.cpp
         test/ContainerTest.cpp
-        )
+        test/ContainerStackTest.cpp)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include
         ${Boost_INCLUDE_DIRS}
 )
 
-add_executable (Test ${SOURCE_TEST_FILES})
+add_executable (Test ${SOURCE_TEST_FILES} test/ContainerStackTest.cpp)
 
 target_link_libraries (Test
         Library

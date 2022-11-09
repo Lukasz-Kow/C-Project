@@ -1,7 +1,3 @@
-//
-// Created by student on 11/4/22.
-//
-
 #ifndef OOPPROJECT_CONTAINERSTACK_H
 #define OOPPROJECT_CONTAINERSTACK_H
 
@@ -12,8 +8,6 @@
 
 class ContainerStack {
 public:
-
-
 
     int getCapacity();
 
