@@ -6,11 +6,10 @@ int ContainerStack::getCapacity() { //how many can we put on the stack
     int getSize = this->getSize();
     if(getSize >= MAX_HEIGHT) {
         return 0;
-    }else {
-        int x = MAX_HEIGHT-getSize;
-        return x;
+    } else {
+        int result = MAX_HEIGHT-getSize;
+        return result;
     }
-
 }
 
 int ContainerStack::getSize() { //How many containers are on the stack
