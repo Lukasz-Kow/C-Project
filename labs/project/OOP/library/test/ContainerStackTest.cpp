@@ -38,7 +38,7 @@ BOOST_AUTO_TEST_CASE(ContainerStack_Overload){
     ContainerStack.take(9);
     ContainerStack.take(10);
     ContainerStack.take(11);
-    BOOST_REQUIRE_EQUAL(ContainerStack.getCapacity(), 0);
+    BOOST_TEST(ContainerStack.getSize() == 10);
 }
 // added
 BOOST_AUTO_TEST_CASE(ContainerStack_Container_Removal_One_Item_Stack){
@@ -53,17 +53,43 @@ BOOST_AUTO_TEST_CASE(ContainerStack_Container_Removal_Three_Item_Stack) {
     ContainerStack.take(1);
     ContainerStack.take(2);
     ContainerStack.take(3);
+    std::cout << 'a' << ContainerStack.at(1).getNumber() << std::endl;
+    std::cout << ContainerStack.at(2).getNumber() << std::endl;
+    std::cout << ContainerStack.at(3).getNumber() << std::endl;
+    std::cout << "Number of elements " << ContainerStack.getSize() << std::endl;
     ContainerStack.give();
+    std::cout << ContainerStack.at(1).getNumber() << std::endl;
+    std::cout << ContainerStack.at(2).getNumber() << std::endl;
+    // Why does it return 3 when this element should be deleted?
+    // Size changes but the 3-rd container remains its number, why?
+    std::cout << ContainerStack.at(3).getNumber() << std::endl;
+    std::cout << "Number of elements " << ContainerStack.getSize() << std::endl;
     BOOST_REQUIRE_EQUAL(ContainerStack.getSize(), 2);
+    BOOST_REQUIRE_EQUAL(ContainerStack.at(2).getNumber(), 2);
 }
 
-//BOOST_AUTO_TEST_CASE(ContainerStack_Check_Order) {
-//    ContainerStack ContainerStack;
-//    ContainerStack.take(1);
-//    ContainerStack.take(2);
-//    ContainerStack.take(3);
-//    BOOST_REQUIRE_EQUAL(ContainerStack.at(3), 3);
-//}
+BOOST_AUTO_TEST_CASE(ContainerStack_Check_Order) {
+    ContainerStack ContainerStack;
+    ContainerStack.take(1);
+    ContainerStack.take(2);
+    ContainerStack.take(3);
+    BOOST_REQUIRE_EQUAL(ContainerStack.at(1).getNumber(), 1);
+    BOOST_REQUIRE_EQUAL(ContainerStack.at(2).getNumber(), 2);
+    BOOST_REQUIRE_EQUAL(ContainerStack.at(3).getNumber(), 3);
+}
+
+// Additional test cases
+
+BOOST_AUTO_TEST_CASE(ContainerStack_Removing_Container_From_Empty_Stack) {
+    ContainerStack ContainerStack;
+    ContainerStack.give();
+    BOOST_TEST(ContainerStack.getSize() == 0);
+}
+
+BOOST_AUTO_TEST_CASE(ContainerStack_Accessing_Container_Out_Of_Range) {
+    ContainerStack ContainerStack;
+    BOOST_TEST(ContainerStack.at(1).getNumber() == 0);
+}
 
 
 BOOST_AUTO_TEST_SUITE_END()

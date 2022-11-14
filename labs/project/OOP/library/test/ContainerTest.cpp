@@ -7,10 +7,10 @@ BOOST_AUTO_TEST_SUITE(ContainerSuiteCorrect)
 BOOST_AUTO_TEST_CASE(ContainerInitalizeWithNumber) {
     Container container(1);
     BOOST_REQUIRE_EQUAL(container.getNumber(), 1);
-    BOOST_REQUIRE_EQUAL(container.getTare(), 0.0);
-    BOOST_REQUIRE_EQUAL(container.getMaxWeight(), 0.0);
+    BOOST_REQUIRE_EQUAL(container.getTare(), 400.0);
+    BOOST_REQUIRE_EQUAL(container.getMaxWeight(), 2000.0);
     BOOST_REQUIRE_EQUAL(container.getNetWeight(), 0.0);
-    BOOST_REQUIRE_CLOSE_FRACTION(container.getGrossWeight(), 0.0, 0.00001);
+    BOOST_REQUIRE_CLOSE_FRACTION(container.getGrossWeight(), 400.0, 0.00001);
 }
 
 BOOST_AUTO_TEST_CASE(ContainerWithoutNumber) {
