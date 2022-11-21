@@ -93,3 +93,12 @@ BOOST_AUTO_TEST_CASE(ContainerStack_Accessing_Container_Out_Of_Range) {
 
 
 BOOST_AUTO_TEST_SUITE_END()
+
+/**
+ *  - We can create functions to test some things
+ *  - UI should not be connected to logical functions (i.e. don't print anything in functions which do some programm login)
+ *  - On the class diagram an arrow should point to the parent class from child classes
+ *  - Multi base inheritance - when one class inherits from 3 different classes that both iherit from a forth one
+ *  - Protected access specifier - access such attributes is possible from all subclasses but not frmo outside these classes
+ *
+ */
