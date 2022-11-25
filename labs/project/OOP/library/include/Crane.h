@@ -45,6 +45,12 @@ public:
     void putDown();
 
     int getPosition();
+
+    Container& getContainer();
+
+    ContainerStack& stackAt(int position);
+
+    bool canPutDown();
 };
 
 

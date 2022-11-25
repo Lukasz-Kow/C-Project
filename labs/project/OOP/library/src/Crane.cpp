@@ -90,6 +90,17 @@ void Crane::putDown() {
 int Crane::getPosition() {
     return position;
 }
+Container& Crane::getContainer() {
+    return container;
+}
 
+ContainerStack& Crane::stackAt(int position) {
+    return storage[position];
+}
+
+bool Crane::canPutDown() {
+    ContainerStack* stack = &stackAt(position);
+    return stack->getCapacity() - stack->getSize();
+}
 
 
