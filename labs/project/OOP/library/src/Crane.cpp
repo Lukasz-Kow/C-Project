@@ -53,4 +53,43 @@ void Crane::load(Container container) {
     }
 }
 
+Container Crane::unload() {
+    if (isLoaded())
+    {
+        Container temp = container;
+        container = Container();
+        return temp;
+    }
+}
+
+void Crane::forward(int numSteps) {
+    if (position+numSteps<=(MAX_STACKS-1) && numSteps > 0 ) {
+        position+=numSteps;
+    }
+}
+
+void Crane::backward(int numSteps) {
+    if (position - numSteps >= POSITION_OVER_THE_TRAILER && numSteps > 0) {
+        position -= numSteps;
+    }
+}
+
+void Crane::pickUp() {
+    if (isWaitingEmpty() && storage[position].getSize()) {
+        container = storage[position].give();
+    }
+}
+
+void Crane::putDown() {
+    if (isWaitingFull() && storage[position].getSize() + 1 <= storage[position].getCapacity()) {
+        storage[position].take(container);
+        container = Container();
+    }
+}
+
+int Crane::getPosition() {
+    return position;
+}
+
+
 

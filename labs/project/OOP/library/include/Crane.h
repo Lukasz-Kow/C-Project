@@ -33,6 +33,18 @@ public:
     void park();
 
     void load(Container container);
+
+    Container unload();
+
+    void forward(int numSteps);
+
+    void backward(int numSteps);
+
+    void pickUp();
+
+    void putDown();
+
+    int getPosition();
 };
 
 
