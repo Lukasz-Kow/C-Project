@@ -8,9 +8,9 @@ int Loadable::getCapacity() {
 
 }
 
-int Loadable::getSize() {}() {
+int Loadable::getSize() {}
 
-}
+
 
 Container Loadable::at(int number) {
 
