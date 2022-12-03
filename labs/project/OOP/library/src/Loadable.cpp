@@ -4,23 +4,23 @@
 
 #include "Loadable.h"
 
-int Loadable::getCapacity() {
+unsigned Loadable::getCapacity() {
 
 }
 
-int Loadable::getSize() {}
-
-
-
-Container Loadable::at(int number) {
+unsigned Loadable::getSize() {
 
 }
 
-void Loadable::take() {
+Container& Loadable::at(int number) {
 
 }
 
-void Loadable::give() {
+void Loadable::take(Container aContainer) {
+
+}
+
+Container Loadable::give() {
 
 }
 

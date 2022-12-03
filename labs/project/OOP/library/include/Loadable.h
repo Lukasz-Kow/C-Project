@@ -12,11 +12,11 @@ class Loadable {
 
 public:
 
-    virtual int getCapacity();
-    virtual int getSize();
-    virtual Container at(int number);
-    virtual void take();
-    virtual void give();
+    virtual unsigned getCapacity();
+    virtual unsigned getSize();
+    virtual Container& at(int number);
+    virtual void take(Container aContainer);
+    virtual Container give();
 
     bool canTake();
     bool canGive();

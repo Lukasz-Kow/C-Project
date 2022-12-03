@@ -44,7 +44,7 @@ endif()
 set(SOURCE_TEST_FILES
         test/master.cpp
         test/ContainerTest.cpp
-        test/ContainerStackTest.cpp test/CraneTest.cpp)
+        test/ContainerStackTest.cpp test/CraneTest.cpp test/TruckTest.cpp)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include
