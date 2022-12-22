@@ -37,12 +37,14 @@ void Truck::take(Container aContainer) {
 
 Container Truck::give() {
     if (canGive()) {
-        for (int i = TRAILER_CAPACITY - 1; i <= 0; i--) {
+        for (int i = TRAILER_CAPACITY - 1; i >= 0; i--) {
             if (trailer[i].getNumber() > 0) {
                 Container temp = trailer[i];
                 Container empty = Container();
                 trailer[i] = empty;
                 return temp;
+            } else {
+                std::cerr << "Container is at different index than: " << i << std::endl;
             }
         }
     } else {

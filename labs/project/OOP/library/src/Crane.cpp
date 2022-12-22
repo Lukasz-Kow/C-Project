@@ -4,6 +4,7 @@
 
 #include "Crane.h"
 
+
 bool Crane::isParked() {
     if (position == POSITION_PARKED)
     {
@@ -46,19 +47,17 @@ void Crane::park() {
     }
 }
 
-void Crane::load(Container container) {
+void Crane::loadFrom(Loadable& truck) {
     if (isUnloaded())
     {
-        this->container = container;
+        this->container = truck.give();
     }
 }
 
-Container Crane::unload() {
+void Crane::unloadOnto(Loadable& truck) {
     if (isLoaded())
     {
-        Container temp = container;
-        container = Container();
-        return temp;
+        truck.take(container);
     }
 }
 

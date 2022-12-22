@@ -32,9 +32,9 @@ public:
 
     void park();
 
-    void load(Container container);
+    void loadFrom(Loadable& truck);
 
-    Container unload();
+    void unloadOnto(Loadable& truck);
 
     void forward(int numSteps);
 

@@ -4,6 +4,7 @@
 #include <boost/test/unit_test.hpp>
 
 #include "Crane.h"
+#include "Truck.h"
 
 BOOST_AUTO_TEST_SUITE(CraneSuiteCorrect)
 
@@ -26,11 +27,18 @@ BOOST_AUTO_TEST_SUITE(CraneSuiteCorrect)
     }
 
     BOOST_AUTO_TEST_CASE(checkLoad_isLoad_Unload_isUnloaded) {
-        Container a;
+        Container a(1);
         Crane b;
+        Truck myTruck;
+        myTruck.take(a);
         BOOST_CHECK_EQUAL(b.isLoaded(), false);
-        b.load(a);
-        BOOST_CHECK_EQUAL(b.isLoaded(), false);
+
+        // Loading the container from truck to the crane
+
+        b.backward(1);
+        b.loadFrom(myTruck);
+        Container test = b.getContainer();
+        BOOST_CHECK_EQUAL(b.isLoaded(), true);
         BOOST_CHECK_EQUAL(b.isUnloaded(), false);
 
     }

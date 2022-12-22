@@ -65,16 +65,14 @@ BOOST_AUTO_TEST_CASE(Truck_Give_Test) {
     BOOST_REQUIRE_EQUAL(myTruck.at(1).getNumber(), 1);
     BOOST_REQUIRE_EQUAL(myTruck.at(2).getNumber(), 2);
 
-    // idk why it doesn't work
     Container returnedContainerFrom2Pos = myTruck.give();
     Container returnedContainerFrom1Pos = myTruck.give();
 
     std::cout << myTruck.at(2).getNumber() << std::endl;
 
-    std::cout << returnedContainerFrom2Pos.getNumber() << std::endl;
 
-//    BOOST_REQUIRE_EQUAL(returnedContainerFrom1Pos.getNumber(), 1);
-//    BOOST_REQUIRE_EQUAL(returnedContainerFrom2Pos.getNumber(), 2);
+    BOOST_REQUIRE_EQUAL(returnedContainerFrom1Pos.getNumber(), 1);
+    BOOST_REQUIRE_EQUAL(returnedContainerFrom2Pos.getNumber(), 2);
     BOOST_REQUIRE_EQUAL(myTruck.getSize(), 0);
 
 }
