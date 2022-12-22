@@ -2,7 +2,7 @@
 #include "ContainerStack.h"
 #include "Container.h"
 
-int ContainerStack::getCapacity() { //how many can we put on the stack
+unsigned ContainerStack::getCapacity() { //how many can we put on the stack
     int getSize = this->getSize();
     if(getSize >= MAX_HEIGHT) {
         return 0;
@@ -12,7 +12,7 @@ int ContainerStack::getCapacity() { //how many can we put on the stack
     }
 }
 
-int ContainerStack::getSize() { //How many containers are on the stack
+unsigned ContainerStack::getSize() { //How many containers are on the stack
     return containers.size();
 }
 

@@ -5,19 +5,20 @@
 #include <iostream>
 #include "Container.h"
 #include <vector>
+#include "Loadable.h"
 
-class ContainerStack {
+class ContainerStack: public Loadable {
 public:
 
-    int getCapacity();
+    unsigned getCapacity() override;
 
-    int getSize();
+    unsigned getSize() override;
 
-    Container& at(int height);
+    Container& at(int height) override;
 
-    void take(Container aContainer);
+    void take(Container aContainer) override;
 
-    Container give();
+    Container give() override;
 
 private:
     const unsigned MAX_HEIGHT = 10;
