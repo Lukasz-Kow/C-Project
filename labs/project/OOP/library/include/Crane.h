@@ -6,6 +6,11 @@
 #define OOPPROJECT_CRANE_H
 
 #include "ContainerStack.h"
+#include "Loadable.h"
+#include "LoadStrategy.h"
+#include "CheckFreePlaceStrategy.h"
+
+
 const int POSITION_PARKED = -1;
 const int POSITION_OVER_STACK_OF_CONTAINERS = 0;
 const int POSITION_OVER_THE_TRAILER = -2;
@@ -19,7 +24,11 @@ class Crane {
 
     Container container;
 
+
+
 public:
+    LoadStrategy loadStrategy;
+
     bool isParked();
 
     bool isLoaded();
@@ -51,6 +60,9 @@ public:
     ContainerStack& stackAt(int position);
 
     bool canPutDown();
+
+    Crane(LoadStrategy* strategy=0);
+    void changeStrategy(LoadStrategy* strategy);
 };
 
 

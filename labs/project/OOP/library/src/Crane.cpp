@@ -2,7 +2,9 @@
 // Created by Mateusz Pryl on 25/11/2022.
 //
 
+#include "CheckFreePlaceStrategy.h"
 #include "Crane.h"
+#include "LoadStrategy.h"
 
 
 bool Crane::isParked() {
@@ -97,9 +99,23 @@ ContainerStack& Crane::stackAt(int position) {
     return storage[position];
 }
 
+Crane::Crane(LoadStrategy *strategy) {
+    if(strategy!=0)
+        loadStrategy=*strategy;
+    else{
+      //  loadStrategy = CheckFreePlaceStrategy(); sth wrong here
+    }
+}
+
 bool Crane::canPutDown() {
     ContainerStack* stack = &stackAt(position);
     return stack->getCapacity() - stack->getSize();
 }
+
+void Crane::changeStrategy( LoadStrategy* strategy) {
+    loadStrategy=*strategy;
+}
+
+
 
 
