@@ -106,8 +106,8 @@ void Crane::changeStrategy(shared_ptr<LoadStrategy> aStrategy) {
     this->strategy = aStrategy;
 }
 
-bool Crane::canPutDown(Container &container, int row) {
-    return strategy->canPutDown(container, storage[row]);
+bool Crane::canPutDown() {
+    return strategy->canPutDown(container, stackAt(position));
 }
 
 

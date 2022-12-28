@@ -69,7 +69,7 @@ public:
 
     void changeStrategy(shared_ptr<LoadStrategy> aStrategy);
 
-    bool canPutDown(Container &container, int row);
+    bool canPutDown();
 
 };
 

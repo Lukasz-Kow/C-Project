@@ -1,5 +1,6 @@
 #include <boost/test/unit_test.hpp>
 
+#include <memory>
 #include "Crane.h"
 #include "CheckPlaceAndWeightStrategy.h"
 #include "CheckFreePlaceStrategy.h"
@@ -18,18 +19,23 @@ BOOST_AUTO_TEST_CASE(Check_Place_And_Weight_Strategy) {
         shared_ptr<Container> C = make_shared<Container>(3);
 
         A->setTare(10);
+        A->loadCargo(20);
         A->setStrength(100);
 
         B->setTare(50);
-        B->setStrength(51);
+        B->loadCargo(20);
+        B->setStrength(600);
 
-        C->setTare(20);
+        C->setTare(100);
+        A->loadCargo(20);
         C->setStrength(10);
 
         BOOST_REQUIRE_EQUAL(strategy.canPutDown(*A, loadable), true);
         loadable.take(*A);
-        BOOST_REQUIRE_EQUAL(strategy.canPutDown(*B, loadable), true);
+
+        BOOST_REQUIRE_EQUAL(strategy.canPutDown(*B, loadable), false);
         loadable.take(*B);
+
         BOOST_REQUIRE_EQUAL(strategy.canPutDown(*C, loadable), false);
         loadable.take(*C);
     }
@@ -38,22 +44,18 @@ BOOST_AUTO_TEST_CASE(Check_Free_Place_Strategy) {
         CheckFreePlaceStrategy strategy;
         ContainerStack loadable;
 
-        Container container_first(1);
-        Container container_second(2);
-
-        loadable.take(container_first);
-        loadable.take(container_second);
+        Container containerFirst(1);
+        Container containerSecond(2);
         shared_ptr<Container> A = make_shared<Container>(2);
+        loadable.take(containerFirst);
+        loadable.take(containerSecond);
 
         BOOST_REQUIRE_EQUAL(strategy.canPutDown(*A, loadable), true);
 
-
-        Container container_last(3);
-        loadable.take(container_last);
+        Container containerLast(3);
+        loadable.take(containerLast);
 
         BOOST_REQUIRE_EQUAL(strategy.canPutDown(*A, loadable), false);
     }
-
-
 
 BOOST_AUTO_TEST_SUITE_END()
