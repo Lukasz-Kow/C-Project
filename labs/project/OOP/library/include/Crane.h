@@ -10,6 +10,8 @@
 #include "LoadStrategy.h"
 #include "CheckFreePlaceStrategy.h"
 
+using namespace std;
+
 
 const int POSITION_PARKED = -1;
 const int POSITION_OVER_STACK_OF_CONTAINERS = 0;
@@ -23,6 +25,8 @@ class Crane {
     int position = POSITION_PARKED;
 
     Container container;
+
+    shared_ptr<LoadStrategy> strategy;
 
 
 
@@ -59,10 +63,14 @@ public:
 
     ContainerStack& stackAt(int position);
 
-    bool canPutDown();
+    Crane(shared_ptr<LoadStrategy> aStrategy);
 
-    Crane(LoadStrategy* strategy=0);
-    void changeStrategy(LoadStrategy* strategy);
+    Crane()=default;
+
+    void changeStrategy(shared_ptr<LoadStrategy> aStrategy);
+
+    bool canPutDown(Container &container, int row);
+
 };
 
 

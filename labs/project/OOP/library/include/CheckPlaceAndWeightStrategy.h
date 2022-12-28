@@ -7,10 +7,11 @@
 
 #include "Loadable.h"
 #include "Container.h"
+#include "LoadStrategy.h"
 
-class CheckPlaceAndWeightStrategy{
+class CheckPlaceAndWeightStrategy : public LoadStrategy{
 public:
-    bool canPutDown(Container& container, Loadable& loadable);
+    bool canPutDown(Container& container, Loadable& loadable) override;
 
 };
 #endif //OOPPROJECT_CHECKPLACEANDWEIGHTSTRATEGY_H

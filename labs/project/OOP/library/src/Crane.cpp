@@ -6,6 +6,9 @@
 #include "Crane.h"
 #include "LoadStrategy.h"
 
+using namespace std;
+
+Crane::Crane(shared_ptr<LoadStrategy> aStrategy) : strategy{aStrategy} {}
 
 bool Crane::isParked() {
     if (position == POSITION_PARKED)
@@ -99,21 +102,12 @@ ContainerStack& Crane::stackAt(int position) {
     return storage[position];
 }
 
-Crane::Crane(LoadStrategy *strategy) {
-    if(strategy!=0)
-        loadStrategy=*strategy;
-    else{
-      //  loadStrategy = CheckFreePlaceStrategy(); sth wrong here
-    }
+void Crane::changeStrategy(shared_ptr<LoadStrategy> aStrategy) {
+    this->strategy = aStrategy;
 }
 
-bool Crane::canPutDown() {
-    ContainerStack* stack = &stackAt(position);
-    return stack->getCapacity() - stack->getSize();
-}
-
-void Crane::changeStrategy( LoadStrategy* strategy) {
-    loadStrategy=*strategy;
+bool Crane::canPutDown(Container &container, int row) {
+    return strategy->canPutDown(container, storage[row]);
 }
 
 

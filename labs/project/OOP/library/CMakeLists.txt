@@ -46,7 +46,7 @@ set(SOURCE_TEST_FILES
         test/ContainerTest.cpp
         test/ContainerStackTest.cpp
         test/CraneTest.cpp
-        test/TruckTest.cpp include/LoadStrategy.h src/LoadStrategy.cpp include/CheckFreePlaceStrategy.h src/CheckFreePlaceStrategy.cpp include/CheckPlaceAndWeightStrategy.h src/CheckPlaceAndWeightStrategy.cpp)
+        test/TruckTest.cpp include/LoadStrategy.h src/LoadStrategy.cpp include/CheckFreePlaceStrategy.h src/CheckFreePlaceStrategy.cpp include/CheckPlaceAndWeightStrategy.h src/CheckPlaceAndWeightStrategy.cpp test/StrategyTest.cpp)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include
