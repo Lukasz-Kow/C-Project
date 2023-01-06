@@ -4,9 +4,9 @@ project(Library)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-        include/Container.h src/Container.cpp include/ContainerStack.h src/ContainerStack.cpp src/Crane.cpp include/Crane.h include/Loadable.h src/Loadable.cpp src/Truck.cpp include/Truck.h include/LoadStrategy.h src/LoadStrategy.cpp include/CheckFreePlaceStrategy.h src/CheckFreePlaceStrategy.cpp include/CheckPlaceAndWeightStrategy.h src/CheckPlaceAndWeightStrategy.cpp)
+        src/Book.cpp)
 
-add_library(Library ${SOURCE_FILES} include/CheckFreePlaceStrategy.h)
+add_library(Library ${SOURCE_FILES} include/Book.h)
 
 #add 'include' directory with header files from 'Library' project to paths
 target_include_directories(Library PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -43,17 +43,14 @@ endif()
 
 set(SOURCE_TEST_FILES
         test/master.cpp
-        test/ContainerTest.cpp
-        test/ContainerStackTest.cpp
-        test/CraneTest.cpp
-        test/TruckTest.cpp include/LoadStrategy.h src/LoadStrategy.cpp include/CheckFreePlaceStrategy.h src/CheckFreePlaceStrategy.cpp include/CheckPlaceAndWeightStrategy.h src/CheckPlaceAndWeightStrategy.cpp test/StrategyTest.cpp)
+        test/BookTest.cpp)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include
         ${Boost_INCLUDE_DIRS}
 )
 
-add_executable (Test ${SOURCE_TEST_FILES} test/ContainerStackTest.cpp src/Crane.cpp include/Crane.h test/CraneTest.cpp include/CheckFreePlaceStrategy.h)
+add_executable (Test ${SOURCE_TEST_FILES} test/BookTest.cpp)
 
 target_link_libraries (Test
         Library

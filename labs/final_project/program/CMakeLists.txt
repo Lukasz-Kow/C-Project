@@ -7,7 +7,7 @@ set(SOURCE_FILES
         src/main.cpp
         )
 #add following files to executable file 'Program'
-add_executable(Program ${SOURCE_FILES} ../library/include/CheckFreePlaceStrategy.h)
+add_executable(Program ${SOURCE_FILES})
 
 #add libraries from 'Library' project
 target_link_libraries(Program Library)
