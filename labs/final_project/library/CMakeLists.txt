@@ -4,7 +4,7 @@ project(Library)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-        src/Book.cpp)
+        src/Book.cpp src/Client.cpp include/Client.h src/Student.cpp include/Student.h src/Teacher.cpp include/Teacher.h src/Guest.cpp include/Guest.h src/Library.cpp include/Library.h src/Request.cpp include/Request.h src/LibraryUI.cpp include/LibraryUI.h src/CLI.cpp include/CLI.h src/UnitTestUi.cpp include/UnitTestUi.h src/Encyclopedia.cpp include/Encyclopedia.h src/StudentBook.cpp include/StudentBook.h src/TeacherBook.cpp include/TeacherBook.h)
 
 add_library(Library ${SOURCE_FILES} include/Book.h)
 
@@ -43,7 +43,7 @@ endif()
 
 set(SOURCE_TEST_FILES
         test/master.cpp
-        test/BookTest.cpp)
+        test/BookTest.cpp src/Teacher.cpp include/Teacher.h src/Guest.cpp include/Guest.h src/Library.cpp include/Library.h src/Request.cpp include/Request.h src/LibraryUI.cpp include/LibraryUI.h src/CLI.cpp include/CLI.h src/UnitTestUi.cpp include/UnitTestUi.h src/Encyclopedia.cpp include/Encyclopedia.h src/StudentBook.cpp include/StudentBook.h src/TeacherBook.cpp include/TeacherBook.h)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include
