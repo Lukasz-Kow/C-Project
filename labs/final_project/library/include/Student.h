@@ -5,8 +5,18 @@
 #ifndef OOPPROJECT_STUDENT_H
 #define OOPPROJECT_STUDENT_H
 
+#include "Client.h"
 
-class Student {
+class Student : public Client{
+private:
+    string course;
+
+public:
+    Student(int id, string uuid, string name, string surname, string phoneNumber, string city, string gender, string course);
+
+    void requestReservation(string bookName) override;
+
+    string getSpecialTrait() override;
 
 };
 

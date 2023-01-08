@@ -5,8 +5,20 @@
 #ifndef OOPPROJECT_ENCYCLOPEDIA_H
 #define OOPPROJECT_ENCYCLOPEDIA_H
 
+#include "Book.h"
 
-class Encyclopedia {
+class Encyclopedia : public Book {
+private:
+
+    string theme;
+
+public:
+
+    Encyclopedia(int id, string title, string author, int phoneNumber, string theme);
+
+    string getUniqueTrait() override;
+
+    string display() override;
 
 };
 

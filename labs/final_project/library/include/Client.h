@@ -5,8 +5,47 @@
 #ifndef OOPPROJECT_CLIENT_H
 #define OOPPROJECT_CLIENT_H
 
+#include <iostream>
+#include <string>
+#include <vector>
+
+class Library;
+
+using namespace std;
 
 class Client {
+private:
+
+    vector<shared_ptr<Client>> clients;
+
+    int id;
+    string uuid;
+    string name;
+    string surname;
+    string phoneNumber;
+    string city;
+    string gender;
+    
+public:
+        Client(int id, string uuid, string name, string surname, string phoneNumber, string city, string gender);
+
+        virtual void requestReservation(string bookName) = 0;
+
+        string getUuid();
+
+        string getName();
+
+        string getSurname();
+
+        string getPhoneNumber();
+
+        string getCity();
+
+        string getGender();
+
+        virtual string getSpecialTrait() = 0;
+
+        string getClient();
 
 };
 

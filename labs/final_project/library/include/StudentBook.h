@@ -5,8 +5,19 @@
 #ifndef OOPPROJECT_STUDENTBOOK_H
 #define OOPPROJECT_STUDENTBOOK_H
 
+#include "Book.h"
 
-class StudentBook {
+class StudentBook : public Book{
+private:
+
+    string subject;
+
+public:
+    StudentBook(int id, string title, string author, int phoneNumber, string subject);
+
+    string getUniqueTrait() override;
+
+    string display() override;
 
 };
 

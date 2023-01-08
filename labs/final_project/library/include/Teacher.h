@@ -4,10 +4,20 @@
 
 #ifndef OOPPROJECT_TEACHER_H
 #define OOPPROJECT_TEACHER_H
+#include "Client.h"
 
+class Teacher : public Client{
+private:
 
-class Teacher {
+    string specialty;
 
+public:
+
+    Teacher(int id, string uuid, string name, string surname, string phoneNumber, string city, string gender, string specialty);
+
+    void requestReservation(string bookName) override;
+
+    string getSpecialTrait() override;
 };
 
 
