@@ -5,6 +5,9 @@
 #ifndef OOPPROJECT_LIBRARY_H
 #define OOPPROJECT_LIBRARY_H
 #include "Client.h"
+#include "Book.h"
+#include "CLI.h"
+#include "Request.h"
 
 class Library {
 private:
@@ -13,17 +16,17 @@ private:
 
     string name;
 
-    CLI::libraryCLI;
+    CLI libraryCLI;
 
 public:
 
     Library(int id, string name);
 
-    void addBook(Book book&);
+    void addBook(Book& book);
 
     void removeBook(string uuid);
 
-    Book:getBook(unsigned n);
+    Book getBook(unsigned n);
 
     bool checkIfBookIsReserved(int cookId);
 

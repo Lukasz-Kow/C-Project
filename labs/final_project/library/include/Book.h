@@ -7,6 +7,7 @@
 
 #include "Client.h"
 #include <vector>
+#include "string"
 
 class Book {
 private:
@@ -21,13 +22,15 @@ private:
 
     int pageNumber;
 
+    string status;
+
     string clientUuid;
 
     bool isAvailable;
 
 public:
 
-    Book(int id, string title, string author, int phoneNumber);
+    Book(int id, string title, string author, int pageNumber);
 
     int getId();
 
@@ -37,11 +40,9 @@ public:
 
     int getPageNumber();
 
-    bool getStatus();
+    string getStatus();
 
-    void getStatus();
-
-    void setClientUuid();
+    void setUuid(string uuid);
 
     virtual string getUniqueTrait() = 0;
 

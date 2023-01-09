@@ -45,8 +45,6 @@ public:
 
         virtual string getSpecialTrait() = 0;
 
-        string getClient();
-
 };
 
 

@@ -3,3 +3,14 @@
 //
 
 #include "Encyclopedia.h"
+
+Encyclopedia::Encyclopedia(int id, string title, string author, int phoneNumber, string theme):
+    Book(id, title, author, phoneNumber), theme(theme) {}
+
+string Encyclopedia::getUniqueTrait() {
+    return theme;
+}
+
+string Encyclopedia::display() {
+    return std::string();
+}
