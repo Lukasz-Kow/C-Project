@@ -8,6 +8,7 @@
 #include "Client.h"
 #include <vector>
 #include "string"
+#include "memory"
 
 class Book {
 private:

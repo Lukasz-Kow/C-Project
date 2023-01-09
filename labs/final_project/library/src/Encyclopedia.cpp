@@ -4,8 +4,8 @@
 
 #include "Encyclopedia.h"
 
-Encyclopedia::Encyclopedia(int id, string title, string author, int phoneNumber, string theme):
-    Book(id, title, author, phoneNumber), theme(theme) {}
+Encyclopedia::Encyclopedia(int id, string title, string author, int pageNumber, string theme):
+    Book(id, title, author, pageNumber), theme(theme) {}
 
 string Encyclopedia::getUniqueTrait() {
     return theme;

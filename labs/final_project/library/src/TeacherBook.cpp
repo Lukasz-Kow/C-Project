@@ -3,3 +3,16 @@
 //
 
 #include "TeacherBook.h"
+
+TeacherBook::TeacherBook(int id, string title, string author, int pageNumber, string studyField):
+        Book(id, title, author, pageNumber), studyField(studyField){
+
+}
+
+string TeacherBook::getUniqueTrait() {
+    return std::string();
+}
+
+string TeacherBook::display() {
+    return std::string();
+}
