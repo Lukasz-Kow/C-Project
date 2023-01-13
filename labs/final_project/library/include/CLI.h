@@ -5,8 +5,13 @@
 #ifndef OOPPROJECT_CLI_H
 #define OOPPROJECT_CLI_H
 
+#include "LibraryUI.h"
 
-class CLI {
+class CLI: public LibraryUI{
+
+    void displayClients() override;
+    void displayBooks() override;
+    void displayRequests() override;
 
 };
 

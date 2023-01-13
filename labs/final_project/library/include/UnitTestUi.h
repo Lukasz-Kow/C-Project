@@ -5,9 +5,13 @@
 #ifndef OOPPROJECT_UNITTESTUI_H
 #define OOPPROJECT_UNITTESTUI_H
 
+#include "LibraryUI.h"
 
-class UnitTestUi {
+class UnitTestUi: public LibraryUI  {
 
+    void displayClients() override;
+    void displayBooks() override;
+    void displayRequests() override;
 };
 
 

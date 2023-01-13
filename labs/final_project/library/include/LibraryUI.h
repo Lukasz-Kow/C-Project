@@ -8,6 +8,10 @@
 
 class LibraryUI {
 
+    virtual void displayClients() = 0;
+    virtual void displayBooks() = 0;
+    virtual void displayRequests() = 0;
+
 };
 
 
