@@ -3,15 +3,3 @@
 //
 
 #include "CLI.h"
-
-void CLI::displayClients() {
-
-}
-
-void CLI::displayBooks() {
-
-}
-
-void CLI::displayRequests() {
-
-}

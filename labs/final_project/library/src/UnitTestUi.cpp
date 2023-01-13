@@ -3,15 +3,3 @@
 //
 
 #include "UnitTestUi.h"
-
-void UnitTestUi::displayClients() {
-
-}
-
-void UnitTestUi::displayBooks() {
-
-}
-
-void UnitTestUi::displayRequests() {
-
-}
