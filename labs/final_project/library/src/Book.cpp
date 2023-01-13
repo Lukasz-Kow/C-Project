@@ -4,7 +4,7 @@
 
 #include "../include/Book.h"
 
-Book::Book(int id, string title, string author, int pageNumber):
+Book::Book(int id, string title, string author, int phoneNumber):
     id(id), title(title), author(author), pageNumber(pageNumber) {}
 
 int Book::getId() {
