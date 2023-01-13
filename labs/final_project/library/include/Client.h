@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "memory"
 
 class Library;
 
@@ -29,7 +30,7 @@ private:
 public:
         Client(int id, string uuid, string name, string surname, string phoneNumber, string city, string gender);
 
-        virtual void requestReservation(string bookName) = 0;
+        virtual void requestReservation(std::string bookName) = 0;
 
         string getUuid();
 
