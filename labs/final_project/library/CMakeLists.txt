@@ -39,13 +39,16 @@ if(MSVC)
 
     find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
+
     include_directories(${Boost_INCLUDE_DIR})
     link_directories(${Boost_LIBRARY_DIR})
 
 else()
     find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+
 endif()
 
+find_package(Boost COMPONENTS date_time REQUIRED)
 set(SOURCE_TEST_FILES
         test/master.cpp
         test/BookTest.cpp src/Teacher.cpp include/Teacher.h src/Guest.cpp include/Guest.h src/Library.cpp include/Library.h src/Request.cpp include/Request.h src/LibraryUI.cpp include/LibraryUI.h src/CLI.cpp include/CLI.h src/UnitTestUi.cpp include/UnitTestUi.h src/Encyclopedia.cpp include/Encyclopedia.h src/StudentBook.cpp include/StudentBook.h src/TeacherBook.cpp include/TeacherBook.h)
@@ -62,6 +65,10 @@ target_link_libraries (Test
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
         )
 
+target_link_libraries (Test
+        Library
+        ${Boost_DATE_TIME_LIBRARY}
+        )
 add_custom_target(check ${CMAKE_COMMAND} -E env CTEST_OUTPUT_ON_FAILURE=1 BOOST_TEST_LOG_LEVEL=all
         ${CMAKE_CTEST_COMMAND} -C $<CONFIG> --verbose
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR})

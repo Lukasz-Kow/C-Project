@@ -30,3 +30,11 @@ string Client::getCity() {
 string Client::getGender() {
     return gender;
 }
+
+void Client::requestReservation(std::string bookName) {
+
+}
+
+string Client::getSpecialTrait() {
+
+}

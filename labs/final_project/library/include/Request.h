@@ -10,8 +10,7 @@
 #include <vector>
 
 #include <chrono>
-
-//#include "date.h"
+#include <boost/date_time/date.hpp>
 
 class Request {
 
@@ -21,7 +20,7 @@ private:
 
     int id;
 
-    Date date;
+    boost::date_time::date date;
 
     string entityWhoMadeTheRequest;
 
@@ -37,7 +36,7 @@ public:
 
     int getId();
 
-    Date getDate();
+    date getDate();
 
     string getEntity();
 
