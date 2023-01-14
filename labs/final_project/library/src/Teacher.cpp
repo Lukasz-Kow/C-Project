@@ -10,9 +10,9 @@ Teacher::Teacher(int id, string uuid, string name, string surname, string phoneN
 }
 
 void Teacher::requestReservation(string bookName) {
-
+    Client::requestReservation(bookName);
 }
 
 string Teacher::getSpecialTrait() {
-    return std::string();
+    return specialty;
 }

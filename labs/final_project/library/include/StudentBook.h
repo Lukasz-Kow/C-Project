@@ -13,7 +13,7 @@ private:
     string subject;
 
 public:
-    StudentBook(int id, string title, string author, int phoneNumber, string subject);
+    StudentBook(int id, string title, string author, int pageNumber, string subject);
 
     string getUniqueTrait() override;
 

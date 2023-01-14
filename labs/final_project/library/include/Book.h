@@ -38,9 +38,13 @@ public:
 
     string getTitle();
 
+    string getAuthor();
+
     int getPageNumber();
 
-    string getStatus();
+    bool getStatus();
+
+    void setStatus();
 
     void setUuid(string uuid);
 

@@ -19,11 +19,11 @@ Date Request::getDate() {
 }
 
 string Request::getEntity() {
-    return std::string();
+    return entityWhoMadeTheRequest;
 }
 
 string Request::getClientUuid() {
-    return std::string();
+    return clientUuid;
 }
 
 string Request::getBookName() {
@@ -31,7 +31,7 @@ string Request::getBookName() {
 }
 
 string Request::getStatus() {
-    return std::string();
+    return status;
 }
 
 void Request::setStatus() {

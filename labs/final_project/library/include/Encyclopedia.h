@@ -14,7 +14,7 @@ private:
 
 public:
 
-    Encyclopedia(int id, string title, string author, int phoneNumber, string theme);
+    Encyclopedia(int id, string title, string author, int pageNumber, string theme);
 
     string getUniqueTrait() override;
 

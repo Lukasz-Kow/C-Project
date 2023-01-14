@@ -3,7 +3,7 @@
 //
 
 #include "Client.h"
-
+#include "Library.h"
 Client::Client(int id, string uuid, string name, string surname, string phoneNumber, string city, string gender):
     id(id), uuid(uuid), name(name), surname(surname), phoneNumber(phoneNumber), city(city), gender(gender) {}
 
@@ -32,7 +32,6 @@ string Client::getGender() {
 }
 
 void Client::requestReservation(std::string bookName) {
-
 }
 
 string Client::getSpecialTrait() {

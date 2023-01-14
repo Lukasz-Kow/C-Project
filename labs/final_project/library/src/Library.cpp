@@ -18,7 +18,7 @@ Book Library::getBook(unsigned int n) {
     return 0;
 }
 
-bool Library::checkIfBookIsReserved(int cookId) {
+bool Library::checkIfBookIsReserved(int bookId) {
     return false;
 }
 
