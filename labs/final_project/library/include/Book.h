@@ -20,7 +20,7 @@ private:
 
     int pageNumber;
 
-    std::string status;
+    bool isAvailable;
 
     std::string clientUuid;
 
@@ -38,7 +38,7 @@ public:
 
     int getPageNumber();
 
-    std::string getStatus();
+    bool getStatus();
 
     void setStatus();
 

@@ -27,11 +27,10 @@ int Book::getPageNumber() {
     return pageNumber;
 }
 
-std::string Book::getStatus() {
-    return status;
+bool Book::getStatus() {
+    return false;
 }
 
-// Needs rework to use enum
 void Book::setStatus() {
 
 }
