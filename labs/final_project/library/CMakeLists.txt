@@ -4,14 +4,15 @@ project(Library)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-        src/Book.cpp src/Client.cpp include/Client.h
+        include/Book.h src/Book.cpp src/Client.cpp include/Client.h
         src/Student.cpp include/Student.h src/Teacher.cpp
         include/Teacher.h src/Guest.cpp include/Guest.h src/Library.cpp
         include/Library.h src/Request.cpp include/Request.h src/LibraryUI.cpp
         include/LibraryUI.h src/CLI.cpp include/CLI.h src/UnitTestUi.cpp include/UnitTestUi.h
-        src/Encyclopedia.cpp include/Encyclopedia.h src/StudentBook.cpp include/StudentBook.h src/TeacherBook.cpp include/TeacherBook.h)
+        src/Encyclopedia.cpp include/Encyclopedia.h src/StudentBook.cpp include/StudentBook.h src/TeacherBook.cpp
+        include/TeacherBook.h)
 
-add_library(Library ${SOURCE_FILES} include/Book.h include/Encyclopedia.h)
+add_library(Library ${SOURCE_FILES})
 
 #add 'include' directory with header files from 'Library' project to paths
 target_include_directories(Library PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)

@@ -4,15 +4,17 @@
 
 #ifndef OOPPROJECT_LIBRARYUI_H
 #define OOPPROJECT_LIBRARYUI_H
+
 #include "memory"
 #include "Client.h"
 #include "Request.h"
 #include "Book.h"
-class LibraryUI {
 
-    virtual void displayBooks(std::shared_ptr<Book>) = 0;
-    virtual void displayClients(std::shared_ptr<Client>) =0;
-    virtual void deisplayRequests(std::shared_ptr<Request>)=0;
+class LibraryUI {
+public:
+    virtual void displayBooks(std::shared_ptr<Book> books) = 0;
+    virtual void displayClients(std::shared_ptr<Client> clients) = 0;
+    virtual void displayRequests(std::shared_ptr<Request> requests) = 0;
 };
 
 

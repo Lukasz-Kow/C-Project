@@ -34,6 +34,3 @@ string Client::getGender() {
 void Client::requestReservation(std::string bookName) {
 }
 
-string Client::getSpecialTrait() {
-
-}

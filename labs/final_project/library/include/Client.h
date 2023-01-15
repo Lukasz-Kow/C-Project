@@ -17,8 +17,6 @@ using namespace std;
 class Client {
 private:
 
-    vector<shared_ptr<Client>> clients;
-
     int id;
     string uuid;
     string name;

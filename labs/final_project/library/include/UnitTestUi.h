@@ -5,9 +5,14 @@
 #ifndef OOPPROJECT_UNITTESTUI_H
 #define OOPPROJECT_UNITTESTUI_H
 
+#include "LibraryUI.h"
 
-class UnitTestUi {
+class UnitTestUi: public LibraryUI {
+    UnitTestUi();
 
+    void displayBooks(std::shared_ptr<Book> books) override;
+    void displayClients(std::shared_ptr<Client> clients) override;
+    void displayRequests(std::shared_ptr<Request> requests) override;
 };
 
 

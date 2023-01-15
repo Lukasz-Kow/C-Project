@@ -4,10 +4,12 @@
 
 #ifndef OOPPROJECT_LIBRARY_H
 #define OOPPROJECT_LIBRARY_H
+
 #include "Client.h"
 #include "Book.h"
 #include "CLI.h"
 #include "Request.h"
+#include <memory>
 
 class Library {
 private:
@@ -16,7 +18,11 @@ private:
 
     string name;
 
-    CLI libraryCLI;
+    shared_ptr<CLI> libraryCLI;
+
+    std::vector<std::shared_ptr<Book>> books;
+    std::vector<std::shared_ptr<Client>> clients;
+    std::vector<std::shared_ptr<Request>> requests;
 
 public:
 
@@ -26,11 +32,11 @@ public:
 
     void removeBook(string uuid);
 
-    Book getBook(unsigned n);
+    std::shared_ptr<Book> getBook(unsigned n);
 
     bool checkIfBookIsReserved(int cookId);
 
-    void processRequest(Request *request);
+    void processRequest(std::shared_ptr<Request> request);
 
     void makeRequest(string bookName, string entityWhoMadeTheRequest);
 
@@ -38,17 +44,17 @@ public:
 
     bool bookExists(string bookName);
 
-    void rentBook(Book* book, string clientUuid);
+    void rentBook(std::shared_ptr<Book> book, string clientUuid);
 
     void finishReservation(int bookId);
 
-    void addClient(Client* client);
+    void addClient(std::shared_ptr<Client> client);
 
     void removeClient(string clientUuid);
 
-    Client::getClient(unsigned n);
+    std::shared_ptr<Client> getClient(unsigned n);
 
-    Request::getRequest(unsigned n);
+    std::shared_ptr<Request> getRequest(unsigned n);
 
 };
 

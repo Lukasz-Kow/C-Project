@@ -27,15 +27,12 @@ int Book::getPageNumber() {
     return pageNumber;
 }
 
-string Book::getStatus() {
-    return isAvailable;             //IDK whats wrong
+std::string Book::getStatus() {
+    return status;
 }
 
+// Needs rework to use enum
 void Book::setStatus() {
-    if(isAvailable) {
-        isAvailable = false;
-    } else
-        isAvailable = true;
 
 }
 

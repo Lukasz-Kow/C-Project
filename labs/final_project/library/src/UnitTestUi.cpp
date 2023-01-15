@@ -4,14 +4,19 @@
 
 #include "UnitTestUi.h"
 
-void UnitTestUi::displayClients() {
+
+UnitTestUi::UnitTestUi() {
 
 }
 
-void UnitTestUi::displayBooks() {
+void UnitTestUi::displayBooks(std::shared_ptr<Book> books) {
 
 }
 
-void UnitTestUi::displayRequests() {
+void UnitTestUi::displayClients(std::shared_ptr<Client> clients) {
 
+}
 
+void UnitTestUi::displayRequests(std::shared_ptr<Request> requests) {
+
+}

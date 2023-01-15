@@ -12,21 +12,17 @@
 class Book {
 private:
 
-    vector<shared_ptr<Book>> bookCollection;
-
     int id;
 
-    string title;
+    std::string title;
 
-    string author;
+    std::string author;
 
     int pageNumber;
 
-    string status;
+    std::string status;
 
-    string clientUuid;
-
-    bool isAvailable;
+    std::string clientUuid;
 
 public:
 
@@ -34,23 +30,23 @@ public:
 
     int getId();
 
-    string getClientUuid();
+    std::string getClientUuid();
 
-    string getTitle();
+    std::string getTitle();
 
-    string getAuthor();
+    std::string getAuthor();
 
     int getPageNumber();
 
-    bool getStatus();
+    std::string getStatus();
 
     void setStatus();
 
-    void setUuid(string uuid);
+    void setUuid(std::string uuid);
 
-    virtual string getUniqueTrait() = 0;
+    virtual std::string getUniqueTrait() = 0;
 
-    virtual string display() = 0;
+    virtual std::string display() = 0;
 
 };
 

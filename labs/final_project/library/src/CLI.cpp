@@ -5,16 +5,24 @@
 #include "CLI.h"
 
 
-void CLI::displayBooks(std::shared_ptr<Book> books) {
+CLI::CLI() {
 
 }
 
+void CLI::displayBooks(std::shared_ptr<Book> books) {
+    std::cout << "testtvdasifbhewgkl";
+}
+
 void CLI::displayClients(std::shared_ptr<Client> clients) {
+    std::cout << "testtvdasifbhewgkl";
 
 }
 
 void CLI::displayRequests(std::shared_ptr<Request> requests) {
+    std::cout << "testtvdasifbhewgkl";
 
 }
+
+
 
 

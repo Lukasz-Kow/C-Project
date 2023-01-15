@@ -3,34 +3,37 @@
 //
 
 #include "Request.h"
-#include "ctime"
 
-Request::Request(int id, Date date, string entityWhoMadeTheRequest, string clientUuid, string requestedBookName,
-                 string status) {
+Request::Request(int id, std::string date, std::string entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
+                 std::string status):
+                 id(id), entityWhoMadeTheRequest(entityWhoMadeTheRequest), clientUuid(clientUuid),
+                 requestedBookName(requestedBookName), status(status) {
 
+    boost::posix_time::ptime time(boost::posix_time::time_from_string(date));
+    this->date = time;
 }
 
 int Request::getId() {
     return id;
 }
 
-Date Request::getDate() {
-    return Date;
+boost::posix_time::ptime Request::getDate() {
+    return date;
 }
 
-string Request::getEntity() {
+std::string Request::getEntity() {
     return entityWhoMadeTheRequest;
 }
 
-string Request::getClientUuid() {
+std::string Request::getClientUuid() {
     return clientUuid;
 }
 
-string Request::getBookName() {
+std::string Request::getBookName() {
     return requestedBookName;
 }
 
-string Request::getStatus() {
+std::string Request::getStatus() {
     return status;
 }
 

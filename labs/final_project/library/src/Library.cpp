@@ -6,7 +6,7 @@
 
 Library::Library(int id, string name): id(id), name(name) {}
 
-void Library::addBook(Book book) &{
+void Library::addBook(Book& book) {
 
 }
 
@@ -14,12 +14,13 @@ void Library::removeBook(string uuid) {
 
 }
 
-Book Library::getBook(unsigned int n) {
-    return 0;
+std::shared_ptr<Book> Library::getBook(unsigned int n) {
+    return books[n];
 }
 
 bool Library::checkIfBookIsReserved(int bookId) {
-    return false;
+    std::shared_ptr<Book> book = getBook(bookId);
+    std::cout << book->getId();
 }
 
 void Library::processRequest(std::shared_ptr<Request> request) {
@@ -38,10 +39,25 @@ bool Library::bookExists(string bookName) {
     return false;
 }
 
-void Library::rentBook(Book *book, string clientUuid) {
+void Library::rentBook(std::shared_ptr<Book> book, string clientUuid) {
 
 }
 
 void Library::finishReservation(int bookId) {
 
 }
+
+void Library::addClient(std::shared_ptr<Client> client) {
+
+}
+
+std::shared_ptr<Client> Library::getClient(unsigned int n) {
+    return clients[n];
+}
+
+std::shared_ptr<Request> Library::getRequest(unsigned int n) {
+    return requests[n];
+}
+
+
+

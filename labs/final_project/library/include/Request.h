@@ -5,46 +5,44 @@
 #ifndef OOPPROJECT_REQUEST_H
 #define OOPPROJECT_REQUEST_H
 
-#include "Client.h"
-#include "Library.h"
+
 #include <vector>
 
 #include <chrono>
-#include <boost/date_time/date.hpp>
+#include "boost/date_time/posix_time/posix_time.hpp"
 
 class Request {
 
 private:
 
-    vector<shared_ptr<Request>> requests;
-
     int id;
 
-    boost::date_time::date date;
+    boost::posix_time::ptime date;
 
-    string entityWhoMadeTheRequest;
+    std::string entityWhoMadeTheRequest;
 
-    string clientUuid;
+    std::string clientUuid;
 
-    string requestedBookName;
+    std::string requestedBookName;
 
-    string status;
+    std::string status;
 
 public:
 
-    Request(int id, Date date, string entityWhoMadeTheRequest, string clientUuid, string requestedBookName, string status);
+    Request(int id, std::string date, std::string entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
+            std::string status);
 
     int getId();
 
-    date getDate();
+    boost::posix_time::ptime getDate();
 
-    string getEntity();
+    std::string getEntity();
 
-    string getClientUuid();
+    std::string getClientUuid();
 
-    string getBookName();
+    std::string getBookName();
 
-    string getStatus();
+    std::string getStatus();
 
     void setStatus();
 
