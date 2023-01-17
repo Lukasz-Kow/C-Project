@@ -4,7 +4,7 @@
 
 #include "StudentBook.h"
 #include "Student.h"
-
+#include "Request.h"
 BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
 
     BOOST_AUTO_TEST_CASE(BookCreation) {
@@ -31,6 +31,16 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
 
     }
 
-
+//    BOOST_AUTO_TEST_CASE(RequestCreation){
+//        Request r1(1, "01.01.2023r","Student", "IDK", "Small Prince", PROCESSING);
+//
+//        BOOST_CHECK_EQUAL(r1.getId(), 1);
+//        //BOOST_CHECK_EQUAL(r1.getDate(), "01.01.2023r");
+//        BOOST_CHECK_EQUAL(r1.getEntity(), "Student");
+//        BOOST_CHECK_EQUAL(r1.getClientUuid(), "IDK");
+//        BOOST_CHECK_EQUAL(r1.getBookName(), "Small Prince");
+//        BOOST_CHECK_EQUAL(r1.getStatus(), PROCESSING);
+//
+//    }
 
 BOOST_AUTO_TEST_SUITE_END()

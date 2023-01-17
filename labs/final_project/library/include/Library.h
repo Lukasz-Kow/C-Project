@@ -28,7 +28,7 @@ public:
 
     Library(int id, string name);
 
-    void addBook(Book& book);
+    void addBook(std::shared_ptr<Book> book);
 
     void removeBook(string uuid);
 

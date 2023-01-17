@@ -34,7 +34,7 @@ std::string Request::getBookName() {
     return requestedBookName;
 }
 
-std::string Request::getStatus() {
+Status Request::getStatus() {
     return status;
 }
 

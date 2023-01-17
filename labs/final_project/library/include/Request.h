@@ -42,7 +42,7 @@ public:
 
     std::string getBookName();
 
-    std::string getStatus();
+    Status getStatus();
 
     void setStatus();
 

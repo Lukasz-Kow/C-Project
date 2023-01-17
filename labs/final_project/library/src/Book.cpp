@@ -3,7 +3,7 @@
 //
 
 #include "../include/Book.h"
-
+#include "Request.h"
 Book::Book(int id, string title, string author, int pageNumber):
     id(id), title(title), author(author), pageNumber(pageNumber), isAvailable(true), clientUuid("") {}
 
@@ -32,7 +32,6 @@ bool Book::getStatus() {
 }
 
 void Book::setStatus() {
-
 }
 
 void Book::setUuid(string uuid) {

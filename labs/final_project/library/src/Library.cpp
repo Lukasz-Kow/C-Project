@@ -3,11 +3,13 @@
 //
 
 #include "Library.h"
+#include "Book.h"
+#include "memory"
 
 Library::Library(int id, string name): id(id), name(name) {}
 
-void Library::addBook(Book& book) {
-
+void Library::addBook(std::shared_ptr<Book> book) {
+    books.push_back(book);
 }
 
 void Library::removeBook(string uuid) {
@@ -25,6 +27,7 @@ bool Library::checkIfBookIsReserved(int bookId) {
 
 void Library::processRequest(std::shared_ptr<Request> request) {
 
+
 }
 
 void Library::makeRequest(string bookName, string entityWhoMadeTheRequest) {
@@ -32,7 +35,7 @@ void Library::makeRequest(string bookName, string entityWhoMadeTheRequest) {
 }
 
 int Library::findAvailableBookId(string bookName) {
-    return 0;
+
 }
 
 bool Library::bookExists(string bookName) {
@@ -48,7 +51,7 @@ void Library::finishReservation(int bookId) {
 }
 
 void Library::addClient(std::shared_ptr<Client> client) {
-
+    clients.push_back(client);
 }
 
 std::shared_ptr<Client> Library::getClient(unsigned int n) {
