@@ -3,11 +3,12 @@
 //
 
 #include "Request.h"
+#include "Status.h"
 
 Request::Request(int id, std::string date, std::string entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
-                 std::string status):
+                 Status status):
                  id(id), entityWhoMadeTheRequest(entityWhoMadeTheRequest), clientUuid(clientUuid),
-                 requestedBookName(requestedBookName), status(status) {
+                 requestedBookName(requestedBookName),  status(status){
 
     boost::posix_time::ptime time(boost::posix_time::time_from_string(date));
     this->date = time;

@@ -10,7 +10,7 @@ set(SOURCE_FILES
         include/Library.h src/Request.cpp include/Request.h src/LibraryUI.cpp
         include/LibraryUI.h src/CLI.cpp include/CLI.h src/UnitTestUi.cpp include/UnitTestUi.h
         src/Encyclopedia.cpp include/Encyclopedia.h src/StudentBook.cpp include/StudentBook.h src/TeacherBook.cpp
-        include/TeacherBook.h include/Genders.h)
+        include/TeacherBook.h include/Genders.h include/Status.h)
 
 add_library(Library ${SOURCE_FILES})
 
@@ -58,7 +58,7 @@ set(SOURCE_TEST_FILES
         src/Guest.cpp include/Guest.h src/Library.cpp include/Library.h src/Request.cpp include/Request.h
         src/LibraryUI.cpp include/LibraryUI.h src/CLI.cpp include/CLI.h src/UnitTestUi.cpp include/UnitTestUi.h
         src/Encyclopedia.cpp include/Encyclopedia.h src/StudentBook.cpp include/StudentBook.h src/TeacherBook.cpp
-        include/TeacherBook.h include/Genders.h include/Student.h src/Student.cpp src/Client.cpp include/Client.h)
+        include/TeacherBook.h include/Genders.h include/Student.h src/Student.cpp src/Client.cpp include/Client.h include/Status.h)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include

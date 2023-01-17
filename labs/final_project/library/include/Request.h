@@ -7,7 +7,7 @@
 
 
 #include <vector>
-
+#include "Status.h"
 #include <chrono>
 #include "boost/date_time/posix_time/posix_time.hpp"
 
@@ -25,12 +25,12 @@ private:
 
     std::string requestedBookName;
 
-    std::string status;
+    Status status;
 
 public:
 
     Request(int id, std::string date, std::string entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
-            std::string status);
+            Status status);
 
     int getId();
 
