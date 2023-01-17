@@ -4,7 +4,7 @@
 
 #include "Teacher.h"
 
-Teacher::Teacher(int id, string uuid, string name, string surname, string phoneNumber, string city, string gender,
+Teacher::Teacher(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender,
                  string specialty) : Client(id, uuid, name, surname, phoneNumber,city, gender), specialty(specialty){
 
 }

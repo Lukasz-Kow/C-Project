@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include "memory"
+#include "Genders.h"
 
 class Library;
 
@@ -23,10 +24,10 @@ private:
     string surname;
     string phoneNumber;
     string city;
-    string gender;
+    Gender gender;
     
 public:
-        Client(int id, string uuid, string name, string surname, string phoneNumber, string city, string gender);
+        Client(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender);
 
         virtual void requestReservation(std::string bookName) = 0;
 
@@ -40,7 +41,7 @@ public:
 
         string getCity();
 
-        string getGender();
+        Gender getGender();
 
         virtual string getSpecialTrait() = 0;
 

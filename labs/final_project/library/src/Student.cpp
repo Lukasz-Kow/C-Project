@@ -3,8 +3,10 @@
 //
 
 #include "Student.h"
-#include "Library.h"
-Student::Student(int id, string uuid, string name, string surname, string phoneNumber, string city, string gender,
+
+
+
+Student::Student(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender,
                  string course): Client( id, uuid, name, surname, phoneNumber, city, gender), course(course){
 
 }

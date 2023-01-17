@@ -6,13 +6,14 @@
 #define OOPPROJECT_STUDENT_H
 
 #include "Client.h"
+#include "Genders.h"
 
 class Student : public Client{
 private:
     string course;
 
 public:
-    Student(int id, string uuid, string name, string surname, string phoneNumber, string city, string gender, string course);
+    Student(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender, string course);
 
     void requestReservation(string bookName) override;
 

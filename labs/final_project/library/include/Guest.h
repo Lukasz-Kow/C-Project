@@ -6,13 +6,14 @@
 #define OOPPROJECT_GUEST_H
 
 #include "Client.h"
+#include "Genders.h"
 
 using namespace std;
 
 class Guest : public Client {
 public:
 
-    Guest(int id, string uuid, string name, string surname, string phoneNumber, string city, string gender);
+    Guest(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender);
 
     void requestReservation(string bookName) override;
 

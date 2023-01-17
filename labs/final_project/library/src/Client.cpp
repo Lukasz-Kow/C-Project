@@ -4,8 +4,10 @@
 
 #include "Client.h"
 #include "Library.h"
-Client::Client(int id, string uuid, string name, string surname, string phoneNumber, string city, string gender):
-    id(id), uuid(uuid), name(name), surname(surname), phoneNumber(phoneNumber), city(city), gender(gender) {}
+Client::Client(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender):
+    id(id), uuid(uuid), name(name), surname(surname), phoneNumber(phoneNumber), city(city), gender(gender) {
+    std::cout << "Clkeint created" << std::endl;
+}
 
 string Client::getUuid() {
     return uuid;
@@ -27,7 +29,7 @@ string Client::getCity() {
     return city;
 }
 
-string Client::getGender() {
+Gender Client::getGender() {
     return gender;
 }
 
