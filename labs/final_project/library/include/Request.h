@@ -7,9 +7,11 @@
 
 
 #include <vector>
+#include <string>
 #include "Status.h"
 #include <chrono>
-#include "boost/date_time/posix_time/posix_time.hpp"
+#include "Date.h"
+//#include "boost/date_time/posix_time/posix_time.hpp"
 
 class Request {
 
@@ -17,7 +19,9 @@ private:
 
     int id;
 
-    boost::posix_time::ptime date;
+//    boost::posix_time::ptime date;
+
+    std::string date;
 
     std::string entityWhoMadeTheRequest;
 
@@ -34,7 +38,9 @@ public:
 
     int getId();
 
-    boost::posix_time::ptime getDate();
+//    boost::posix_time::ptime getDate();
+
+    std::string getDate() const;
 
     std::string getEntity();
 
@@ -45,6 +51,7 @@ public:
     Status getStatus();
 
     void setStatus();
+
 
 };
 

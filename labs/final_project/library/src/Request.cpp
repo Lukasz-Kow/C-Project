@@ -4,21 +4,19 @@
 
 #include "Request.h"
 #include "Status.h"
+#include "Date.h"
 
 Request::Request(int id, std::string date, std::string entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
                  Status status):
                  id(id), entityWhoMadeTheRequest(entityWhoMadeTheRequest), clientUuid(clientUuid),
-                 requestedBookName(requestedBookName),  status(status){
-
-    boost::posix_time::ptime time(boost::posix_time::time_from_string(date));
-    this->date = time;
-}
+                 requestedBookName(requestedBookName),  status(status){}
 
 int Request::getId() {
     return id;
 }
 
-boost::posix_time::ptime Request::getDate() {
+std::string Request::getDate() const
+{
     return date;
 }
 
