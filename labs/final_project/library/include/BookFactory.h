@@ -20,11 +20,11 @@ public:
 
     BookFactory();
 
-    std::shared_ptr<Book> createEncyclopedia(int id, string title, string author, int pageNumber, string theme);
+    std::shared_ptr<Book> createEncyclopedia(int id, std::string title, std::string author, int pageNumber, std::string theme);
 
-    std::shared_ptr<Book> createStudentBook(int id, string title, string author, int pageNumber, string subject);
+    std::shared_ptr<Book> createStudentBook(int id, std::string title, std::string author, int pageNumber, std::string subject);
 
-    std::shared_ptr<Book> createTeacherBook(int id, string title, string author, int pageNumber, string studyField);
+    std::shared_ptr<Book> createTeacherBook(int id, std::string title, std::string author, int pageNumber, std::string studyField);
 
 };
 

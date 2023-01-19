@@ -10,9 +10,9 @@
 class UnitTestUi: public LibraryUI {
     UnitTestUi();
 
-    void displayBooks() override;
-    void displayClients() override;
-    void displayRequests() override;
+    void displayBooks();
+    void displayClients();
+    void displayRequests();
 };
 
 
