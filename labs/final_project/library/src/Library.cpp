@@ -37,7 +37,17 @@ int Library::findAvailableBookId(string bookName) {
 }
 
 bool Library::bookExists(string bookName) {
-    return false;
+    int index = -1;
+    for(int i = 0; i < books.size(); i ++)
+    {
+        if(books[i]->getTitle() == bookName)
+        {
+            index = i;
+        }
+    }
+    if (index > 0) {
+        return true;
+    }
 }
 
 void Library::rentBook(std::shared_ptr<Book> book, string clientUuid) {
