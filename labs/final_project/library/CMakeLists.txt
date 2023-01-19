@@ -10,7 +10,7 @@ set(SOURCE_FILES
         include/Library.h src/Request.cpp include/Request.h src/LibraryUI.cpp
         include/LibraryUI.h src/CLI.cpp include/CLI.h src/UnitTestUi.cpp include/UnitTestUi.h
         src/Encyclopedia.cpp include/Encyclopedia.h src/StudentBook.cpp include/StudentBook.h src/TeacherBook.cpp
-        include/TeacherBook.h include/Genders.h include/Status.h src/Date.cpp include/Date.h)
+        include/TeacherBook.h include/Genders.h include/Status.h src/Date.cpp include/Date.h src/BookFactory.cpp include/BookFactory.h)
 
 add_library(Library ${SOURCE_FILES})
 
