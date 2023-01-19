@@ -9,14 +9,14 @@ UnitTestUi::UnitTestUi() {
 
 }
 
-void UnitTestUi::displayBooks(std::shared_ptr<Book> books) {
+void UnitTestUi::displayBooks() {
 
 }
 
-void UnitTestUi::displayClients(std::shared_ptr<Client> clients) {
+void UnitTestUi::displayClients() {
 
 }
 
-void UnitTestUi::displayRequests(std::shared_ptr<Request> requests) {
+void UnitTestUi::displayRequests() {
 
 }

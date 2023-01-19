@@ -28,7 +28,7 @@ int Book::getPageNumber() {
 }
 
 bool Book::getStatus() {
-    return false;
+    return isAvailable;
 }
 
 void Book::setStatus() {

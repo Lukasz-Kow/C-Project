@@ -7,6 +7,7 @@
 #include "Request.h"
 #include "Library.h"
 #include <vector>
+#include "BookFactory.h"
 
 BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
 
@@ -18,7 +19,7 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
         BOOST_CHECK_EQUAL(s1.getAuthor(), "Antione de Saint Exupery");
         BOOST_CHECK_EQUAL(s1.getPageNumber(), 300);
         BOOST_CHECK_EQUAL(s1.getTitle(), "Small Prince");
-        BOOST_CHECK_EQUAL(s1.getStatus(), false);
+        BOOST_CHECK_EQUAL(s1.getStatus(), true);
     }
 
     BOOST_AUTO_TEST_CASE(ClientCreation) {
@@ -35,29 +36,36 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
     }
 
     BOOST_AUTO_TEST_CASE(RequestCreation){
-        Request r1(1, "2023-12-01","Student", "fnui4q3vbuwjk4wf", "Small Prince", PROCESSING);
+        Request r1(1, "2023-12-01", STUDENT, "fnui4q3vbuwjk4wf", "Small Prince", PROCESSING);
 
         BOOST_CHECK_EQUAL(r1.getId(), 1);
         BOOST_CHECK_EQUAL(r1.getStringDate(), "2023-12-01");
-        BOOST_CHECK_EQUAL(r1.getEntity(), "Student");
+        BOOST_CHECK_EQUAL(r1.getEntity(), 1);
         BOOST_CHECK_EQUAL(r1.getClientUuid(), "fnui4q3vbuwjk4wf");
         BOOST_CHECK_EQUAL(r1.getBookName(), "Small Prince");
         BOOST_CHECK_EQUAL(r1.getStatus(), PROCESSING);
 
     }
 
-//    BOOST_AUTO_TEST_CASE(AddBook){
-//        Library l1(1, "Happy");
-//        std::shared_ptr<Book> book = std::make_shared<StudentBook>("Factfullness");
-//        l1.addBook(book);
+    BOOST_AUTO_TEST_CASE(AddBookAndMakeRequest){
+        Library l1(1, "Happy");
+        Student s1(1, "444444rsr344rfw", "John", "Doe", "+45 87434212312", "Lodz", MALE, "testCourse");
+//        BookFactory b;
 
-//        BOOST_CHECK_EQUAL(r1.getId(), 1);
-//        BOOST_CHECK_EQUAL(r1.getStringDate(), "2023-12-01");
-//        BOOST_CHECK_EQUAL(r1.getEntity(), "Student");
-//        BOOST_CHECK_EQUAL(r1.getClientUuid(), "fnui4q3vbuwjk4wf");
-//        BOOST_CHECK_EQUAL(r1.getBookName(), "Small Prince");
-//        BOOST_CHECK_EQUAL();
+//        BookFactory doesn't work for some reason
+        std::shared_ptr<Book> testBook1 = std::make_shared<StudentBook>(1, "title", "author", 340, "testsubject");
+        l1.addBook(testBook1);
+        s1.requestReservation("testbook", l1);
+        std::shared_ptr<Book> testBook = l1.getBook(0);
 
-//    }
+        BOOST_CHECK_EQUAL(testBook->getId(), 1);
+        BOOST_CHECK_EQUAL(testBook->getTitle(), "title");
+        BOOST_CHECK_EQUAL(testBook->getStatus(), true);
+        BOOST_CHECK_EQUAL(testBook->getAuthor(), "author");
+        BOOST_CHECK_EQUAL(testBook->getClientUuid(), "");
+        BOOST_CHECK_EQUAL(testBook->getPageNumber(), 340);
+        BOOST_CHECK_EQUAL(testBook->getUniqueTrait(), "testsubject");
+
+    }
 
 BOOST_AUTO_TEST_SUITE_END()

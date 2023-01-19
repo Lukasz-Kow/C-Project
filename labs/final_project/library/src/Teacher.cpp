@@ -9,8 +9,8 @@ Teacher::Teacher(int id, string uuid, string name, string surname, string phoneN
 
 }
 
-void Teacher::requestReservation(string bookName) {
-    Client::requestReservation(bookName);
+void Teacher::requestReservation(string bookName, Library& library) {
+
 }
 
 string Teacher::getSpecialTrait() {

@@ -10,9 +10,9 @@
 class UnitTestUi: public LibraryUI {
     UnitTestUi();
 
-    void displayBooks(std::shared_ptr<Book> books) override;
-    void displayClients(std::shared_ptr<Client> clients) override;
-    void displayRequests(std::shared_ptr<Request> requests) override;
+    void displayBooks() override;
+    void displayClients() override;
+    void displayRequests() override;
 };
 
 

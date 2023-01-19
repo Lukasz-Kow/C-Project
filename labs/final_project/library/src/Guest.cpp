@@ -4,8 +4,8 @@
 
 #include "Guest.h"
 
-void Guest::requestReservation(string bookName) {
-    Client::requestReservation(bookName);
+void Guest::requestReservation(string bookName, Library& library) {
+
 }
 
 Guest::Guest(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender):

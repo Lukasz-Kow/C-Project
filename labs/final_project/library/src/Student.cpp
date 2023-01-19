@@ -11,8 +11,10 @@ Student::Student(int id, string uuid, string name, string surname, string phoneN
 
 }
 
-void Student::requestReservation(string bookName) {
-    Client::requestReservation(bookName);
+void Student::requestReservation(string bookName, Library& library) {
+
+    library.makeRequest(bookName, STUDENT);
+
 }
 
 string Student::getSpecialTrait() {

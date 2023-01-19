@@ -7,6 +7,7 @@
 
 #include "Client.h"
 #include "Genders.h"
+#include "Library.h"
 
 class Student : public Client{
 private:
@@ -15,7 +16,7 @@ private:
 public:
     Student(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender, string course);
 
-    void requestReservation(string bookName) override;
+    void requestReservation(string bookName, Library& library) override;
 
     string getSpecialTrait() override;
 

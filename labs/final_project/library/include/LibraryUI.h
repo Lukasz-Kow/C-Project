@@ -12,9 +12,9 @@
 
 class LibraryUI {
 public:
-    virtual void displayBooks(std::shared_ptr<Book> books) = 0;
-    virtual void displayClients(std::shared_ptr<Client> clients) = 0;
-    virtual void displayRequests(std::shared_ptr<Request> requests) = 0;
+    virtual void displayBooks() = 0;
+    virtual void displayClients() = 0;
+    virtual void displayRequests() = 0;
 };
 
 

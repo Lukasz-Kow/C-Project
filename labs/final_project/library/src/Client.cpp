@@ -33,6 +33,4 @@ Gender Client::getGender() {
     return gender;
 }
 
-void Client::requestReservation(std::string bookName) {
-}
 

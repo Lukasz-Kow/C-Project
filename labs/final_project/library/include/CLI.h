@@ -12,9 +12,9 @@ public:
 
     CLI();
 
-    void displayBooks(std::shared_ptr<Book> books);
-    void displayClients(std::shared_ptr<Client> clients);
-    void displayRequests(std::shared_ptr<Request> requests);
+    void displayBooks();
+    void displayClients();
+    void displayRequests();
 };
 
 

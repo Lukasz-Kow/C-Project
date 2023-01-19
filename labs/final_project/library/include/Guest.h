@@ -15,7 +15,7 @@ public:
 
     Guest(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender);
 
-    void requestReservation(string bookName) override;
+    void requestReservation(string bookName, Library& library) override;
 
     string getSpecialTrait() override;
 

@@ -5,21 +5,26 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include "BookFactory.h"
+#include "Client.h"
+#include "Book.h"
+#include "StudentBook.h"
+#include "Encyclopedia.h"
+#include "TeacherBook.h"
 
 using namespace std;
 
-class BookFactory : public Library {
+class BookFactory {
 private:
-
-    BookFactory(int id, const string &name);
-
 public:
 
-    static std::shared_ptr<Book> createEncyklopedia(int id, string title, string author, int pageNumber, string theme);
+    BookFactory();
 
-    static std::shared_ptr<Book> createStudentBook(int id, string title, string author, int pageNumber, string subject);
+    std::shared_ptr<Book> createEncyclopedia(int id, string title, string author, int pageNumber, string theme);
 
-    static std::shared_ptr<Book> createTeacherBook(int id, string title, string author, int pageNumber, string studyField);
+    std::shared_ptr<Book> createStudentBook(int id, string title, string author, int pageNumber, string subject);
+
+    std::shared_ptr<Book> createTeacherBook(int id, string title, string author, int pageNumber, string studyField);
 
 };
 

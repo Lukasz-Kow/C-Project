@@ -9,16 +9,16 @@ CLI::CLI() {
 
 }
 
-void CLI::displayBooks(std::shared_ptr<Book> books) {
+void CLI::displayBooks() {
     std::cout << "testtvdasifbhewgkl";
 }
 
-void CLI::displayClients(std::shared_ptr<Client> clients) {
+void CLI::displayClients() {
     std::cout << "testtvdasifbhewgkl";
 
 }
 
-void CLI::displayRequests(std::shared_ptr<Request> requests) {
+void CLI::displayRequests() {
     std::cout << "testtvdasifbhewgkl";
 
 }
