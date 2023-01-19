@@ -4,16 +4,16 @@
 
 #include "StudentBook.h"
 #include "sstream"
-StudentBook::StudentBook(int id, string title, string author, int pageNumber, string subject):
+StudentBook::StudentBook(int id, std::string title, std::string author, int pageNumber, std::string subject):
 Book(id, title, author, pageNumber), subject(subject) {
 
 }
 
-string StudentBook::getUniqueTrait() {
+std::string StudentBook::getUniqueTrait() {
     return subject;
 }
 
-string StudentBook::display() {
+std::string StudentBook::display() {
     std::stringstream StudentBookInfo;
     StudentBookInfo << "Student book ID: " << getId() << endl
                      << "Title: " << getTitle() << endl

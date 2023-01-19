@@ -14,11 +14,11 @@ private:
 
 public:
 
-    Encyclopedia(int id, string title, string author, int pageNumber, string theme);
+    Encyclopedia(int id, std::string title, std::string author, int pageNumber, std::string theme);
 
-    string getUniqueTrait() override;
+    std::string getUniqueTrait() override;
 
-    string display() override;
+    std::string display() override;
 
 };
 

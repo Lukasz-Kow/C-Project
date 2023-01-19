@@ -20,32 +20,35 @@ class Client {
 private:
 
     int id;
-    string uuid;
-    string name;
-    string surname;
-    string phoneNumber;
-    string city;
+    std::string uuid;
+    std::string name;
+    std::string surname;
+    std::string phoneNumber;
+    std::string city;
     Gender gender;
     
 public:
-        Client(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender);
+        Client(int id, std::string uuid, std::string name, std::string surname, std::string phoneNumber, string city, Gender gender);
 
         virtual void requestReservation(std::string bookName, Library& library) = 0;
 
-        string getUuid();
+        int getID();
 
-        string getName();
+        std::string getUuid();
 
-        string getSurname();
+        std::string getName();
 
-        string getPhoneNumber();
+        std::string getSurname();
 
-        string getCity();
+        std::string getPhoneNumber();
+
+        std::string getCity();
 
         Gender getGender();
 
-        virtual string getSpecialTrait() = 0;
+        virtual std::string getSpecialTrait() = 0;
 
+        virtual std::string display() = 0;
 };
 
 

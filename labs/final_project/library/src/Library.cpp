@@ -4,14 +4,20 @@
 
 #include "Library.h"
 
-Library::Library(int id, string name): id(id), name(name) {}
+Library::Library(int id, std::string name): id(id), name(name) {}
 
 void Library::addBook(std::shared_ptr<Book> book) {
     books.push_back(book);
 }
 
 void Library::removeBook(string uuid) {
-
+    for(int i=0; i<books.size();i++)
+    {
+        if(books[i]->getClientUuid() == uuid)
+        {
+            books.erase(books.begin()+i);
+        }
+    }
 }
 
 std::shared_ptr<Book> Library::getBook(unsigned int n) {

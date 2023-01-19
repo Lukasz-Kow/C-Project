@@ -6,15 +6,16 @@
 #define OOPPROJECT_CLI_H
 
 #include "LibraryUI.h"
-
+#include "memory"
+#include "vector"
 class CLI: public LibraryUI {
 public:
 
     CLI();
 
-    void displayBooks();
-    void displayClients();
-    void displayRequests();
+    void displayBooks(std::vector<std::shared_ptr<Book>> book);
+    void displayClients(std::vector<std::shared_ptr<Client>> clients);
+    void displayRequests(std::vector<std::shared_ptr<Request>> requests);
 };
 
 

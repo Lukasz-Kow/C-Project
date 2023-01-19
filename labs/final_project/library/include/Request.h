@@ -55,6 +55,7 @@ public:
 
     void setStatus();
 
+    std::string display();
 
 };
 

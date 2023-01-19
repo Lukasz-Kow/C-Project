@@ -4,33 +4,37 @@
 
 #include "Client.h"
 #include "Library.h"
-Client::Client(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender):
+Client::Client(int id, std::string uuid, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender):
     id(id), uuid(uuid), name(name), surname(surname), phoneNumber(phoneNumber), city(city), gender(gender) {
     std::cout << "Clkeint created" << std::endl;
 }
 
-string Client::getUuid() {
+std::string Client::getUuid() {
     return uuid;
 }
 
-string Client::getName() {
+std::string Client::getName() {
     return name;
 }
 
-string Client::getSurname() {
+std::string Client::getSurname() {
     return surname;
 }
 
-string Client::getPhoneNumber() {
+std::string Client::getPhoneNumber() {
     return phoneNumber;
 }
 
-string Client::getCity() {
+std::string Client::getCity() {
     return city;
 }
 
 Gender Client::getGender() {
     return gender;
+}
+
+int Client::getID() {
+    return id;
 }
 
 

@@ -10,14 +10,14 @@
 class StudentBook : public Book{
 private:
 
-    string subject;
+    std::string subject;
 
 public:
-    StudentBook(int id, string title, string author, int pageNumber, string subject);
+    StudentBook(int id, std::string title, std::string author, int pageNumber, std::string subject);
 
-    string getUniqueTrait() override;
+    std::string getUniqueTrait() override;
 
-    string display() override;
+    std::string display() override;
 
 };
 

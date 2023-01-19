@@ -10,15 +10,17 @@
 class Teacher : public Client{
 private:
 
-    string specialty;
+    std::string specialty;
 
 public:
 
-    Teacher(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender, string specialty);
+    Teacher(int id, std::string uuid, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender, std::string specialty);
 
-    void requestReservation(string bookName, Library& library) override;
+    void requestReservation(std::string bookName, Library& library) override;
 
-    string getSpecialTrait() override;
+    std::string getSpecialTrait() override;
+
+    std::string display() override;
 };
 
 

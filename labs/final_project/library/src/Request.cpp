@@ -5,7 +5,9 @@
 #include "Request.h"
 #include "Status.h"
 #include "Date.h"
+#include "sstream"
 
+using namespace std;
 Request::Request(int id, std::string date, ClientTypes entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
                  Status status):
                  id(id), stringDate(date), entityWhoMadeTheRequest(entityWhoMadeTheRequest), clientUuid(clientUuid),
@@ -48,3 +50,14 @@ Status Request::getStatus() {
 void Request::setStatus() {
 
 }
+
+std::string Request::display() {
+    std::stringstream RequestInfo;
+    RequestInfo << "Request ID: " << getId() << endl
+                << "Request date: " << getStringDate() << endl
+                << "Entity who made the request: " << getEntity() << endl
+                << "Client's UUID: " << getClientUuid() << endl
+                << "Requested book title:" << getBookName() << endl
+                << "Request status: " << getStatus() << endl;
+}
+
