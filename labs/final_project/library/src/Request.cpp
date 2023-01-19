@@ -6,7 +6,7 @@
 #include "Status.h"
 #include "Date.h"
 
-Request::Request(int id, std::string date, std::string entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
+Request::Request(int id, std::string date, ClientTypes entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
                  Status status):
                  id(id), stringDate(date), entityWhoMadeTheRequest(entityWhoMadeTheRequest), clientUuid(clientUuid),
                  requestedBookName(requestedBookName),  status(status){}
@@ -29,7 +29,7 @@ void Request::setStringDate(const std::string& date)
 //    return date;
 //}
 
-std::string Request::getEntity() {
+ClientTypes Request::getEntity() {
     return entityWhoMadeTheRequest;
 }
 

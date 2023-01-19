@@ -11,6 +11,7 @@
 #include "Status.h"
 #include <chrono>
 #include "Date.h"
+#include "ClientTypes.h"
 //#include "boost/date_time/posix_time/posix_time.hpp"
 
 class Request {
@@ -23,7 +24,7 @@ private:
 
     std::string stringDate;
 
-    std::string entityWhoMadeTheRequest;
+    ClientTypes entityWhoMadeTheRequest;
 
     std::string clientUuid;
 
@@ -33,7 +34,7 @@ private:
 
 public:
 
-    Request(int id, std::string date, std::string entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
+    Request(int id, std::string date, ClientTypes entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
             Status status);
 
     int getId();
@@ -44,7 +45,7 @@ public:
 
     std::string getDate() const;
 
-    std::string getEntity();
+    ClientTypes getEntity();
 
     std::string getClientUuid();
 

@@ -10,6 +10,7 @@
 #include "CLI.h"
 #include "Request.h"
 #include <memory>
+#include "ClientTypes.h"
 
 class Library {
 private:
@@ -38,7 +39,7 @@ public:
 
     void processRequest(std::shared_ptr<Request> request);
 
-    void makeRequest(string bookName, string entityWhoMadeTheRequest);
+    void makeRequest(std::string bookName, ClientTypes entityWhoMadeTheRequest);
 
     int findAvailableBookId(std::string bookName);
 

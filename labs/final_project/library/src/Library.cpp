@@ -3,8 +3,6 @@
 //
 
 #include "Library.h"
-#include "Book.h"
-#include "memory"
 
 Library::Library(int id, string name): id(id), name(name) {}
 
@@ -30,8 +28,8 @@ void Library::processRequest(std::shared_ptr<Request> request) {
 
 }
 
-void Library::makeRequest(string bookName, string entityWhoMadeTheRequest) {
-
+void Library::makeRequest(string bookName, ClientTypes entityWhoMadeTheRequest) {
+    std::cout<<"bookname: " << bookName << " entitynum: " << entityWhoMadeTheRequest;
 }
 
 int Library::findAvailableBookId(string bookName) {

@@ -10,6 +10,7 @@
 #include <vector>
 #include "memory"
 #include "Genders.h"
+//#include "Library.h"
 
 class Library;
 
@@ -29,7 +30,7 @@ private:
 public:
         Client(int id, string uuid, string name, string surname, string phoneNumber, string city, Gender gender);
 
-        virtual void requestReservation(std::string bookName) = 0;
+        virtual void requestReservation(std::string bookName, Library& library) = 0;
 
         string getUuid();
 
