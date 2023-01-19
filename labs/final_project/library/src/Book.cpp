@@ -4,22 +4,22 @@
 
 #include "../include/Book.h"
 #include "Request.h"
-Book::Book(int id, string title, string author, int pageNumber):
+Book::Book(int id, std::string title, std::string author, int pageNumber):
     id(id), title(title), author(author), pageNumber(pageNumber), isAvailable(true), clientUuid("") {}
 
 int Book::getId() {
     return id;
 }
 
-string Book::getClientUuid() {
+std::string Book::getClientUuid() {
     return clientUuid;
 }
 
-string Book::getTitle() {
+std::string Book::getTitle() {
     return title;
 }
 
-string Book::getAuthor() {
+std::string Book::getAuthor() {
     return author;
 }
 
@@ -34,7 +34,7 @@ bool Book::getStatus() {
 void Book::setStatus() {
 }
 
-void Book::setUuid(string uuid) {
+void Book::setUuid(std::string uuid) {
     this->clientUuid = uuid;
 }
 

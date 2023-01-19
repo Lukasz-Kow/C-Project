@@ -26,7 +26,7 @@ private:
 
 public:
 
-    Book(int id, string title, string author, int pageNumber);
+    Book(int id, std::string title, std::string author, int pageNumber);
 
     int getId();
 

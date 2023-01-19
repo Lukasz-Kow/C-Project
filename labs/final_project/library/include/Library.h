@@ -16,9 +16,9 @@ private:
 
     int id;
 
-    string name;
+    std::string name;
 
-    shared_ptr<CLI> libraryCLI;
+//    shared_ptr<CLI> libraryCLI;
 
     std::vector<std::shared_ptr<Book>> books;
     std::vector<std::shared_ptr<Client>> clients;
@@ -26,11 +26,11 @@ private:
 
 public:
 
-    Library(int id, string name);
+    Library(int id, std::string name);
 
     void addBook(std::shared_ptr<Book> book);
 
-    void removeBook(string uuid);
+    void removeBook(std::string uuid);
 
     std::shared_ptr<Book> getBook(unsigned n);
 
@@ -40,17 +40,17 @@ public:
 
     void makeRequest(string bookName, string entityWhoMadeTheRequest);
 
-    int findAvailableBookId(string bookName);
+    int findAvailableBookId(std::string bookName);
 
-    bool bookExists(string bookName);
+    bool bookExists(std::string bookName);
 
-    void rentBook(std::shared_ptr<Book> book, string clientUuid);
+    void rentBook(std::shared_ptr<Book> book, std::string clientUuid);
 
     void finishReservation(int bookId);
 
     void addClient(std::shared_ptr<Client> client);
 
-    void removeClient(string clientUuid);
+    void removeClient(std::string clientUuid);
 
     std::shared_ptr<Client> getClient(unsigned n);
 
