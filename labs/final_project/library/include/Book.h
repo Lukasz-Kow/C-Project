@@ -40,7 +40,7 @@ public:
 
     bool getStatus();
 
-    void setStatus();
+    void setStatus(bool newStatus);
 
     void setUuid(std::string uuid);
 

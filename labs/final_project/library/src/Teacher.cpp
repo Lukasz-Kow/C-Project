@@ -4,13 +4,15 @@
 
 #include "Teacher.h"
 #include "sstream"
+
+
 Teacher::Teacher(int id, std::string uuid, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender,
                  std::string specialty) : Client(id, uuid, name, surname, phoneNumber,city, gender), specialty(specialty){
 
 }
 
 void Teacher::requestReservation(std::string bookName, Library& library) {
-
+    library.makeRequest(bookName, TEACHER, getUuid());
 }
 
 std::string Teacher::getSpecialTrait() {

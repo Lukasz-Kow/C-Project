@@ -53,7 +53,7 @@ public:
 
     Status getStatus();
 
-    void setStatus();
+    void setStatus(Status status);
 
     std::string display();
 

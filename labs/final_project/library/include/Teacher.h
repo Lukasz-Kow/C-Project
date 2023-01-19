@@ -6,6 +6,7 @@
 #define OOPPROJECT_TEACHER_H
 #include "Client.h"
 #include "Genders.h"
+#include "Library.h"
 
 class Teacher : public Client{
 private:

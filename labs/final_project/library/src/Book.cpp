@@ -31,7 +31,8 @@ bool Book::getStatus() {
     return isAvailable;
 }
 
-void Book::setStatus() {
+void Book::setStatus(bool newStatus) {
+    isAvailable = newStatus;
 }
 
 void Book::setUuid(std::string uuid) {

@@ -24,22 +24,53 @@ std::shared_ptr<Book> Library::getBook(unsigned int n) {
     return books[n];
 }
 
-bool Library::checkIfBookIsReserved(int bookId) {
-    std::shared_ptr<Book> book = getBook(bookId);
-    std::cout << book->getId();
-}
-
 void Library::processRequest(std::shared_ptr<Request> request) {
 
+    if(bookExists(request->getBookName())) {
+        int bookIndex = findAvailableBookIndex(request->getBookName());
+        if (bookIndex >= 0) {
+            rentBook(bookIndex, request->getClientUuid());
+            request->setStatus(FULFILLED);
 
+            request->setStatus(REJECTED);
+            std::cerr << "Failed to rent this book" << std::endl;
+        } else {
+            request->setStatus(REJECTED);
+        }
+    } else {
+        request->setStatus(REJECTED);
+    }
+
+    addRequest(request);
 }
 
-void Library::makeRequest(string bookName, ClientTypes entityWhoMadeTheRequest) {
-    std::cout<<"bookname: " << bookName << " entitynum: " << entityWhoMadeTheRequest;
+void Library::makeRequest(string bookName, ClientTypes entityWhoMadeTheRequest, std::string uuid) {
+    std::shared_ptr<Request> clientRequest = std::make_shared<Request>(getRequestNumber() + 1, "2023-12-01",
+                                                                       entityWhoMadeTheRequest, uuid, bookName, PROCESSING);
+    processRequest(clientRequest);
 }
 
-int Library::findAvailableBookId(string bookName) {
+int Library::getRequestNumber() {
+    return requests.size();
+}
 
+void Library::addRequest(std::shared_ptr<Request> request) {
+    requests.push_back(request);
+}
+
+int Library::findAvailableBookIndex(string bookName) {
+    for(int i = 0; i < books.size(); i++) {
+        if(books[i]->getTitle() == bookName) {
+            if(books[i]->getStatus()){
+                // Book is available
+                return i;
+            }
+            else {
+                continue;
+            }
+        }
+    }
+    return -1;
 }
 
 bool Library::bookExists(string bookName) {
@@ -54,10 +85,12 @@ bool Library::bookExists(string bookName) {
     if (index > 0) {
         return true;
     }
+    return false;
 }
 
-void Library::rentBook(std::shared_ptr<Book> book, string clientUuid) {
-
+void Library::rentBook(int bookIndex, string clientUuid) {
+    books[bookIndex]->setStatus(false);
+    books[bookIndex]->setUuid(clientUuid);
 }
 
 void Library::finishReservation(int bookId) {

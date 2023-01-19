@@ -35,23 +35,25 @@ public:
 
     std::shared_ptr<Book> getBook(unsigned n);
 
-    bool checkIfBookIsReserved(int cookId);
-
     void processRequest(std::shared_ptr<Request> request);
 
-    void makeRequest(std::string bookName, ClientTypes entityWhoMadeTheRequest);
+    void makeRequest(std::string bookName, ClientTypes entityWhoMadeTheRequest, std::string uuid);
 
-    int findAvailableBookId(std::string bookName);
+    int findAvailableBookIndex(std::string bookName);
 
     bool bookExists(std::string bookName);
 
-    void rentBook(std::shared_ptr<Book> book, std::string clientUuid);
+    void rentBook(int bookIndex, std::string clientUuid);
 
     void finishReservation(int bookId);
 
     void addClient(std::shared_ptr<Client> client);
 
+    void addRequest(std::shared_ptr<Request> request);
+
     void removeClient(std::string clientUuid);
+
+    int getRequestNumber();
 
     std::shared_ptr<Client> getClient(unsigned n);
 

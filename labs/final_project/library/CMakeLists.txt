@@ -48,8 +48,9 @@ else()
     find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 endif()
+#find_package(Boost COMPONENTS uuid REQUIRED)
+#target_link_libraries(Library uuid)
 
-find_package(Boost COMPONENTS date_time REQUIRED)
 set(SOURCE_TEST_FILES
         test/master.cpp
         test/BookTest.cpp

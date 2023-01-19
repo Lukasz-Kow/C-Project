@@ -7,6 +7,7 @@
 
 #include "Client.h"
 #include "Genders.h"
+#include "Library.h"
 
 using namespace std;
 

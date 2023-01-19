@@ -47,8 +47,8 @@ Status Request::getStatus() {
     return status;
 }
 
-void Request::setStatus() {
-
+void Request::setStatus(Status status) {
+    this->status = status;
 }
 
 std::string Request::display() {

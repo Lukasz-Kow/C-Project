@@ -12,8 +12,8 @@ Student::Student(int id, std::string uuid, std::string name, std::string surname
 }
 
 void Student::requestReservation(std::string bookName, Library& library) {
-
-    library.makeRequest(bookName, STUDENT);
+    // Making a request to the library which will be processed
+    library.makeRequest(bookName, STUDENT, getUuid());
 
 }
 
