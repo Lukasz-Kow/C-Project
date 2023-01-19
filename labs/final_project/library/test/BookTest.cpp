@@ -5,6 +5,9 @@
 #include "StudentBook.h"
 #include "Student.h"
 #include "Request.h"
+#include "Library.h"
+#include <vector>
+
 BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
 
     BOOST_AUTO_TEST_CASE(BookCreation) {
@@ -31,16 +34,30 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
 
     }
 
-//    BOOST_AUTO_TEST_CASE(RequestCreation){
-//        Request r1(1, "01.01.2023r","Student", "IDK", "Small Prince", PROCESSING);
-//
+    BOOST_AUTO_TEST_CASE(RequestCreation){
+        Request r1(1, "2023-12-01","Student", "fnui4q3vbuwjk4wf", "Small Prince", PROCESSING);
+
+        BOOST_CHECK_EQUAL(r1.getId(), 1);
+        BOOST_CHECK_EQUAL(r1.getStringDate(), "2023-12-01");
+        BOOST_CHECK_EQUAL(r1.getEntity(), "Student");
+        BOOST_CHECK_EQUAL(r1.getClientUuid(), "fnui4q3vbuwjk4wf");
+        BOOST_CHECK_EQUAL(r1.getBookName(), "Small Prince");
+        BOOST_CHECK_EQUAL(r1.getStatus(), PROCESSING);
+
+    }
+
+//    BOOST_AUTO_TEST_CASE(AddBook){
+//        Library l1(1, "Happy");
+//        std::shared_ptr<Book> book = std::make_shared<StudentBook>("Factfullness");
+//        l1.addBook(book);
+
 //        BOOST_CHECK_EQUAL(r1.getId(), 1);
-//        //BOOST_CHECK_EQUAL(r1.getDate(), "01.01.2023r");
+//        BOOST_CHECK_EQUAL(r1.getStringDate(), "2023-12-01");
 //        BOOST_CHECK_EQUAL(r1.getEntity(), "Student");
-//        BOOST_CHECK_EQUAL(r1.getClientUuid(), "IDK");
+//        BOOST_CHECK_EQUAL(r1.getClientUuid(), "fnui4q3vbuwjk4wf");
 //        BOOST_CHECK_EQUAL(r1.getBookName(), "Small Prince");
-//        BOOST_CHECK_EQUAL(r1.getStatus(), PROCESSING);
-//
+//        BOOST_CHECK_EQUAL();
+
 //    }
 
 BOOST_AUTO_TEST_SUITE_END()

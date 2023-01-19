@@ -8,17 +8,26 @@
 
 Request::Request(int id, std::string date, std::string entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
                  Status status):
-                 id(id), entityWhoMadeTheRequest(entityWhoMadeTheRequest), clientUuid(clientUuid),
+                 id(id), stringDate(date), entityWhoMadeTheRequest(entityWhoMadeTheRequest), clientUuid(clientUuid),
                  requestedBookName(requestedBookName),  status(status){}
 
 int Request::getId() {
     return id;
 }
 
-std::string Request::getDate() const
-{
-    return date;
+std::string Request::getStringDate() const {
+    return stringDate;
 }
+
+void Request::setStringDate(const std::string& date)
+{
+    stringDate = date;
+}
+
+//std::string Request::getDate() const
+//{
+//    return date;
+//}
 
 std::string Request::getEntity() {
     return entityWhoMadeTheRequest;

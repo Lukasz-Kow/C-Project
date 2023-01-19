@@ -2,6 +2,9 @@
 #define OOPPROJECT_BOOKFACTORY_H
 
 #include "Library.h"
+#include <memory>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -12,11 +15,11 @@ private:
 
 public:
 
-    std::shared_ptr<Book> createEncyklopedia(int id, string title, string author, int pageNumber, string theme);
+    static std::shared_ptr<Book> createEncyklopedia(int id, string title, string author, int pageNumber, string theme);
 
-    std::shared_ptr<Book> createStudentBook(int id, string title, string author, int pageNumber, string subject);
+    static std::shared_ptr<Book> createStudentBook(int id, string title, string author, int pageNumber, string subject);
 
-    std::shared_ptr<Book> createTeacherBook(int id, string title, string author, int pageNumber, string studyField);
+    static std::shared_ptr<Book> createTeacherBook(int id, string title, string author, int pageNumber, string studyField);
 
 };
 

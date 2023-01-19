@@ -21,7 +21,7 @@ private:
 
 //    boost::posix_time::ptime date;
 
-    std::string date;
+    std::string stringDate;
 
     std::string entityWhoMadeTheRequest;
 
@@ -38,7 +38,9 @@ public:
 
     int getId();
 
-//    boost::posix_time::ptime getDate();
+    std::string getStringDate() const;
+
+    void setStringDate(const std::string& date);
 
     std::string getDate() const;
 
