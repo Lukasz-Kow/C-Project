@@ -65,8 +65,8 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
         BOOST_CHECK_EQUAL(testBook->getTitle(), "title");
         BOOST_CHECK_EQUAL(testBook->getStatus(), true);
         BOOST_CHECK_EQUAL(testBook->getAuthor(), "author");
-//        BOOST_CHECK_EQUAL(testBook->getClientUuid(), "444444rsr344rfw");
-//        BOOST_CHECK_EQUAL(testBook->getPageNumber(), 340);
+        BOOST_CHECK_EQUAL(testBook->getClientUuid(), "444444rsr344rfw");
+        BOOST_CHECK_EQUAL(testBook->getPageNumber(), 340);
         BOOST_CHECK_EQUAL(testBook->getUniqueTrait(), "testsubject");
 
     }
@@ -161,9 +161,10 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
 
         std::shared_ptr<Book> testBook1 = b.createTeacherBook( 1, "title", "author", 340, "Analysis");
         l1.addBook(testBook1);
-        s1.requestReservation("Analysis", l1);
+        s1.requestReservation("title", l1);
         std::shared_ptr<Book> testBook = l1.getBook(0);
 
+        // Test fails because currently there is no validation for entity who made the request
         BOOST_CHECK_EQUAL(testBook1->getStatus(), true);
 
     }
