@@ -12,6 +12,10 @@
 #include "Genders.h"
 //#include "Library.h"
 
+#include <boost/uuid/uuid.hpp>            // uuid class
+#include <boost/uuid/uuid_generators.hpp> // generators
+#include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
+
 class Library;
 
 using namespace std;
@@ -20,6 +24,7 @@ class Client {
 private:
 
     int id;
+    boost::uuids::uuid uuidv4;
     std::string uuid;
     std::string name;
     std::string surname;

@@ -48,8 +48,8 @@ else()
     find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 endif()
-#find_package(Boost COMPONENTS uuid REQUIRED)
-#target_link_libraries(Library uuid)
+find_package(Boost REQUIRED)
+target_include_directories(Library PUBLIC ${Boost_INCLUDE_DIRS})
 
 set(SOURCE_TEST_FILES
         test/master.cpp

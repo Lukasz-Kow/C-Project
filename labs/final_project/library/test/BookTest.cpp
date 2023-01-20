@@ -13,6 +13,10 @@
 #include <vector>
 #include "BookFactory.h"
 
+#include <boost/uuid/uuid.hpp>            // uuid class
+#include <boost/uuid/uuid_generators.hpp> // generators
+#include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
+
 BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
 
     BOOST_AUTO_TEST_CASE(BookCreation) {
