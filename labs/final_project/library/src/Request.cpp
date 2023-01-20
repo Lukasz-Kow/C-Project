@@ -8,7 +8,7 @@
 #include "sstream"
 
 using namespace std;
-Request::Request(int id, std::string date, ClientTypes entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
+Request::Request(int id, std::string date, ClientTypes entityWhoMadeTheRequest, boost::uuids::uuid clientUuid, std::string requestedBookName,
                  Status status):
                  id(id), stringDate(date), entityWhoMadeTheRequest(entityWhoMadeTheRequest), clientUuid(clientUuid),
                  requestedBookName(requestedBookName),  status(status){}
@@ -35,7 +35,7 @@ ClientTypes Request::getEntity() {
     return entityWhoMadeTheRequest;
 }
 
-std::string Request::getClientUuid() {
+boost::uuids::uuid Request::getClientUuid() {
     return clientUuid;
 }
 

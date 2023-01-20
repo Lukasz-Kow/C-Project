@@ -7,7 +7,7 @@
 
 
 Student::Student(int id, std::string uuid, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender,
-                 std::string course): Client( id, uuid, name, surname, phoneNumber, city, gender), course(course){
+                 std::string course): Client( id, name, surname, phoneNumber, city, gender), course(course){
 
 }
 

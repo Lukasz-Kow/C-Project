@@ -5,7 +5,9 @@
 #ifndef OOPPROJECT_REQUEST_H
 #define OOPPROJECT_REQUEST_H
 
-
+#include <boost/uuid/uuid.hpp>            // uuid class
+#include <boost/uuid/uuid_generators.hpp> // generators
+#include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
 #include <vector>
 #include <string>
 #include "Status.h"
@@ -26,7 +28,7 @@ private:
 
     ClientTypes entityWhoMadeTheRequest;
 
-    std::string clientUuid;
+    boost::uuids::uuid clientUuid;
 
     std::string requestedBookName;
 
@@ -34,7 +36,7 @@ private:
 
 public:
 
-    Request(int id, std::string date, ClientTypes entityWhoMadeTheRequest, std::string clientUuid, std::string requestedBookName,
+    Request(int id, std::string date, ClientTypes entityWhoMadeTheRequest, boost::uuids::uuid clientUuid, std::string requestedBookName,
             Status status);
 
     int getId();
@@ -47,7 +49,7 @@ public:
 
     ClientTypes getEntity();
 
-    std::string getClientUuid();
+    boost::uuids::uuid getClientUuid();
 
     std::string getBookName();
 

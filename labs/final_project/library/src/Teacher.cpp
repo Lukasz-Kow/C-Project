@@ -7,7 +7,7 @@
 
 
 Teacher::Teacher(int id, std::string uuid, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender,
-                 std::string specialty) : Client(id, uuid, name, surname, phoneNumber,city, gender), specialty(specialty){
+                 std::string specialty) : Client(id, name, surname, phoneNumber,city, gender), specialty(specialty){
 
 }
 

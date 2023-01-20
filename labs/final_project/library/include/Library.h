@@ -31,19 +31,19 @@ public:
 
     void addBook(std::shared_ptr<Book> book);
 
-    void removeBook(std::string uuid);
+    void removeBook(boost::uuids::uuid uuid);
 
     std::shared_ptr<Book> getBook(unsigned n);
 
     void processRequest(std::shared_ptr<Request> request);
 
-    void makeRequest(std::string bookName, ClientTypes entityWhoMadeTheRequest, std::string uuid);
+    void makeRequest(std::string bookName, ClientTypes entityWhoMadeTheRequest, boost::uuids::uuid uuid);
 
     int findAvailableBookIndex(std::string bookName);
 
     bool bookExists(std::string bookName);
 
-    void rentBook(int bookIndex, std::string clientUuid);
+    void rentBook(int bookIndex, boost::uuids::uuid clientUuid);
 
     void finishReservation(int bookId);
 
@@ -51,7 +51,7 @@ public:
 
     void addRequest(std::shared_ptr<Request> request);
 
-    void removeClient(std::string clientUuid);
+    void removeClient(boost::uuids::uuid clientUuid);
 
     int getRequestNumber();
 

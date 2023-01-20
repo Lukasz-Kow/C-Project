@@ -24,8 +24,8 @@ class Client {
 private:
 
     int id;
-    boost::uuids::uuid uuidv4;
-    std::string uuid;
+    boost::uuids::uuid clientUuid;
+
     std::string name;
     std::string surname;
     std::string phoneNumber;
@@ -33,13 +33,13 @@ private:
     Gender gender;
     
 public:
-        Client(int id, std::string uuid, std::string name, std::string surname, std::string phoneNumber, string city, Gender gender);
+        Client(int id, std::string name, std::string surname, std::string phoneNumber, string city, Gender gender);
 
         virtual void requestReservation(std::string bookName, Library& library) = 0;
 
         int getID();
 
-        std::string getUuid();
+        boost::uuids::uuid getUuid();
 
         std::string getName();
 

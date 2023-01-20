@@ -9,7 +9,7 @@ void Guest::requestReservation(std::string bookName, Library& library) {
 }
 
 Guest::Guest(int id, std::string uuid, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender):
-    Client(id, uuid, name, surname, phoneNumber, city, gender) {}
+    Client(id, name, surname, phoneNumber, city, gender) {}
 
 std::string Guest::getSpecialTrait() {
     return 0;

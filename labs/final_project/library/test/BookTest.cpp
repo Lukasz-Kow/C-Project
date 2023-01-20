@@ -30,6 +30,15 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
         BOOST_CHECK_EQUAL(s1.getStatus(), true);
     }
 
+//    BOOST_AUTO_TEST_CASE(DeletingBook) {
+//        StudentBook s1(1, "Small Prince", "Antione de Saint Exupery", 300, "fantasy");
+//        Encyclopedia e1(1,"AAAA", "BBBB", 400, "CCC" );
+//
+//        Library l1;
+//
+//        BOOST_CHECK_EQUAL();
+//    }
+
     BOOST_AUTO_TEST_CASE(ClientCreation) {
         Student s1(1, "fnui4q3vbuwjk4wf", "Andrzej", "Nazwisko", "+48 092919332", "Lodz", MALE, "IT");
 

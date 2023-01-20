@@ -10,7 +10,7 @@ void Library::addBook(std::shared_ptr<Book> book) {
     books.push_back(book);
 }
 
-void Library::removeBook(string uuid) {
+void Library::removeBook(boost::uuids::uuid uuid) {
     for(int i=0; i<books.size();i++)
     {
         if(books[i]->getClientUuid() == uuid)
@@ -44,7 +44,7 @@ void Library::processRequest(std::shared_ptr<Request> request) {
     addRequest(request);
 }
 
-void Library::makeRequest(string bookName, ClientTypes entityWhoMadeTheRequest, std::string uuid) {
+void Library::makeRequest(string bookName, ClientTypes entityWhoMadeTheRequest, boost::uuids::uuid uuid) {
     std::shared_ptr<Request> clientRequest = std::make_shared<Request>(getRequestNumber() + 1, "2023-12-01",
                                                                        entityWhoMadeTheRequest, uuid, bookName, PROCESSING);
     processRequest(clientRequest);
@@ -88,7 +88,7 @@ bool Library::bookExists(string bookName) {
     return false;
 }
 
-void Library::rentBook(int bookIndex, string clientUuid) {
+void Library::rentBook(int bookIndex, boost::uuids::uuid clientUuid) {
     books[bookIndex]->setStatus(false);
     books[bookIndex]->setUuid(clientUuid);
 }

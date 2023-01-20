@@ -9,10 +9,15 @@
 #include <vector>
 #include "string"
 
+#include <boost/uuid/uuid.hpp>            // uuid class
+#include <boost/uuid/uuid_generators.hpp> // generators
+#include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
 class Book {
 private:
 
     int id;
+
+    boost::uuids::uuid bookUuid;
 
     std::string title;
 
@@ -22,7 +27,7 @@ private:
 
     bool isAvailable;
 
-    std::string clientUuid;
+    boost::uuids::uuid clientUuid;
 
 public:
 
@@ -30,7 +35,7 @@ public:
 
     int getId();
 
-    std::string getClientUuid();
+    boost::uuids::uuid getClientUuid();
 
     std::string getTitle();
 
@@ -42,7 +47,7 @@ public:
 
     void setStatus(bool newStatus);
 
-    void setUuid(std::string uuid);
+    void setUuid(boost::uuids::uuid uuid);
 
     virtual std::string getUniqueTrait() = 0;
 
