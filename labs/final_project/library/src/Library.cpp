@@ -82,7 +82,7 @@ bool Library::bookExists(string bookName) {
             index = i;
         }
     }
-    if (index > 0) {
+    if (index >= 0) {
         return true;
     }
     return false;
