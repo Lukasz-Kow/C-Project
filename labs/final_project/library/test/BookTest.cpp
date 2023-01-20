@@ -58,12 +58,12 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
 
         std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "title", "author", 340, "testsubject");
         l1.addBook(testBook1);
-        s1.requestReservation("testbook", l1);
+        s1.requestReservation("title", l1);
         std::shared_ptr<Book> testBook = l1.getBook(0);
 
         BOOST_CHECK_EQUAL(testBook->getId(), 1);
         BOOST_CHECK_EQUAL(testBook->getTitle(), "title");
-        BOOST_CHECK_EQUAL(testBook->getStatus(), true);
+        BOOST_CHECK_EQUAL(testBook->getStatus(), false);
         BOOST_CHECK_EQUAL(testBook->getAuthor(), "author");
         BOOST_CHECK_EQUAL(testBook->getClientUuid(), "444444rsr344rfw");
         BOOST_CHECK_EQUAL(testBook->getPageNumber(), 340);
