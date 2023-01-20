@@ -5,7 +5,7 @@
 #include "StudentBook.h"
 #include "sstream"
 StudentBook::StudentBook(int id, std::string title, std::string author, int pageNumber, std::string subject):
-Book(id, title, author, pageNumber), subject(subject) {
+Book(id, title, author, pageNumber, STUDENTBOOK), subject(subject) {
 
 }
 

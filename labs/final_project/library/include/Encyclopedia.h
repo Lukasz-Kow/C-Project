@@ -6,6 +6,7 @@
 #define OOPPROJECT_ENCYCLOPEDIA_H
 
 #include "Book.h"
+#include "BookTypes.h"
 
 class Encyclopedia : public Book {
 private:

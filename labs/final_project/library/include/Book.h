@@ -6,6 +6,7 @@
 #define OOPPROJECT_BOOK_H
 
 #include "Client.h"
+#include "BookTypes.h"
 #include <vector>
 #include "string"
 
@@ -29,9 +30,11 @@ private:
 
     boost::uuids::uuid clientUuid;
 
+    BookTypes bookType;
+
 public:
 
-    Book(int id, std::string title, std::string author, int pageNumber);
+    Book(int id, std::string title, std::string author, int pageNumber, BookTypes bookTypes);
 
     int getId();
 
@@ -48,6 +51,8 @@ public:
     void setStatus(bool newStatus);
 
     void setUuid(boost::uuids::uuid uuid);
+
+    BookTypes getBookTypes();
 
     virtual std::string getUniqueTrait() = 0;
 

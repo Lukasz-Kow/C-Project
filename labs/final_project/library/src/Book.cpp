@@ -4,8 +4,9 @@
 
 #include "../include/Book.h"
 #include "Request.h"
-Book::Book(int id, std::string title, std::string author, int pageNumber):
-    id(id), title(title), author(author), pageNumber(pageNumber), isAvailable(true), bookUuid(boost::uuids::random_generator()()) {}
+
+Book::Book(int id, std::string title, std::string author, int pageNumber, BookTypes bookType):
+    id(id), title(title), author(author), pageNumber(pageNumber), bookType(bookType), isAvailable(true), bookUuid(boost::uuids::random_generator()()) {}
 
 int Book::getId() {
     return id;
@@ -38,6 +39,12 @@ void Book::setStatus(bool newStatus) {
 void Book::setUuid(boost::uuids::uuid uuid) {
     this->clientUuid = uuid;
 }
+
+BookTypes Book::getBookTypes() {
+    return bookType;
+}
+
+
 
 
 

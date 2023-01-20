@@ -5,7 +5,7 @@
 #include "Encyclopedia.h"
 #include "sstream"
 Encyclopedia::Encyclopedia(int id, std::string title, std::string author, int pageNumber, std::string theme):
-    Book(id, title, author, pageNumber), theme(theme) {}
+    Book(id, title, author, pageNumber, ENCYCLOPEDIA), theme(theme){}
 
 std::string Encyclopedia::getUniqueTrait() {
     return theme;

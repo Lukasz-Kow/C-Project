@@ -29,8 +29,22 @@ void Library::processRequest(std::shared_ptr<Request> request) {
     if(bookExists(request->getBookName())) {
         int bookIndex = findAvailableBookIndex(request->getBookName());
         if (bookIndex >= 0) {
-            rentBook(bookIndex, request->getClientUuid());
-            request->setStatus(FULFILLED);
+            if (request->getEntity() == TEACHER && books[bookIndex]->getBookTypes() == TEACHERBOOK ||
+                    books[bookIndex]->getBookTypes() == STUDENTBOOK ||
+                    books[bookIndex]->getBookTypes() == ENCYCLOPEDIA)
+            {
+                rentBook(bookIndex, request->getClientUuid());
+                request->setStatus(FULFILLED);
+            }
+            else if (request->getEntity() == STUDENT && books[bookIndex]->getBookTypes() == STUDENTBOOK ||
+                     books[bookIndex]->getBookTypes() == ENCYCLOPEDIA) {
+                rentBook(bookIndex, request->getClientUuid());
+                request->setStatus(FULFILLED);
+            }
+            else if (request->getEntity() == GUEST && books[bookIndex]->getBookTypes() == STUDENTBOOK ||
+                     books[bookIndex]->getBookTypes() == ENCYCLOPEDIA) {
+                rentBook(bookIndex, request->getClientUuid());
+                request->setStatus(FULFILLED);
 
         } else {
             request->setStatus(REJECTED);
@@ -42,6 +56,7 @@ void Library::processRequest(std::shared_ptr<Request> request) {
     }
 
     addRequest(request);
+    }
 }
 
 void Library::makeRequest(string bookName, ClientTypes entityWhoMadeTheRequest, boost::uuids::uuid uuid) {

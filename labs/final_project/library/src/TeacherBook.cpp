@@ -5,7 +5,7 @@
 #include "TeacherBook.h"
 #include "sstream"
 TeacherBook::TeacherBook(int id, std::string title, std::string author, int pageNumber, std::string studyField):
-        Book(id, title, author, pageNumber), studyField(studyField){
+        Book(id, title, author, pageNumber, TEACHERBOOK), studyField(studyField){
 
 }
 

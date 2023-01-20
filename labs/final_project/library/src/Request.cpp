@@ -21,15 +21,10 @@ std::string Request::getStringDate() const {
     return stringDate;
 }
 
-void Request::setStringDate(const std::string& date)
-{
+void Request::setStringDate(const std::string& date) {
     stringDate = date;
 }
 
-//std::string Request::getDate() const
-//{
-//    return date;
-//}
 
 ClientTypes Request::getEntity() {
     return entityWhoMadeTheRequest;
