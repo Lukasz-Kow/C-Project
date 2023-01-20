@@ -9,7 +9,7 @@ std::shared_ptr<Book> BookFactory::createEncyclopedia(int id, std::string title,
     return e;
 }
 
-std::shared_ptr<Book> createStudentBook(int id, std::string title,
+std::shared_ptr<Book> BookFactory::createStudentBook(int id, std::string title,
                                         std::string author, int pageNumber, std::string subject){
 
     std::shared_ptr<StudentBook> s = std::make_shared<StudentBook>(id, title, author, pageNumber, subject);

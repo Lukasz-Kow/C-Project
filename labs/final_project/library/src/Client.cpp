@@ -6,7 +6,7 @@
 #include "Library.h"
 Client::Client(int id, std::string uuid, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender):
     id(id), uuid(uuid), name(name), surname(surname), phoneNumber(phoneNumber), city(city), gender(gender) {
-    std::cout << "Clkeint created" << std::endl;
+    std::cout << "Client created" << std::endl;
 }
 
 std::string Client::getUuid() {
