@@ -32,13 +32,13 @@ void Library::processRequest(std::shared_ptr<Request> request) {
             rentBook(bookIndex, request->getClientUuid());
             request->setStatus(FULFILLED);
 
-            request->setStatus(REJECTED);
-            std::cerr << "Failed to rent this book" << std::endl;
         } else {
             request->setStatus(REJECTED);
+            std::cerr << "Failed to rent this book" << std::endl;
         }
     } else {
         request->setStatus(REJECTED);
+        std::cerr << "Failed to rent this book" << std::endl;
     }
 
     addRequest(request);

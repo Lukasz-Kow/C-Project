@@ -89,7 +89,7 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
         BOOST_CHECK_EQUAL(testBook->getTitle(), "title");
         BOOST_CHECK_EQUAL(testBook->getStatus(), true);
         BOOST_CHECK_EQUAL(testBook->getAuthor(), "author");
-//        BOOST_CHECK_EQUAL(testBook->getClientUuid(), "444444rsr344rfw");
+        BOOST_CHECK_EQUAL(testBook->getClientUuid(), "444444rsr344rfw");
         BOOST_CHECK_EQUAL(testBook->getPageNumber(), 340);
         BOOST_CHECK_EQUAL(testBook->getUniqueTrait(), "specialty");
 
@@ -117,44 +117,45 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
 
     BOOST_AUTO_TEST_CASE(AddTwoBooksAndMakeTwoRequestsGuest){
         Library l1(1, "Happy");
-        Student s1(1, "444444rsr344rfw", "Tom", "Doe", "+45 87434212311", "Lodz", MALE, "Literature");
-        Student s2(2, "uuid", "Mia ", "Wallace", "+45 983273838", "Los Angeles", FEMALE, "Movies");
-        Student s3(3, "uuid", "Elvira ", "Hancock", "+45 983273838", "Los Angeles", FEMALE, "Movies");
 
+        Student s1(1, "444444rsr344rfw", "Tom", "Doe", "+45 87434212311", "Lodz", MALE, "testsubject");
+        Student s2(2, "uuid1", "Mia ", "Wallace", "+45 983273838", "Los Angeles", FEMALE, "testsubject");
+        Student s3(3, "uuid2", "Elvira ", "Hancock", "+45 983273838", "Los Angeles", FEMALE, "testsubject");
 
         BookFactory b;
 
-        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "MoviesOverview", "Vincent Vega", 100, "Movies");
-        std::shared_ptr<Book> testBook2 = b.createStudentBook( 2, "MoviesOverview", "Vincent Vega", 100, "Movies");
+        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "Small Prince", "Vincent Vega", 100, "testsubject");
+        std::shared_ptr<Book> testBook2 = b.createStudentBook( 2, "Small Prince", "Vincent Vega", 100, "testsubject");
         l1.addBook(testBook1);
         l1.addBook(testBook2);
-        s1.requestReservation("MoviesOverview", l1);
-        s2.requestReservation("MoviesOverview", l1);
-        s3.requestReservation("MoviesOverview", l1);
+        s1.requestReservation("Small Prince", l1);
+        s2.requestReservation("Small Prince", l1);
+        s3.requestReservation("Small Prince", l1);
 
         std::shared_ptr<Book> testBook1_ = l1.getBook(0);
         std::shared_ptr<Book> testBook2_ = l1.getBook(1);
 
+        std::cout << "r1" << l1.getRequest(0)->getStatus();
 
         BOOST_CHECK_EQUAL(testBook1->getId(), 1);
         BOOST_CHECK_EQUAL(testBook2->getId(), 2);
 
-        BOOST_CHECK_EQUAL(testBook1->getTitle(), "MoviesOverview");
-        BOOST_CHECK_EQUAL(testBook2->getTitle(), "MoviesOverview");
+        BOOST_CHECK_EQUAL(testBook1->getTitle(), "Small Prince");
+        BOOST_CHECK_EQUAL(testBook2->getTitle(), "Small Prince");
 
-        BOOST_CHECK_EQUAL(testBook1->getStatus(), false);
-        BOOST_CHECK_EQUAL(testBook2->getStatus(), false);
-
+        BOOST_CHECK_EQUAL(l1.getRequest(0)->getStatus(), FULFILLED);
+        BOOST_CHECK_EQUAL(l1.getRequest(1)->getStatus(), FULFILLED);
+        BOOST_CHECK_EQUAL(l1.getRequest(2)->getStatus(), REJECTED);
 
         BOOST_CHECK_EQUAL(testBook1->getAuthor(), "Vincent Vega");
         BOOST_CHECK_EQUAL(testBook2->getAuthor(), "Vincent Vega");
 
-//        BOOST_CHECK_EQUAL(testBook->getClientUuid(), "444444rsr344rfw");
+        BOOST_CHECK_EQUAL(testBook1->getClientUuid(), "444444rsr344rfw");
         BOOST_CHECK_EQUAL(testBook1->getPageNumber(), 100);
         BOOST_CHECK_EQUAL(testBook2->getPageNumber(), 100);
 
-        BOOST_CHECK_EQUAL(testBook1->getUniqueTrait(), "Movies");
-        BOOST_CHECK_EQUAL(testBook2->getUniqueTrait(), "Movies");
+        BOOST_CHECK_EQUAL(testBook1->getUniqueTrait(), "testsubject");
+        BOOST_CHECK_EQUAL(testBook2->getUniqueTrait(), "testsubject");
 
     }
 
@@ -178,11 +179,33 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
         StudentBook s1(1, "Small Prince", "Antione de Saint Exupery", 300, "fantasy");
         BookFactory b;
 
-        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "Baking", "Zoe", 100, "Baking");
+        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "Small Prince", "Antione de Saint Exupery", 300, "fantasy");
         l1.addBook(testBook1);
 
-// to fix
-//        BOOST_CHECK_EQUAL(l1.bookExists("Small Prince"), 1);
+        BOOST_CHECK_EQUAL(l1.bookExists("Small Prince"), 1);
+    }
+
+    BOOST_AUTO_TEST_CASE(RequestProcess){
+        Library l1(1, "Happy");
+        Student s1(1, "444444rsr344rfw", "Tom", "Doe", "+45 87434212311", "Lodz", MALE, "Physics");
+        StudentBook sb1(1, "Small Prince", "Antione de Saint Exupery", 300, "fantasy");
+        BookFactory b;
+        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "Small Prince", "Antione de Saint Exupery", 300, "fantasy");
+        l1.addBook(testBook1);
+
+        s1.requestReservation("testbook", l1);
+        Request r1(1, "2023-12-01", STUDENT, "fnui4q3vbuwjk4wf", "Small Prince", PROCESSING);
+        std::shared_ptr<Book> testBook = l1.getBook(0);
+
+//        Request r1(1, "2023-12-01", STUDENT, "fnui4q3vbuwjk4wf", "Small Prince", FULFILLED);
+
+
+        BOOST_CHECK_EQUAL(r1.getId(), 1);
+        BOOST_CHECK_EQUAL(r1.getStringDate(), "2023-12-01");
+        BOOST_CHECK_EQUAL(r1.getEntity(), 1);
+        BOOST_CHECK_EQUAL(r1.getClientUuid(), "fnui4q3vbuwjk4wf");
+        BOOST_CHECK_EQUAL(r1.getBookName(), "Small Prince");
+
     }
 
 BOOST_AUTO_TEST_SUITE_END()
