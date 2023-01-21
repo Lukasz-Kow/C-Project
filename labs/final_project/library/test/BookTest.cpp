@@ -175,7 +175,6 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
         s1.requestReservation("title", l1);
         std::shared_ptr<Book> testBook = l1.getBook(0);
 
-        // Test fails because currently there is no validation for entity who made the request
         BOOST_CHECK_EQUAL(testBook1->getStatus(), true);
 
     }
@@ -194,24 +193,20 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
     BOOST_AUTO_TEST_CASE(RequestProcess){
         Library l1(1, "Happy");
         Student s1(1, "Tom", "Doe", "+45 87434212311", "Lodz", MALE, "Physics");
-        StudentBook sb1(1, "Small Prince", "Antione de Saint Exupery", 300, "fantasy");
         BookFactory b;
-        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "Small Prince", "Antione de Saint Exupery", 300, "fantasy");
+        std::shared_ptr<Book> testBook1 = b.createStudentBook(1, "Small Prince", "Antione de Saint Exupery", 300, "fantasy");
         l1.addBook(testBook1);
 
-        s1.requestReservation("testbook", l1);
-        Request r1(1, "2023-12-01", STUDENT, s1.getUuid(), "Small Prince", PROCESSING);
+        s1.requestReservation("Small Prince", l1);
         std::shared_ptr<Book> testBook = l1.getBook(0);
+        std::shared_ptr<Request> r1 = l1.getRequest(0);
 
-//        Request r1(1, "2023-12-01", STUDENT, "fnui4q3vbuwjk4wf", "Small Prince", FULFILLED);
-
-
-        BOOST_CHECK_EQUAL(r1.getId(), 1);
-        BOOST_CHECK_EQUAL(r1.getStringDate(), "2023-12-01");
-        BOOST_CHECK_EQUAL(r1.getEntity(), 1);
-        BOOST_CHECK_EQUAL(r1.getClientUuid(), s1.getUuid());
-        BOOST_CHECK_EQUAL(r1.getBookName(), "Small Prince");
-
+        BOOST_CHECK_EQUAL(r1->getId(), 1);
+        BOOST_CHECK_EQUAL(r1->getStringDate(), "2023-12-01");
+        BOOST_CHECK_EQUAL(r1->getEntity(), 1);
+        BOOST_CHECK_EQUAL(r1->getClientUuid(), s1.getUuid());
+        BOOST_CHECK_EQUAL(r1->getBookName(), "Small Prince");
+        BOOST_CHECK_EQUAL(r1->getStatus(), FULFILLED);
     }
 
 BOOST_AUTO_TEST_SUITE_END()
