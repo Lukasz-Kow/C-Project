@@ -6,13 +6,14 @@
 #include "sstream"
 
 
-Student::Student(int id, std::string uuid, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender,
+Student::Student(int id, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender,
                  std::string course): Client( id, name, surname, phoneNumber, city, gender), course(course){
 
 }
 
 void Student::requestReservation(std::string bookName, Library& library) {
     // Making a request to the library which will be processed
+    std::cerr << "Making request for uuid: " << getUuid() << std::endl;
     library.makeRequest(bookName, STUDENT, getUuid());
 
 }

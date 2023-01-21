@@ -26,7 +26,10 @@ std::shared_ptr<Book> Library::getBook(unsigned int n) {
 
 void Library::processRequest(std::shared_ptr<Request> request) {
 
+//    std::cerr << "Processing req for : " << request->getBookName() << std::endl;
+
     if(bookExists(request->getBookName())) {
+//        std::cerr << "Book exists " << std::endl;
         int bookIndex = findAvailableBookIndex(request->getBookName());
         if (bookIndex >= 0) {
             if (request->getEntity() == TEACHER && books[bookIndex]->getBookTypes() == TEACHERBOOK ||
@@ -48,7 +51,7 @@ void Library::processRequest(std::shared_ptr<Request> request) {
 
         } else {
             request->setStatus(REJECTED);
-            std::cerr << "Failed to rent this book" << std::endl;
+//            std::cerr << "Failed to rent this book" << std::endl;
         }
     } else {
         request->setStatus(REJECTED);

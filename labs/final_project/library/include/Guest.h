@@ -14,7 +14,7 @@ using namespace std;
 class Guest : public Client {
 public:
 
-    Guest(int id, std::string uuid, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender);
+    Guest(int id, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender);
 
     void requestReservation(std::string bookName, Library& library) override;
 

@@ -15,7 +15,7 @@ private:
 
 public:
 
-    Teacher(int id, std::string uuid, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender, std::string specialty);
+    Teacher(int id, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender, std::string specialty);
 
     void requestReservation(std::string bookName, Library& library) override;
 
