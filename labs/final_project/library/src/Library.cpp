@@ -112,7 +112,18 @@ void Library::rentBook(int bookIndex, boost::uuids::uuid clientUuid) {
 }
 
 void Library::finishReservation(int bookId) {
+    int index = -1;
 
+    for(int i = 0; i < books.size(); i++)
+    {
+        if(books[i]->getId() == bookId)
+        {
+            index = i;
+        }
+    }
+
+    books[index]->setStatus(true);
+    books[index]->setUuid(boost::uuids::nil_uuid());
 }
 
 void Library::addClient(std::shared_ptr<Client> client) {

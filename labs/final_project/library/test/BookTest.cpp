@@ -182,7 +182,7 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
 
         std::shared_ptr<Book> testBook1 = b.createEncyclopedia(1, "title", "author", 340, "animals");
         l1.addBook(testBook1);
-        std::shared_ptr<Book> testBook2 = b.createEncyclopedia(1, "title", "author", 340, "animals");
+        std::shared_ptr<Book> testBook2 = b.createEncyclopedia(2, "title", "author", 340, "animals");
         l1.addBook(testBook2);
 
         g1.requestReservation("title", l1);

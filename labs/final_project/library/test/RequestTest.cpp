@@ -152,5 +152,29 @@ BOOST_AUTO_TEST_SUITE(MakingRequests)
 
     }
 
+    BOOST_AUTO_TEST_CASE(BookReservationIsFinished) {
+
+        Library l1(1, "Happy");
+        Teacher t1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE, "Maths");
+
+        BookFactory b;
+
+        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "title", "author", 340, "Analysis");
+        l1.addBook(testBook1);
+
+        t1.requestReservation("title", l1);
+        std::shared_ptr<Book> testBook = l1.getBook(0);
+
+        BOOST_CHECK_EQUAL(testBook1->getStatus(), false);
+        BOOST_CHECK_EQUAL(l1.getRequest(0)->getStatus(), FULFILLED);
+
+        l1.finishReservation(testBook1->getId());
+
+        BOOST_CHECK_EQUAL(testBook1->getStatus(), true);
+        // getting boost null uuid
+        BOOST_CHECK_EQUAL(testBook1->getClientUuid(), boost::uuids::nil_uuid());
+
+    }
+
 
 BOOST_AUTO_TEST_SUITE_END()
