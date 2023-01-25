@@ -24,7 +24,7 @@ std::string Guest::display() {
                 << "Guest's UUID: " << getUuid() << endl
                 << "Guest's gender: " << getGender() << endl
                 << "Guest's Name: " << getName() << endl
-                << "Guest's Surename: " << getSurname() << endl
+                << "Guest's Surname: " << getSurname() << endl
                 << "Guest's phone number: " << getPhoneNumber() << endl
                 << "Guest's city of residence: " << getCity() << endl;
 }

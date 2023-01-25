@@ -27,7 +27,7 @@ std::string Student::display() {
     << "Student's UUID: " << getUuid() << endl
     << "Student's gender: " << getGender() << endl
     << "Student's Name: " << getName() << endl
-    << "Student's Surename: " << getSurname() << endl
+    << "Student's Surname: " << getSurname() << endl
     << "Student's course: " << getSpecialTrait() << endl
     << "Student's phone number: " << getPhoneNumber() << endl
     << "Student's city of residence: " << getCity() << endl;

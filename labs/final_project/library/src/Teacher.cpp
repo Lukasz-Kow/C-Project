@@ -25,7 +25,7 @@ std::string Teacher::display() {
                 << "Teacher's UUID: " << getUuid() << endl
                 << "Teacher's gender: " << getGender() << endl
                 << "Teacher's Name: " << getName() << endl
-                << "Teacher's Surename: " << getSurname() << endl
+                << "Teacher's Surname: " << getSurname() << endl
                 << "Teacher's specialty: " << getSpecialTrait() << endl
                 << "Teacher's phone number: " << getPhoneNumber() << endl
                 << "Teacher's city of residence: " << getCity() << endl;

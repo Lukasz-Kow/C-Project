@@ -176,5 +176,29 @@ BOOST_AUTO_TEST_SUITE(MakingRequests)
 
     }
 
+    BOOST_AUTO_TEST_CASE(CheckAvailableBookIndex) {
+
+        Library l1(1, "Happy");
+        Student s1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE, "Maths");
+
+        BookFactory b;
+
+        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "title", "author", 340, "Analysis");
+        l1.addBook(testBook1);
+        std::shared_ptr<Book> testBook2 = b.createStudentBook( 2, "title", "author", 340, "Analysis");
+        l1.addBook(testBook2);
+
+        std::shared_ptr<Book> testBook1_ = l1.getBook(0);
+        s1.requestReservation("title", l1);
+
+        std::shared_ptr<Book> testBook2_ = l1.getBook(1);
+
+        BOOST_CHECK_EQUAL(testBook1_->getStatus(), false);
+        BOOST_CHECK_EQUAL(testBook2_->getStatus(), true);
+        BOOST_CHECK_EQUAL(l1.findAvailableBookIndex("title"), 1);
+        BOOST_CHECK_EQUAL(testBook1->getUniqueTrait(), "Analysis");
+
+    }
+
 
 BOOST_AUTO_TEST_SUITE_END()
