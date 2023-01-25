@@ -53,7 +53,6 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
         BOOST_CHECK_EQUAL(testBook1_->getId(), 1);
         BOOST_CHECK_EQUAL(testBook2_->getId(), 3);
 
-
     }
 
     BOOST_AUTO_TEST_CASE(ClientCreation) {
@@ -226,6 +225,7 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
         l1.addBook(testBook2);
         l1.addBook(testBook3);
         l1.addBook(testBook4);
+
 
     }
 
