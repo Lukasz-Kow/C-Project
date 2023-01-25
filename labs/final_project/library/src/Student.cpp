@@ -10,9 +10,8 @@ Student::Student(int id, std::string name, std::string surname, std::string phon
                  std::string course): Client( id, name, surname, phoneNumber, city, gender), course(course){
 
 }
-
+//Inside the function, it makes a request to the library to reserve a book which will be processed.
 void Student::requestReservation(std::string bookName, Library& library) {
-    // Making a request to the library which will be processed
     std::cerr << "Making request for uuid: " << getUuid() << std::endl;
     library.makeRequest(bookName, STUDENT, getUuid());
 

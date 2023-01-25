@@ -10,7 +10,7 @@ Teacher::Teacher(int id, std::string name, std::string surname, std::string phon
                  std::string specialty) : Client(id, name, surname, phoneNumber,city, gender), specialty(specialty){
 
 }
-
+//Inside the function, it makes a request to the library to reserve a book which will be processed.
 void Teacher::requestReservation(std::string bookName, Library& library) {
     library.makeRequest(bookName, TEACHER, getUuid());
 }

@@ -9,7 +9,8 @@ Library::Library(int id, std::string name): id(id), name(name) {}
 void Library::addBook(std::shared_ptr<Book> book) {
     books.push_back(book);
 }
-
+//Function removes the element at position i from the vector, effectively removing the book from the library.
+// This will not only remove the book from the vector but also delete the memory allocated to it.
 void Library::removeBook(int bookId) {
     for(int i=0; i<books.size();i++)
     {
@@ -75,7 +76,9 @@ int Library::getRequestNumber() {
 void Library::addRequest(std::shared_ptr<Request> request) {
     requests.push_back(request);
 }
-
+//Function takes a parameter of type string called bookName, and it iterates through the books vector,
+//it checks if the title of the current book is equal to the input bookName.
+// If it is, it then checks if the current book's status is true (is available). If so return index
 int Library::findAvailableBookIndex(string bookName) {
     for(int i = 0; i < books.size(); i++) {
         if(books[i]->getTitle() == bookName) {
@@ -90,7 +93,10 @@ int Library::findAvailableBookIndex(string bookName) {
     }
     return -1;
 }
-
+//Function takes a parameter of type string bookName, and it iterates through the books vector.
+// Inside the loop, it checks if the title of the current book is equal to the input bookName.
+// If it is, it assigns the index of the book to the variable index. Then it checks if index is greater than or equal to 0.
+// If it is, the function returns true, indicating that the book exists in the library.
 bool Library::bookExists(string bookName) {
     int index = -1;
     for(int i = 0; i < books.size(); i ++)
@@ -110,7 +116,10 @@ void Library::rentBook(int bookIndex, boost::uuids::uuid clientUuid) {
     books[bookIndex]->setStatus(false);
     books[bookIndex]->setUuid(clientUuid);
 }
-
+//Function takes in a parameter of type int bookId, and it iterates through the books vector.
+//Inside the loop, it checks if the id of the current book is equal to the input bookId.
+//If it is, it assigns the index of the book to the variable index.
+// At the end of the loop, it sets the status of the book at the index books[index]->setStatus(true) to true, indicating that the book is available now.
 void Library::finishReservation(int bookId) {
     int index = -1;
 
