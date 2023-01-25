@@ -31,7 +31,7 @@ public:
 
     void addBook(std::shared_ptr<Book> book);
 
-    void removeBook(boost::uuids::uuid uuid);
+    void removeBook(int bookId);
 
     std::shared_ptr<Book> getBook(unsigned n);
 

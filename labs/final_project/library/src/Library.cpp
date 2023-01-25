@@ -10,10 +10,10 @@ void Library::addBook(std::shared_ptr<Book> book) {
     books.push_back(book);
 }
 
-void Library::removeBook(boost::uuids::uuid uuid) {
+void Library::removeBook(int bookId) {
     for(int i=0; i<books.size();i++)
     {
-        if(books[i]->getClientUuid() == uuid)
+        if(books[i]->getId() == bookId)
         {
             books.erase(books.begin()+i);
         }
@@ -61,7 +61,7 @@ void Library::processRequest(std::shared_ptr<Request> request) {
     addRequest(request);
     }
 }
-
+//This function is creating a new request object and passing it to the processRequest function for further processing.
 void Library::makeRequest(string bookName, ClientTypes entityWhoMadeTheRequest, boost::uuids::uuid uuid) {
     std::shared_ptr<Request> clientRequest = std::make_shared<Request>(getRequestNumber() + 1, "2023-12-01",
                                                                        entityWhoMadeTheRequest, uuid, bookName, PROCESSING);

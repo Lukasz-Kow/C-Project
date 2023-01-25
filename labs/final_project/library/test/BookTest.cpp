@@ -30,14 +30,31 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
         BOOST_CHECK_EQUAL(s1.getStatus(), true);
     }
 
-//    BOOST_AUTO_TEST_CASE(DeletingBook) {
-//        StudentBook s1(1, "Small Prince", "Antione de Saint Exupery", 300, "fantasy");
-//        Encyclopedia e1(1,"AAAA", "BBBB", 400, "CCC" );
-//
-//        Library l1;
-//
-//        BOOST_CHECK_EQUAL();
-//    }
+    BOOST_AUTO_TEST_CASE(DeletingBook) {
+        Library l1(1, "Happy");
+
+        BookFactory b;
+
+        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "Small Prince", "Vincent Vega", 100, "testsubject");
+        std::shared_ptr<Book> testBook2 = b.createStudentBook( 2, "Small Prince2", "Vincent Vega", 150, "testsubject");
+
+        std::shared_ptr<Book> testBook3 = b.createTeacherBook( 3, "Math III", "Vincent Vega", 200,"teststudyField");
+
+        l1.addBook(testBook1);
+        l1.addBook(testBook2);
+        l1.addBook(testBook3);
+
+        l1.removeBook(2);
+
+        std::shared_ptr<Book> testBook1_ = l1.getBook(0);
+        std::shared_ptr<Book> testBook2_ = l1.getBook(1);
+
+
+        BOOST_CHECK_EQUAL(testBook1_->getId(), 1);
+        BOOST_CHECK_EQUAL(testBook2_->getId(), 3);
+
+
+    }
 
     BOOST_AUTO_TEST_CASE(ClientCreation) {
         Student s1(1, "Andrzej", "Nazwisko", "+48 092919332", "Lodz", MALE, "IT");
@@ -191,6 +208,25 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
 
         BOOST_CHECK_EQUAL(testBook1_->getStatus(), false);
         BOOST_CHECK_EQUAL(testBook2_->getStatus(), true);
+    }
+    //not finished
+    BOOST_AUTO_TEST_CASE(DisplayingAllBooksCreated) {
+        Library l1(1, "Happy");
+
+        BookFactory b;
+
+        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "Small Prince", "Vincent Vega", 100, "testsubject");
+        std::shared_ptr<Book> testBook2 = b.createStudentBook( 2, "Small Prince", "Vincent Vega", 150, "testsubject");
+
+        std::shared_ptr<Book> testBook3 = b.createTeacherBook( 3, "Math III", "Vincent Vega", 200,"teststudyField");
+
+        std::shared_ptr<Book> testBook4 = b.createEncyclopedia( 4, "Encyclopedia of Life", "testAuthor", 500,"testTheme");
+
+        l1.addBook(testBook1);
+        l1.addBook(testBook2);
+        l1.addBook(testBook3);
+        l1.addBook(testBook4);
+
     }
 
 BOOST_AUTO_TEST_SUITE_END()
