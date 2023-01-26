@@ -27,6 +27,13 @@ std::shared_ptr<Book> Library::getBook(unsigned int n) {
     return books[n];
 }
 
+/**
+ * Function processes the request.
+ * It checks if the book exists, if it is available, if the client belongs to the library and
+ * if the client is allowed to rent the book.
+ * @param request
+ */
+
 void Library::processRequest(std::shared_ptr<Request> request) {
 
     if(bookExists(request->getBookName())) {
@@ -72,7 +79,7 @@ void Library::processRequest(std::shared_ptr<Request> request) {
 
 //This function is creating a new request object and passing it to the processRequest function for further processing.
 void Library::makeRequest(string bookName, ClientTypes entityWhoMadeTheRequest, boost::uuids::uuid uuid) {
-    std::shared_ptr<Request> clientRequest = std::make_shared<Request>(getRequestNumber() + 1, "2023-12-01",
+    std::shared_ptr<Request> clientRequest = std::make_shared<Request>(getRequestNumber() + 1,
                                                                        entityWhoMadeTheRequest, uuid, bookName, PROCESSING);
     processRequest(clientRequest);
 }

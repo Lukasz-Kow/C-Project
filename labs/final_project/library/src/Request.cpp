@@ -8,23 +8,14 @@
 #include "sstream"
 
 using namespace std;
-Request::Request(int id, std::string date, ClientTypes entityWhoMadeTheRequest, boost::uuids::uuid clientUuid, std::string requestedBookName,
+Request::Request(int id, ClientTypes entityWhoMadeTheRequest, boost::uuids::uuid clientUuid, std::string requestedBookName,
                  Status status):
-                 id(id), stringDate(date), entityWhoMadeTheRequest(entityWhoMadeTheRequest), clientUuid(clientUuid),
-                 requestedBookName(requestedBookName),  status(status){}
+                 id(id), entityWhoMadeTheRequest(entityWhoMadeTheRequest), clientUuid(clientUuid),
+                 requestedBookName(requestedBookName),  status(status), date(boost::posix_time::second_clock::local_time()) {}
 
 int Request::getId() {
     return id;
 }
-
-std::string Request::getStringDate() const {
-    return stringDate;
-}
-
-void Request::setStringDate(const std::string& date) {
-    stringDate = date;
-}
-
 
 ClientTypes Request::getEntity() {
     return entityWhoMadeTheRequest;
@@ -67,11 +58,15 @@ std::string Request::display() {
 
 
     requestInfo << "Request ID: " << getId() << endl
-                << "Request date: " << getStringDate() << endl
                 << "Entity who made the request: " << entity << endl
                 << "Client's UUID: " << getClientUuid() << endl
                 << "Requested book title: " << getBookName() << endl
-                << "Request status: " << statusName << endl;
+                << "Request status: " << statusName << endl
+                << "Request date: " << getDateTime() << endl;
     return requestInfo.str();
+}
+
+boost::posix_time::ptime Request::getDateTime() {
+    return date;
 }
 

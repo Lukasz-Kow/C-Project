@@ -15,6 +15,8 @@
 #include "Date.h"
 #include "ClientTypes.h"
 //#include "boost/date_time/posix_time/posix_time.hpp"
+#include "boost/date_time/posix_time/posix_time.hpp"
+
 
 class Request {
 
@@ -22,9 +24,7 @@ private:
 
     int id;
 
-//    boost::posix_time::ptime date;
-
-    std::string stringDate;
+    boost::posix_time::ptime date;
 
     ClientTypes entityWhoMadeTheRequest;
 
@@ -36,16 +36,12 @@ private:
 
 public:
 
-    Request(int id, std::string date, ClientTypes entityWhoMadeTheRequest, boost::uuids::uuid clientUuid, std::string requestedBookName,
+    Request(int id, ClientTypes entityWhoMadeTheRequest, boost::uuids::uuid clientUuid, std::string requestedBookName,
             Status status);
 
     int getId();
 
     std::string getStringDate() const;
-
-    void setStringDate(const std::string& date);
-
-    std::string getDate() const;
 
     ClientTypes getEntity();
 
@@ -58,6 +54,8 @@ public:
     void setStatus(Status status);
 
     std::string display();
+
+    boost::posix_time::ptime getDateTime();
 
 };
 

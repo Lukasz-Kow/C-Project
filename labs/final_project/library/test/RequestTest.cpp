@@ -5,9 +5,7 @@
 #include "StudentBook.h"
 #include "Student.h"
 #include "Teacher.h"
-#include "TeacherBook.h"
 #include "Guest.h"
-#include "Encyclopedia.h"
 #include "Request.h"
 #include "Library.h"
 #include <vector>
@@ -22,10 +20,9 @@ BOOST_AUTO_TEST_SUITE(MakingRequests)
 
     BOOST_AUTO_TEST_CASE(RequestCreation){
         boost::uuids::uuid testUuid = boost::uuids::random_generator()();
-        Request r1(1, "2023-12-01", STUDENT, testUuid ,"Small Prince", PROCESSING);
+        Request r1(1, STUDENT, testUuid ,"Small Prince", PROCESSING);
 
         BOOST_CHECK_EQUAL(r1.getId(), 1);
-        BOOST_CHECK_EQUAL(r1.getStringDate(), "2023-12-01");
         BOOST_CHECK_EQUAL(r1.getEntity(), 1);
         BOOST_CHECK_EQUAL(r1.getClientUuid(), testUuid);
         BOOST_CHECK_EQUAL(r1.getBookName(), "Small Prince");
@@ -49,7 +46,6 @@ BOOST_AUTO_TEST_SUITE(MakingRequests)
         std::shared_ptr<Request> r1 = l1.getRequest(0);
 
         BOOST_CHECK_EQUAL(r1->getId(), 1);
-        BOOST_CHECK_EQUAL(r1->getStringDate(), "2023-12-01");
         BOOST_CHECK_EQUAL(r1->getEntity(), 1);
         BOOST_CHECK_EQUAL(r1->getClientUuid(), s1->getUuid());
         BOOST_CHECK_EQUAL(r1->getBookName(), "Small Prince");
