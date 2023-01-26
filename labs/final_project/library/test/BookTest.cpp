@@ -12,9 +12,12 @@
 #include "Library.h"
 #include <vector>
 #include "BookFactory.h"
+#include "UnitTestUi.h"
 
 
 BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
+
+    std::shared_ptr<UnitTestUi> ui = std::make_shared<UnitTestUi>();
 
     BOOST_AUTO_TEST_CASE(StudentBookCreation) {
         StudentBook s1(1, "Small Prince", "Antione de Saint Exupery", 300, "fantasy");
@@ -50,7 +53,7 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
     }
 
     BOOST_AUTO_TEST_CASE(DeletingBook) {
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
 
         BookFactory b;
 
@@ -71,27 +74,6 @@ BOOST_AUTO_TEST_SUITE(ObjectsInitTestSuite)
 
         BOOST_CHECK_EQUAL(testBook1_->getId(), 1);
         BOOST_CHECK_EQUAL(testBook2_->getId(), 3);
-
-    }
-
-    //not finished
-    BOOST_AUTO_TEST_CASE(DisplayingAllBooksCreated) {
-        Library l1(1, "Happy");
-
-        BookFactory b;
-
-        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "Small Prince", "Vincent Vega", 100, "testsubject");
-        std::shared_ptr<Book> testBook2 = b.createStudentBook( 2, "Small Prince", "Vincent Vega", 150, "testsubject");
-
-        std::shared_ptr<Book> testBook3 = b.createTeacherBook( 3, "Math III", "Vincent Vega", 200,"teststudyField");
-
-        std::shared_ptr<Book> testBook4 = b.createEncyclopedia( 4, "Encyclopedia of Life", "testAuthor", 500,"testTheme");
-
-        l1.addBook(testBook1);
-        l1.addBook(testBook2);
-        l1.addBook(testBook3);
-        l1.addBook(testBook4);
-
 
     }
 

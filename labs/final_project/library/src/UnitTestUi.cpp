@@ -9,14 +9,14 @@ UnitTestUi::UnitTestUi() {
 
 }
 
-void UnitTestUi::displayBooks() {
-
+void UnitTestUi::displayBooks(std::vector<std::shared_ptr<Book>> books) {
+    std::cout << "SUCCESS" << std::endl;
 }
 
-void UnitTestUi::displayClients() {
-
+void UnitTestUi::displayClients(std::vector<std::shared_ptr<Client>> clients) {
+    std::cout << "SUCCESS" << std::endl;
 }
 
-void UnitTestUi::displayRequests() {
-
+void UnitTestUi::displayRequests(std::vector<std::shared_ptr<Request>> requests) {
+    std::cout << "SUCCESS" << std::endl;
 }

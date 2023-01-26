@@ -20,8 +20,7 @@ std::string Guest::getSpecialTrait() {
 
 std::string Guest::display() {
     std::stringstream guestInfo;
-    guestInfo << "Guest's ID: " << getID() << endl
-                << "Guest's UUID: " << getUuid() << endl
+    guestInfo   << "Guest's UUID: " << getUuid() << endl
                 << "Guest's gender: " << getGender() << endl
                 << "Guest's Name: " << getName() << endl
                 << "Guest's Surname: " << getSurname() << endl

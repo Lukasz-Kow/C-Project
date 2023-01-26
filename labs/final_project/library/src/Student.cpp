@@ -12,7 +12,7 @@ Student::Student(int id, std::string name, std::string surname, std::string phon
 }
 //Inside the function, it makes a request to the library to reserve a book which will be processed.
 void Student::requestReservation(std::string bookName, Library& library) {
-    std::cerr << "Making request for uuid: " << getUuid() << std::endl;
+
     library.makeRequest(bookName, STUDENT, getUuid());
 
 }
@@ -23,8 +23,7 @@ std::string Student::getSpecialTrait() {
 
 std::string Student::display() {
     std::stringstream StudentInfo;
-    StudentInfo << "Student's ID: " << getID() << endl
-                << "Student's UUID: " << getUuid() << endl
+    StudentInfo << "Student's UUID: " << getUuid() << endl
                 << "Student's gender: " << getGender() << endl
                 << "Student's Name: " << getName() << endl
                 << "Student's Surname: " << getSurname() << endl

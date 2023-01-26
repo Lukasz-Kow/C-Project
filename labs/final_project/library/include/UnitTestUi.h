@@ -8,11 +8,13 @@
 #include "LibraryUI.h"
 
 class UnitTestUi: public LibraryUI {
+public:
+
     UnitTestUi();
 
-    void displayBooks();
-    void displayClients();
-    void displayRequests();
+    void displayBooks(std::vector<std::shared_ptr<Book>> books);
+    void displayClients(std::vector<std::shared_ptr<Client>> clients);
+    void displayRequests(std::vector<std::shared_ptr<Request>> requests);
 };
 
 

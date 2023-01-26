@@ -21,8 +21,7 @@ std::string Teacher::getSpecialTrait() {
 
 std::string Teacher::display() {
     std::stringstream teacherInfo;
-    teacherInfo << "Teacher's ID: " << getID() << endl
-                << "Teacher's UUID: " << getUuid() << endl
+    teacherInfo << "Teacher's UUID: " << getUuid() << endl
                 << "Teacher's gender: " << getGender() << endl
                 << "Teacher's Name: " << getName() << endl
                 << "Teacher's Surname: " << getSurname() << endl

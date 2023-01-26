@@ -14,12 +14,15 @@
 #include "Library.h"
 #include <vector>
 #include "BookFactory.h"
-
+#include "UnitTestUi.h"
+#include <memory>
 
 BOOST_AUTO_TEST_SUITE(LibraryTestSuite)
 
+    std::shared_ptr<UnitTestUi> ui = std::make_shared<UnitTestUi>();
+
     BOOST_AUTO_TEST_CASE(AddBookAndMakeRequestStudent){
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Student s1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE, "testCourse");
         BookFactory b;
 
@@ -38,7 +41,7 @@ BOOST_AUTO_TEST_SUITE(LibraryTestSuite)
     }
 
     BOOST_AUTO_TEST_CASE(AddBookAndMakeRequestTeacher){
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Teacher t1(1, "Alice", "Doe", "+45 87434212311", "Lodz", MALE, "specialty");
         BookFactory b;
 
@@ -57,7 +60,7 @@ BOOST_AUTO_TEST_SUITE(LibraryTestSuite)
     }
 
     BOOST_AUTO_TEST_CASE(AddBookAndMakeRequestGuest){
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Guest g1(1, "Tom", "Doe", "+45 87434212311", "Lodz", MALE);
         BookFactory b;
 
@@ -76,7 +79,7 @@ BOOST_AUTO_TEST_SUITE(LibraryTestSuite)
     }
 
     BOOST_AUTO_TEST_CASE(AddTwoBooksAndMakeTwoRequestsGuest){
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
 
         Student s1(1, "Tom", "Doe", "+45 87434212311", "Lodz", MALE, "testsubject");
         Student s2(2, "Mia ", "Wallace", "+45 983273838", "Los Angeles", FEMALE, "testsubject");
@@ -120,7 +123,7 @@ BOOST_AUTO_TEST_SUITE(LibraryTestSuite)
 
 
     BOOST_AUTO_TEST_CASE(CheckIfBookIsAvailableAfterReservation) {
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Guest g1(1, "Tom", "Doe", "+45 87434212311", "Lodz", MALE);
         BookFactory b;
 
@@ -139,7 +142,7 @@ BOOST_AUTO_TEST_SUITE(LibraryTestSuite)
 
     BOOST_AUTO_TEST_CASE(CheckAvailableBookIndex) {
 
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Student s1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE, "Maths");
 
         BookFactory b;
@@ -163,7 +166,7 @@ BOOST_AUTO_TEST_SUITE(LibraryTestSuite)
 
     BOOST_AUTO_TEST_CASE(BookReservationIsFinished) {
 
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Teacher t1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE, "Maths");
 
         BookFactory b;
@@ -182,6 +185,18 @@ BOOST_AUTO_TEST_SUITE(LibraryTestSuite)
         BOOST_CHECK_EQUAL(testBook1->getStatus(), true);
         // getting boost null uuid
         BOOST_CHECK_EQUAL(testBook1->getClientUuid(), boost::uuids::nil_uuid());
+
+    }
+
+    BOOST_AUTO_TEST_CASE(LibraryUITest) {
+
+
+    Library l1(1, "Happy", ui);
+
+    l1.libraryCLI->displayBooks(l1.getBooks());
+    l1.libraryCLI->displayRequests(l1.getRequests());
+    l1.libraryCLI->displayClients(l1.getClients());
+
 
     }
 

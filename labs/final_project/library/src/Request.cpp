@@ -48,12 +48,30 @@ void Request::setStatus(Status status) {
 
 std::string Request::display() {
     std::stringstream requestInfo;
+
+    std::string entity = "";
+    if (getEntity() == STUDENT)
+        entity = "Student";
+    else if (getEntity() == TEACHER)
+        entity = "Teacher";
+    else if (getEntity() == GUEST)
+        entity = "Guest";
+
+    std::string statusName = "";
+    if(getStatus() == PROCESSING)
+        statusName = "PROCESSING";
+    else if(getStatus() == FULFILLED)
+        statusName = "FULFILLED";
+    else if(getStatus() == REJECTED)
+        statusName = "REJECTED";
+
+
     requestInfo << "Request ID: " << getId() << endl
                 << "Request date: " << getStringDate() << endl
-                << "Entity who made the request: " << getEntity() << endl
+                << "Entity who made the request: " << entity << endl
                 << "Client's UUID: " << getClientUuid() << endl
-                << "Requested book title:" << getBookName() << endl
-                << "Request status: " << getStatus() << endl;
+                << "Requested book title: " << getBookName() << endl
+                << "Request status: " << statusName << endl;
     return requestInfo.str();
 }
 

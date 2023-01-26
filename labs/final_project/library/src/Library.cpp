@@ -4,11 +4,13 @@
 
 #include "Library.h"
 
-Library::Library(int id, std::string name): id(id), name(name) {}
+Library::Library(int id, std::string name, std::shared_ptr<LibraryUI> cli): id(id), name(name), libraryCLI(cli) {}
+
 
 void Library::addBook(std::shared_ptr<Book> book) {
     books.push_back(book);
 }
+
 //Function removes the element at position i from the vector, effectively removing the book from the library.
 // This will not only remove the book from the vector but also delete the memory allocated to it.
 void Library::removeBook(int bookId) {
@@ -149,6 +151,18 @@ std::shared_ptr<Client> Library::getClient(unsigned int n) {
 
 std::shared_ptr<Request> Library::getRequest(unsigned int n) {
     return requests[n];
+}
+
+std::vector<std::shared_ptr<Client>> Library::getClients() {
+    return clients;
+}
+
+std::vector<std::shared_ptr<Request>> Library::getRequests() {
+    return requests;
+}
+
+std::vector<std::shared_ptr<Book>> Library::getBooks() {
+    return books;
 }
 
 

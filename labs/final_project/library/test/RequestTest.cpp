@@ -12,12 +12,12 @@
 #include "Library.h"
 #include <vector>
 #include "BookFactory.h"
+#include "UnitTestUi.h"
 
-#include <boost/uuid/uuid.hpp>            // uuid class
-#include <boost/uuid/uuid_generators.hpp> // generators
-#include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
 
 BOOST_AUTO_TEST_SUITE(MakingRequests)
+
+    std::shared_ptr<UnitTestUi> ui = std::make_shared<UnitTestUi>();
 
     BOOST_AUTO_TEST_CASE(RequestCreation){
         boost::uuids::uuid testUuid = boost::uuids::random_generator()();
@@ -33,7 +33,7 @@ BOOST_AUTO_TEST_SUITE(MakingRequests)
     }
 
     BOOST_AUTO_TEST_CASE(RequestProcess){
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Student s1(1, "Tom", "Doe", "+45 87434212311", "Lodz", MALE, "Physics");
         BookFactory b;
         std::shared_ptr<Book> testBook1 = b.createStudentBook(1, "Small Prince", "Antione de Saint Exupery", 300, "fantasy");
@@ -54,7 +54,7 @@ BOOST_AUTO_TEST_SUITE(MakingRequests)
 
     BOOST_AUTO_TEST_CASE(StudentReqestsTeacherBook) {
 
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Student s1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE, "testCourse");
 
         BookFactory b;
@@ -73,7 +73,7 @@ BOOST_AUTO_TEST_SUITE(MakingRequests)
 
     BOOST_AUTO_TEST_CASE(StudentReqestsStudentBook) {
 
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Student s1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE, "testCourse");
 
         BookFactory b;
@@ -92,7 +92,7 @@ BOOST_AUTO_TEST_SUITE(MakingRequests)
 
     BOOST_AUTO_TEST_CASE(StudentReqestsEncyclopedia) {
 
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Student s1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE, "testCourse");
 
         BookFactory b;
@@ -110,7 +110,7 @@ BOOST_AUTO_TEST_SUITE(MakingRequests)
 
     BOOST_AUTO_TEST_CASE(GuestReqestsTeacherBook) {
 
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Guest g1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE);
 
         BookFactory b;
@@ -129,7 +129,7 @@ BOOST_AUTO_TEST_SUITE(MakingRequests)
 
     BOOST_AUTO_TEST_CASE(GuestReqestsStudentBook) {
 
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Guest g1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE);
 
         BookFactory b;
@@ -148,7 +148,7 @@ BOOST_AUTO_TEST_SUITE(MakingRequests)
 
     BOOST_AUTO_TEST_CASE(TeacherReqestsStudentBook) {
 
-        Library l1(1, "Happy");
+        Library l1(1, "Happy", ui);
         Teacher t1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE, "Maths");
 
         BookFactory b;

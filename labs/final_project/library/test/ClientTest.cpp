@@ -54,12 +54,4 @@ BOOST_AUTO_TEST_SUITE(ClientTestSuite)
     }
 
 
-
-    BOOST_AUTO_TEST_CASE(DisplayingAllClients) {
-        Library l1(1, "Happy");
-
-
-    }
-
-
 BOOST_AUTO_TEST_SUITE_END()

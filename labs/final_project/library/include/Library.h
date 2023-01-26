@@ -19,15 +19,15 @@ private:
 
     std::string name;
 
-//    shared_ptr<CLI> libraryCLI;
-
     std::vector<std::shared_ptr<Book>> books;
     std::vector<std::shared_ptr<Client>> clients;
     std::vector<std::shared_ptr<Request>> requests;
 
 public:
 
-    Library(int id, std::string name);
+    shared_ptr<LibraryUI> libraryCLI;
+
+    Library(int id, std::string name, std::shared_ptr<LibraryUI> cli);
 
     void addBook(std::shared_ptr<Book> book);
 
@@ -58,6 +58,12 @@ public:
     std::shared_ptr<Client> getClient(unsigned n);
 
     std::shared_ptr<Request> getRequest(unsigned n);
+
+    std::vector<std::shared_ptr<Book>> getBooks();
+
+    std::vector<std::shared_ptr<Client>> getClients();
+
+    std::vector<std::shared_ptr<Request>> getRequests();
 
 };
 

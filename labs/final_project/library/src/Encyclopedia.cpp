@@ -15,9 +15,10 @@ std::string Encyclopedia::getUniqueTrait() {
 std::string Encyclopedia::display() {
     std::stringstream encyclopediaInfo;
     encyclopediaInfo << "Encyclopedia ID: " << getId() << endl
-                    << "Title: " << getTitle() << endl
-                    << "Author: " << getAuthor() << endl
-                    << "Number of pages: " << getPageNumber() << endl
-                    << "Theme: " << getUniqueTrait() << endl;
+                     << "Title: " << getTitle() << endl
+                     << "Author: " << getAuthor() << endl
+                     << "Number of pages: " << getPageNumber() << endl
+                     << "Theme: " << getUniqueTrait() << endl
+                     << "Is available: " << getStatus() << endl;
     return encyclopediaInfo.str();
 }

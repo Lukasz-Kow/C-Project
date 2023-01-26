@@ -19,6 +19,7 @@ std::string StudentBook::display() {
                      << "Title: " << getTitle() << endl
                      << "Author: " << getAuthor() << endl
                      << "Number of pages: " << getPageNumber() << endl
-                     << "Subject: " << getUniqueTrait() << endl;
+                     << "Subject: " << getUniqueTrait() << endl
+                     << "Is available: " << getStatus() << endl;
     return studentBookInfo.str();
 }
