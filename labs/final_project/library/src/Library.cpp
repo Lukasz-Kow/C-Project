@@ -11,7 +11,7 @@ void Library::addBook(std::shared_ptr<Book> book) {
     books.push_back(book);
 }
 
-//Function removes the element at position i from the vector, effectively removing the book from the library.
+// Function removes the element at position i from the vector, effectively removing the book from the library.
 // This will not only remove the book from the vector but also delete the memory allocated to it.
 void Library::removeBook(int bookId) {
     for(int i=0; i<books.size();i++)
@@ -29,33 +29,38 @@ std::shared_ptr<Book> Library::getBook(unsigned int n) {
 
 void Library::processRequest(std::shared_ptr<Request> request) {
 
-//    std::cerr << "Processing req for : " << request->getBookName() << std::endl;
-
     if(bookExists(request->getBookName())) {
-//        std::cerr << "Book exists " << std::endl;
+
         int bookIndex = findAvailableBookIndex(request->getBookName());
+
         if (bookIndex >= 0) {
-            if (request->getEntity() == TEACHER && books[bookIndex]->getBookTypes() == TEACHERBOOK ||
+            if (ifClientBelongsToLibrary(request->getClientUuid())) {
+                if (request->getEntity() == TEACHER && books[bookIndex]->getBookTypes() == TEACHERBOOK ||
                     books[bookIndex]->getBookTypes() == STUDENTBOOK ||
                     books[bookIndex]->getBookTypes() == ENCYCLOPEDIA)
-            {
-                rentBook(bookIndex, request->getClientUuid());
-                request->setStatus(FULFILLED);
-            }
-            else if (request->getEntity() == STUDENT && books[bookIndex]->getBookTypes() == STUDENTBOOK ||
-                     books[bookIndex]->getBookTypes() == ENCYCLOPEDIA) {
-                rentBook(bookIndex, request->getClientUuid());
-                request->setStatus(FULFILLED);
-            }
-            else if (request->getEntity() == GUEST && books[bookIndex]->getBookTypes() == STUDENTBOOK ||
-                     books[bookIndex]->getBookTypes() == ENCYCLOPEDIA) {
-                rentBook(bookIndex, request->getClientUuid());
-                request->setStatus(FULFILLED);
+                {
+                    rentBook(bookIndex, request->getClientUuid());
+                    request->setStatus(FULFILLED);
+                }
+                else if (request->getEntity() == STUDENT && books[bookIndex]->getBookTypes() == STUDENTBOOK ||
+                         books[bookIndex]->getBookTypes() == ENCYCLOPEDIA) {
+                    rentBook(bookIndex, request->getClientUuid());
+                    request->setStatus(FULFILLED);
+                }
+                else if (request->getEntity() == GUEST && books[bookIndex]->getBookTypes() == STUDENTBOOK ||
+                         books[bookIndex]->getBookTypes() == ENCYCLOPEDIA) {
+                    rentBook(bookIndex, request->getClientUuid());
+                    request->setStatus(FULFILLED);
 
+                } else {
+                    request->setStatus(REJECTED);
+                    //            std::cerr << "Failed to rent this book" << std::endl;
+                }
             } else {
                 request->setStatus(REJECTED);
-    //            std::cerr << "Failed to rent this book" << std::endl;
+                std::cerr << "Client does not belong to this library" << std::endl;
             }
+
         } else {
             request->setStatus(REJECTED);
             std::cerr << "No available book found" << std::endl;
@@ -98,7 +103,7 @@ int Library::findAvailableBookIndex(std::string bookName) {
     return -1;
 }
 
-//Function takes a parameter of type string bookName, and it iterates through the books vector.
+// Function takes a parameter of type string bookName, and it iterates through the books vector.
 // Inside the loop, it checks if the title of the current book is equal to the input bookName.
 // If it is, it assigns the index of the book to the variable index. Then it checks if index is greater than or equal to 0.
 // If it is, the function returns true, indicating that the book exists in the library.
@@ -165,5 +170,39 @@ std::vector<std::shared_ptr<Book>> Library::getBooks() {
     return books;
 }
 
+bool Library::ifClientBelongsToLibrary(boost::uuids::uuid clientUuid) {
+    try {
+        getClientIndexByUUID(clientUuid);
+        return true;
+    } catch (std::invalid_argument &e) {
+        return false;
+    }
+}
+
+void Library::removeClient(boost::uuids::uuid clientUuid) {
+    try {
+        int index = getClientIndexByUUID(clientUuid);
+        clients.erase(clients.begin() + index);
+    } catch (std::invalid_argument &e) {
+        std::cerr << "Failed to remove non-existent client" << std::endl;
+    }
+
+}
+
+int Library::getClientIndexByUUID(boost::uuids::uuid clientUuid) {
+    int index = -1;
+    for(int i = 0; i < clients.size(); i++)
+    {
+        if(clients[i]->getUuid() == clientUuid)
+        {
+            index = i;
+        }
+    }
+    if (index >= 0) {
+        return index;
+    } else {
+        throw std::invalid_argument("Client not found");
+    }
+}
 
 

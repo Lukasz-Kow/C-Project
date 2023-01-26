@@ -65,6 +65,10 @@ public:
 
     std::vector<std::shared_ptr<Request>> getRequests();
 
+    bool ifClientBelongsToLibrary(boost::uuids::uuid clientUuid);
+
+    int getClientIndexByUUID(boost::uuids::uuid clientUuid);
+
 };
 
 
