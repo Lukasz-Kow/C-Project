@@ -60,7 +60,7 @@ set(SOURCE_TEST_FILES
         src/LibraryUI.cpp include/LibraryUI.h src/CLI.cpp include/CLI.h src/UnitTestUi.cpp include/UnitTestUi.h
         src/Encyclopedia.cpp include/Encyclopedia.h src/StudentBook.cpp include/StudentBook.h src/TeacherBook.cpp
         include/TeacherBook.h include/Genders.h include/Student.h src/Student.cpp src/Client.cpp include/Client.h include/Status.h
-        include/BookFactory.h src/BookFactory.cpp include/ClientTypes.h include/Book.h src/Book.cpp test/RequestTest.cpp)
+        include/BookFactory.h src/BookFactory.cpp include/ClientTypes.h include/Book.h src/Book.cpp test/RequestTest.cpp test/ClientTest.cpp test/LibraryTest.cpp)
 
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/include

@@ -19,6 +19,19 @@
 
 BOOST_AUTO_TEST_SUITE(MakingRequests)
 
+    BOOST_AUTO_TEST_CASE(RequestCreation){
+        boost::uuids::uuid testUuid = boost::uuids::random_generator()();
+        Request r1(1, "2023-12-01", STUDENT, testUuid ,"Small Prince", PROCESSING);
+
+        BOOST_CHECK_EQUAL(r1.getId(), 1);
+        BOOST_CHECK_EQUAL(r1.getStringDate(), "2023-12-01");
+        BOOST_CHECK_EQUAL(r1.getEntity(), 1);
+        BOOST_CHECK_EQUAL(r1.getClientUuid(), testUuid);
+        BOOST_CHECK_EQUAL(r1.getBookName(), "Small Prince");
+        BOOST_CHECK_EQUAL(r1.getStatus(), PROCESSING);
+
+    }
+
     BOOST_AUTO_TEST_CASE(RequestProcess){
         Library l1(1, "Happy");
         Student s1(1, "Tom", "Doe", "+45 87434212311", "Lodz", MALE, "Physics");
@@ -152,53 +165,7 @@ BOOST_AUTO_TEST_SUITE(MakingRequests)
 
     }
 
-    BOOST_AUTO_TEST_CASE(BookReservationIsFinished) {
 
-        Library l1(1, "Happy");
-        Teacher t1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE, "Maths");
-
-        BookFactory b;
-
-        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "title", "author", 340, "Analysis");
-        l1.addBook(testBook1);
-
-        t1.requestReservation("title", l1);
-        std::shared_ptr<Book> testBook = l1.getBook(0);
-
-        BOOST_CHECK_EQUAL(testBook1->getStatus(), false);
-        BOOST_CHECK_EQUAL(l1.getRequest(0)->getStatus(), FULFILLED);
-
-        l1.finishReservation(testBook1->getId());
-
-        BOOST_CHECK_EQUAL(testBook1->getStatus(), true);
-        // getting boost null uuid
-        BOOST_CHECK_EQUAL(testBook1->getClientUuid(), boost::uuids::nil_uuid());
-
-    }
-
-    BOOST_AUTO_TEST_CASE(CheckAvailableBookIndex) {
-
-        Library l1(1, "Happy");
-        Student s1(1, "John", "Doe", "+45 87434212312", "Lodz", MALE, "Maths");
-
-        BookFactory b;
-
-        std::shared_ptr<Book> testBook1 = b.createStudentBook( 1, "title", "author", 340, "Analysis");
-        l1.addBook(testBook1);
-        std::shared_ptr<Book> testBook2 = b.createStudentBook( 2, "title", "author", 340, "Analysis");
-        l1.addBook(testBook2);
-
-        std::shared_ptr<Book> testBook1_ = l1.getBook(0);
-        s1.requestReservation("title", l1);
-
-        std::shared_ptr<Book> testBook2_ = l1.getBook(1);
-
-        BOOST_CHECK_EQUAL(testBook1_->getStatus(), false);
-        BOOST_CHECK_EQUAL(testBook2_->getStatus(), true);
-        BOOST_CHECK_EQUAL(l1.findAvailableBookIndex("title"), 1);
-        BOOST_CHECK_EQUAL(testBook1->getUniqueTrait(), "Analysis");
-
-    }
 
 
 BOOST_AUTO_TEST_SUITE_END()
