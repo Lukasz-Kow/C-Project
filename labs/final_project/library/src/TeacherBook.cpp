@@ -14,10 +14,11 @@ std::string TeacherBook::getUniqueTrait() {
 }
 
 std::string TeacherBook::display() {
-    std::stringstream TeacherBookInfo;
-    TeacherBookInfo << "Teacher book ID: " << getId() << endl
+    std::stringstream teacherBookInfo;
+    teacherBookInfo << "Teacher book ID: " << getId() << endl
                      << "Title: " << getTitle() << endl
                      << "Author: " << getAuthor() << endl
                      << "Number of pages: " << getPageNumber() << endl
                      << "Study field: " << getUniqueTrait() << endl;
+    return teacherBookInfo.str();
 }

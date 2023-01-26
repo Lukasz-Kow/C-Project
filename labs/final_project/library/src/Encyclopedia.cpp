@@ -4,6 +4,7 @@
 
 #include "Encyclopedia.h"
 #include "sstream"
+
 Encyclopedia::Encyclopedia(int id, std::string title, std::string author, int pageNumber, std::string theme):
     Book(id, title, author, pageNumber, ENCYCLOPEDIA), theme(theme){}
 
@@ -12,11 +13,11 @@ std::string Encyclopedia::getUniqueTrait() {
 }
 
 std::string Encyclopedia::display() {
-    std::stringstream EncyclopediaInfo;
-    EncyclopediaInfo << "Encyclopedia ID: " << getId() << endl
-    << "Title: " << getTitle() << endl
-    << "Author: " << getAuthor() << endl
-    << "Number of pages: " << getPageNumber() << endl
-    << "Theme: " << getUniqueTrait() << endl;
-
+    std::stringstream encyclopediaInfo;
+    encyclopediaInfo << "Encyclopedia ID: " << getId() << endl
+                    << "Title: " << getTitle() << endl
+                    << "Author: " << getAuthor() << endl
+                    << "Number of pages: " << getPageNumber() << endl
+                    << "Theme: " << getUniqueTrait() << endl;
+    return encyclopediaInfo.str();
 }

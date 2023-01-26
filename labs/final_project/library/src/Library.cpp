@@ -62,6 +62,7 @@ void Library::processRequest(std::shared_ptr<Request> request) {
     addRequest(request);
     }
 }
+
 //This function is creating a new request object and passing it to the processRequest function for further processing.
 void Library::makeRequest(string bookName, ClientTypes entityWhoMadeTheRequest, boost::uuids::uuid uuid) {
     std::shared_ptr<Request> clientRequest = std::make_shared<Request>(getRequestNumber() + 1, "2023-12-01",
@@ -76,10 +77,11 @@ int Library::getRequestNumber() {
 void Library::addRequest(std::shared_ptr<Request> request) {
     requests.push_back(request);
 }
+
 //Function takes a parameter of type string called bookName, and it iterates through the books vector,
 //it checks if the title of the current book is equal to the input bookName.
 // If it is, it then checks if the current book's status is true (is available). If so return index
-int Library::findAvailableBookIndex(string bookName) {
+int Library::findAvailableBookIndex(std::string bookName) {
     for(int i = 0; i < books.size(); i++) {
         if(books[i]->getTitle() == bookName) {
             if(books[i]->getStatus()){
@@ -93,11 +95,12 @@ int Library::findAvailableBookIndex(string bookName) {
     }
     return -1;
 }
+
 //Function takes a parameter of type string bookName, and it iterates through the books vector.
 // Inside the loop, it checks if the title of the current book is equal to the input bookName.
 // If it is, it assigns the index of the book to the variable index. Then it checks if index is greater than or equal to 0.
 // If it is, the function returns true, indicating that the book exists in the library.
-bool Library::bookExists(string bookName) {
+bool Library::bookExists(std::string bookName) {
     int index = -1;
     for(int i = 0; i < books.size(); i ++)
     {
@@ -116,10 +119,11 @@ void Library::rentBook(int bookIndex, boost::uuids::uuid clientUuid) {
     books[bookIndex]->setStatus(false);
     books[bookIndex]->setUuid(clientUuid);
 }
-//Function takes in a parameter of type int bookId, and it iterates through the books vector.
-//Inside the loop, it checks if the id of the current book is equal to the input bookId.
-//If it is, it assigns the index of the book to the variable index.
-// At the end of the loop, it sets the status of the book at the index books[index]->setStatus(true) to true, indicating that the book is available now.
+
+// Function takes in a parameter of type int bookId, and it iterates through the books vector.
+// Inside the loop, it checks if the id of the current book is equal to the input bookId.
+// If it is, it assigns the index of the book to the variable index.
+// Tt sets the status of the book at the index books[index]->setStatus(true) to true, indicating that the book is available now and clears client uuid.
 void Library::finishReservation(int bookId) {
     int index = -1;
 

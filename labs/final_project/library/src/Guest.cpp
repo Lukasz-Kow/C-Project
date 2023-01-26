@@ -19,12 +19,13 @@ std::string Guest::getSpecialTrait() {
 }
 
 std::string Guest::display() {
-    std::stringstream GuestInfo;
-    GuestInfo << "Guest's ID: " << getID() << endl
+    std::stringstream guestInfo;
+    guestInfo << "Guest's ID: " << getID() << endl
                 << "Guest's UUID: " << getUuid() << endl
                 << "Guest's gender: " << getGender() << endl
                 << "Guest's Name: " << getName() << endl
                 << "Guest's Surname: " << getSurname() << endl
                 << "Guest's phone number: " << getPhoneNumber() << endl
                 << "Guest's city of residence: " << getCity() << endl;
+    return guestInfo.str();
 }

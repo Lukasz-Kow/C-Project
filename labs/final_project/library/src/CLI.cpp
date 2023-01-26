@@ -6,29 +6,30 @@
 #include "LibraryUI.h"
 #include "sstream"
 #include "Book.h"
+
 CLI::CLI() {
 
 }
 
 void CLI::displayBooks(std::vector<std::shared_ptr<Book>> books) {
-    for(int i =0; i<books.size();i++)
+    for(auto & book : books)
     {
-        books[i]->display();
+        book->display();
     }
 }
 
 void CLI::displayClients(std::vector<std::shared_ptr<Client>> clients) {
-    for(int i=0;i<clients.size();i++)
+    for(auto & client : clients)
     {
-        clients[i]->display();
+        client->display();
     };
 
 }
 
 void CLI::displayRequests(std::vector<std::shared_ptr<Request>> requests) {
-    for(int i=0;i<requests.size();i++)
+    for(auto & request : requests)
     {
-        requests[i]->display();
+        request->display();
     };
 
 }

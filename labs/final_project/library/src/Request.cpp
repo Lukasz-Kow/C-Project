@@ -47,12 +47,13 @@ void Request::setStatus(Status status) {
 }
 
 std::string Request::display() {
-    std::stringstream RequestInfo;
-    RequestInfo << "Request ID: " << getId() << endl
+    std::stringstream requestInfo;
+    requestInfo << "Request ID: " << getId() << endl
                 << "Request date: " << getStringDate() << endl
                 << "Entity who made the request: " << getEntity() << endl
                 << "Client's UUID: " << getClientUuid() << endl
                 << "Requested book title:" << getBookName() << endl
                 << "Request status: " << getStatus() << endl;
+    return requestInfo.str();
 }
 

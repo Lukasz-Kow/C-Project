@@ -24,12 +24,12 @@ std::string Student::getSpecialTrait() {
 std::string Student::display() {
     std::stringstream StudentInfo;
     StudentInfo << "Student's ID: " << getID() << endl
-    << "Student's UUID: " << getUuid() << endl
-    << "Student's gender: " << getGender() << endl
-    << "Student's Name: " << getName() << endl
-    << "Student's Surname: " << getSurname() << endl
-    << "Student's course: " << getSpecialTrait() << endl
-    << "Student's phone number: " << getPhoneNumber() << endl
-    << "Student's city of residence: " << getCity() << endl;
-
+                << "Student's UUID: " << getUuid() << endl
+                << "Student's gender: " << getGender() << endl
+                << "Student's Name: " << getName() << endl
+                << "Student's Surname: " << getSurname() << endl
+                << "Student's course: " << getSpecialTrait() << endl
+                << "Student's phone number: " << getPhoneNumber() << endl
+                << "Student's city of residence: " << getCity() << endl;
+    return StudentInfo.str();
 }
