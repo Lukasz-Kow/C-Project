@@ -43,7 +43,7 @@ void Library::processRequest(std::shared_ptr<Request> request) {
 
         if (bookIndex >= 0) {
             if (ifClientBelongsToLibrary(request->getClientUuid())) {
-                if (ifEntityPermittedToRentBook(request->getEntity(), books[bookIndex]->getBookTypes())) {
+                if (ifEntityPermittedToRentBook(request->getEntity(), books[bookIndex]->getBookType())) {
                     rentBook(bookIndex, request->getClientUuid());
                     request->setStatus(FULFILLED);
                 } else {

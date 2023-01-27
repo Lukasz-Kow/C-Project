@@ -8,7 +8,6 @@
 
 Client::Client(int id, std::string name, std::string surname, std::string phoneNumber, std::string city, Gender gender):
     id(id), name(name), surname(surname), phoneNumber(phoneNumber), city(city), gender(gender), clientUuid(boost::uuids::random_generator()()) {
-    std::cout << "Client created" << std::endl;
 }
 
 boost::uuids::uuid Client::getUuid() {

@@ -57,7 +57,8 @@ public:
 
     void setUuid(boost::uuids::uuid uuid);
 
-    BookTypes getBookTypes();
+    BookTypes getBookType();
+
 
     virtual std::string getUniqueTrait() = 0;
 

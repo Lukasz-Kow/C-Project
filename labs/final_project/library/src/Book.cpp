@@ -40,7 +40,7 @@ void Book::setUuid(boost::uuids::uuid uuid) {
     this->clientUuid = uuid;
 }
 
-BookTypes Book::getBookTypes() {
+BookTypes Book::getBookType() {
     return bookType;
 }
 
