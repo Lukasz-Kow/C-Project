@@ -43,26 +43,12 @@ void Library::processRequest(std::shared_ptr<Request> request) {
 
         if (bookIndex >= 0) {
             if (ifClientBelongsToLibrary(request->getClientUuid())) {
-                if (request->getEntity() == TEACHER && books[bookIndex]->getBookTypes() == TEACHERBOOK ||
-                    books[bookIndex]->getBookTypes() == STUDENTBOOK ||
-                    books[bookIndex]->getBookTypes() == ENCYCLOPEDIA)
-                {
+                if (ifEntityPermittedToRentBook(request->getEntity(), books[bookIndex]->getBookTypes())) {
                     rentBook(bookIndex, request->getClientUuid());
                     request->setStatus(FULFILLED);
-                }
-                else if (request->getEntity() == STUDENT && books[bookIndex]->getBookTypes() == STUDENTBOOK ||
-                         books[bookIndex]->getBookTypes() == ENCYCLOPEDIA) {
-                    rentBook(bookIndex, request->getClientUuid());
-                    request->setStatus(FULFILLED);
-                }
-                else if (request->getEntity() == GUEST && books[bookIndex]->getBookTypes() == STUDENTBOOK ||
-                         books[bookIndex]->getBookTypes() == ENCYCLOPEDIA) {
-                    rentBook(bookIndex, request->getClientUuid());
-                    request->setStatus(FULFILLED);
-
                 } else {
                     request->setStatus(REJECTED);
-                    //            std::cerr << "Failed to rent this book" << std::endl;
+                    std::cerr << "Client is not allowed to rent this book" << std::endl;
                 }
             } else {
                 request->setStatus(REJECTED);
@@ -210,6 +196,21 @@ int Library::getClientIndexByUUID(boost::uuids::uuid clientUuid) {
         return index;
     } else {
         throw std::invalid_argument("Client not found");
+    }
+}
+
+bool Library::ifEntityPermittedToRentBook(ClientTypes entity, BookTypes bookType) {
+    if (entity == TEACHER && bookType == TEACHERBOOK || bookType == STUDENTBOOK || bookType == ENCYCLOPEDIA) {
+        return true;
+    }
+    else if (entity == STUDENT && bookType == STUDENTBOOK || bookType == ENCYCLOPEDIA) {
+        return true;
+    }
+    else if (entity == GUEST && bookType == ENCYCLOPEDIA) {
+        return true;
+    }
+    else {
+        return false;
     }
 }
 

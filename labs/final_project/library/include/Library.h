@@ -75,6 +75,8 @@ public:
 
     int getClientIndexByUUID(boost::uuids::uuid clientUuid);
 
+    bool ifEntityPermittedToRentBook(ClientTypes entity, BookTypes bookType);
+
 };
 
 

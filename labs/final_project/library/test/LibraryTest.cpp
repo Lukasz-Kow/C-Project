@@ -212,11 +212,11 @@ BOOST_AUTO_TEST_SUITE(LibraryTestSuite)
     BOOST_AUTO_TEST_CASE(LibraryUITest) {
 
 
-    Library l1(1, "Happy", ui);
+        Library l1(1, "Happy", ui);
 
-    l1.libraryCLI->displayBooks(l1.getBooks());
-    l1.libraryCLI->displayRequests(l1.getRequests());
-    l1.libraryCLI->displayClients(l1.getClients());
+        l1.libraryCLI->displayBooks(l1.getBooks());
+        l1.libraryCLI->displayRequests(l1.getRequests());
+        l1.libraryCLI->displayClients(l1.getClients());
 
 
     }
