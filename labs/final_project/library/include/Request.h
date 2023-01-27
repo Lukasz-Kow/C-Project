@@ -11,12 +11,12 @@
 #include <vector>
 #include <string>
 #include "Status.h"
-#include <chrono>
-#include "Date.h"
 #include "ClientTypes.h"
-//#include "boost/date_time/posix_time/posix_time.hpp"
 #include "boost/date_time/posix_time/posix_time.hpp"
 
+/**
+ * Class representing a request in the library
+ */
 
 class Request {
 

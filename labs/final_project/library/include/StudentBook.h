@@ -7,6 +7,10 @@
 
 #include "Book.h"
 
+/**
+ * Child class of Book which can be rented by students and teachers
+ */
+
 class StudentBook : public Book{
 private:
 

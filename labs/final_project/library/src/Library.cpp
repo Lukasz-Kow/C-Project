@@ -31,7 +31,8 @@ std::shared_ptr<Book> Library::getBook(unsigned int n) {
  * Function processes the request.
  * It checks if the book exists, if it is available, if the client belongs to the library and
  * if the client is allowed to rent the book.
- * @param request
+ * It uses other functions to check all the conditions.
+ * If all the conditions are met, the book is rented to the client. (rentBook function)
  */
 
 void Library::processRequest(std::shared_ptr<Request> request) {
@@ -92,8 +93,8 @@ void Library::addRequest(std::shared_ptr<Request> request) {
     requests.push_back(request);
 }
 
-//Function takes a parameter of type string called bookName, and it iterates through the books vector,
-//it checks if the title of the current book is equal to the input bookName.
+// Function takes a parameter of type string called bookName, and it iterates through the books vector,
+// it checks if the title of the current book is equal to the input bookName.
 // If it is, it then checks if the current book's status is true (is available). If so return index
 int Library::findAvailableBookIndex(std::string bookName) {
     for(int i = 0; i < books.size(); i++) {

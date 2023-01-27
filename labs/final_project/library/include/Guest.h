@@ -11,6 +11,10 @@
 
 using namespace std;
 
+/**
+ * Child class of Client which can only request Encyclopedia books
+ */
+
 class Guest : public Client {
 public:
 

@@ -14,6 +14,10 @@
 
 using namespace std;
 
+/**
+ * Implementation of the factory design pattern for creating books
+ */
+
 class BookFactory {
 private:
 public:

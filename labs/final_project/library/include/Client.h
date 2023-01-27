@@ -20,6 +20,10 @@ class Library;
 
 using namespace std;
 
+/**
+ * Class representing a client in the library
+ */
+
 class Client {
 private:
 

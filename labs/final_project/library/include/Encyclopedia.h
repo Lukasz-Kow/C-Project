@@ -8,6 +8,10 @@
 #include "Book.h"
 #include "BookTypes.h"
 
+/**
+ * Child class of Book which can be rented by students, teachers and guests
+ */
+
 class Encyclopedia : public Book {
 private:
 

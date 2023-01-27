@@ -1,10 +1,6 @@
-//
-// Created by Mateusz Pryl on 06/01/2023.
-//
 
 #include "Request.h"
 #include "Status.h"
-#include "Date.h"
 #include "sstream"
 
 using namespace std;

@@ -12,6 +12,12 @@
 #include <memory>
 #include "ClientTypes.h"
 
+/**
+ * Class which represents library
+ * It holds books, clients and requests
+ * It also has a pointer to UI class
+ */
+
 class Library {
 private:
 

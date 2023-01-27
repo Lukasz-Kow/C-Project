@@ -10,6 +10,10 @@
 #include "Request.h"
 #include "Book.h"
 
+/**
+ * Interface for UI
+ */
+
 class LibraryUI {
 public:
     virtual void displayBooks(std::vector<std::shared_ptr<Book>> books) = 0;

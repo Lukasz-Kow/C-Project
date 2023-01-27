@@ -8,6 +8,11 @@
 #include "LibraryUI.h"
 #include "memory"
 #include "vector"
+
+/**
+ * Class for CLI UI
+ */
+
 class CLI: public LibraryUI {
 public:
 

@@ -7,6 +7,11 @@
 
 #include "LibraryUI.h"
 
+/**
+ * Class for UnitTest UI
+ * It's used only in UnitTests
+ */
+
 class UnitTestUi: public LibraryUI {
 public:
 

@@ -8,6 +8,10 @@
 #include "Genders.h"
 #include "Library.h"
 
+/**
+ * Child class of Client which can request all books
+ */
+
 class Teacher : public Client{
 private:
 

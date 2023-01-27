@@ -9,6 +9,10 @@
 #include "Genders.h"
 #include "Library.h"
 
+/**
+ * Child class of Client which can only request StudentBooks and Encyclopedia books
+ */
+
 class Student : public Client{
 private:
     std::string course;
